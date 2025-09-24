@@ -2,7 +2,7 @@
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImGui.NET", "ImGui.NET\ImGui.NET.csproj", "{AD548A1D-01B2-410E-B3ED-ADAC05C3C4A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intricate.ImGui.NET", "Intricate.ImGui.NET\Intricate.ImGui.NET.csproj", "{AD548A1D-01B2-410E-B3ED-ADAC05C3C4A3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImGui.NET.SampleProgram", "ImGui.NET.SampleProgram\ImGui.NET.SampleProgram.csproj", "{D6F62D30-7A37-43A1-BD5B-BE9A3D6F964C}"
 EndProject

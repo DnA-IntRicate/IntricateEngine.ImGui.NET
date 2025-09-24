@@ -1,11 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFramework>net9.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\ImGui.NET\ImGui.NET.csproj" />
+        <ProjectReference Include="..\Intricate.ImGui.NET\Intricate.ImGui.NET.csproj" />
     </ItemGroup>
 
 </Project>

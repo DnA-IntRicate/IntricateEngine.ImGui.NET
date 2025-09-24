@@ -5,12 +5,12 @@
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <AssemblyName>ImGuiNET.SampleProgram.XNA</AssemblyName>
         <RootNamespace>ImGuiNET.SampleProgram.XNA</RootNamespace>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net9.0</TargetFramework>
         <OutputType>Exe</OutputType>
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\ImGui.NET\ImGui.NET.csproj" />
+        <ProjectReference Include="..\Intricate.ImGui.NET\Intricate.ImGui.NET.csproj" />
     </ItemGroup>
 
     <ItemGroup>

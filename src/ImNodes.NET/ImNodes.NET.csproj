@@ -3,7 +3,7 @@
     <Description>A .NET wrapper for the imnodes library.</Description>
     <AssemblyVersion>0.3.0</AssemblyVersion>
     <Authors>Eric Mellino</Authors>
-    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
+    <TargetFrameworks>net9.0</TargetFrameworks>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DebugType>portable</DebugType>
     <AssemblyName>ImNodes.NET</AssemblyName>
@@ -21,6 +21,6 @@
     <PackageReference Include="System.Buffers" Version="4.5.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ImGui.NET\ImGui.NET.csproj" />
+    <ProjectReference Include="..\Intricate.ImGui.NET\Intricate.ImGui.NET.csproj" />
   </ItemGroup>
 </Project>
