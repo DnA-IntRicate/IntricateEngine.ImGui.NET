@@ -4,7 +4,6 @@ using System.Linq;
 using System.Numerics;
 using ImPlotNET;
 using System.Runtime.CompilerServices;
-using TestDotNetStandardLib;
 using Veldrid;
 using Veldrid.Sdl2;
 using Veldrid.StartupUtilities;
@@ -209,9 +208,6 @@ namespace Intricate.ImGui
                 ImGui.Text("Memory editor currently supported.");
                 // _memoryEditor.Draw("Memory Editor", _memoryEditorData, _memoryEditorData.Length);
             }
-            
-            // ReadOnlySpan<char> and .NET Standard 2.0 tests
-            TestStringParameterOnDotNetStandard.Text(); // String overloads should always be available.
             
             // On .NET Standard 2.1 or greater, you can use ReadOnlySpan<char> instead of string to prevent allocations.
             long allocBytesStringStart = GC.GetAllocatedBytesForCurrentThread();

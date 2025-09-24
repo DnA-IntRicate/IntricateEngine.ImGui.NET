@@ -16,8 +16,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImNodes.NET", "ImNodes.NET\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImGuizmo.NET", "ImGuizmo.NET\ImGuizmo.NET.csproj", "{760568AB-DCC9-443E-ADFA-2B06B2E2B421}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDotNetStandardLib", "TestDotNetStandardLib\TestDotNetStandardLib.csproj", "{867D8763-15A2-40E4-AAFD-43B77AC52154}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
