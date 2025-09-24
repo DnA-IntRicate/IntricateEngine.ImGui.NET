@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 
+
 namespace CodeGenerator
 {
-    public class TypeInfo
+    internal class TypeInfo
     {
         public static readonly Dictionary<string, string> WellKnownTypes = new Dictionary<string, string>()
         {
@@ -26,7 +27,7 @@ namespace CodeGenerator
             { "ImVec2_Simple", "Vector2" },
             { "ImVec3", "Vector3" },
             { "ImVec4", "Vector4" },
-            { "ImWchar16", "ushort" }, //char is not blittable
+            { "ImWchar16", "ushort" }, // char is not blittable
             { "ImVec4_Simple", "Vector4" },
             { "ImColor_Simple", "ImColor" },
             { "ImTextureID", "IntPtr" },
@@ -56,36 +57,33 @@ namespace CodeGenerator
             { "ImPlotGetter", "IntPtr" },
             { "ImPlotTransform", "IntPtr" },
             { "ImGuiKeyChord", "ImGuiKey" },
-            { "ImGuiSelectionUserData", "long" },
+            { "ImGuiSelectionUserData", "long" }
         };
         
-        public static readonly List<string> WellKnownEnums = new List<string>()
-        {
-            "ImGuiMouseButton"
-        };
+        public static readonly List<string> WellKnownEnums = [ "ImGuiMouseButton" ];
 
         public static readonly Dictionary<string, string> AlternateEnumPrefixes = new Dictionary<string, string>()
         {
-            { "ImGuiKey", "ImGuiMod" },
+            { "ImGuiKey", "ImGuiMod" }
         };
 
         public static readonly Dictionary<string, string> AlternateEnumPrefixSubstitutions = new Dictionary<string, string>()
         {
-            { "ImGuiMod_", "Mod" },
+            { "ImGuiMod_", "Mod" }
         };
 
         public static readonly Dictionary<string, string> WellKnownFieldReplacements = new Dictionary<string, string>()
         {
-            { "bool", "bool" }, // Force bool to remain as bool in type-safe wrappers.
+            { "bool", "bool" } // Force bool to remain as bool in type-safe wrappers.
         };
 
-        public static readonly HashSet<string> CustomDefinedTypes = new HashSet<string>()
-        {
+        public static readonly HashSet<string> CustomDefinedTypes =
+        [
             "ImVector",
             "ImVec2",
             "ImVec4",
-            "ImGuiStoragePair",
-        };
+            "ImGuiStoragePair"
+        ];
 
         public static readonly Dictionary<string, string> WellKnownDefaultValues = new Dictionary<string, string>()
         {
@@ -129,15 +127,14 @@ namespace CodeGenerator
             { "ImPlotBin_Sturges", "(int)ImPlotBin.Sturges" },
             { "ImPlotRect()", "new ImPlotRect()" },
             { "ImPlotCond_Once", "ImPlotCond.Once" },
-            { "ImPlotRange()", "new ImPlotRange()" },
-            
+            { "ImPlotRange()", "new ImPlotRange()" }
         };
 
         public static readonly Dictionary<string, string> IdentifierReplacements = new Dictionary<string, string>()
         {
             { "in", "@in" },
             { "out", "@out" },
-            { "ref", "@ref" },
+            { "ref", "@ref" }
         };
 
         public static readonly HashSet<string> LegalFixedTypes = new HashSet<string>()
@@ -152,7 +149,7 @@ namespace CodeGenerator
             "ulong",
             "long",
             "float",
-            "double",
+            "double"
         };
 
         public static readonly HashSet<string> SkippedFunctions = new HashSet<string>()

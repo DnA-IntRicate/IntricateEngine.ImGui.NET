@@ -7,9 +7,10 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Xml.Linq;
 
+
 namespace CodeGenerator
 {
-    class ImguiDefinitions
+    internal class ImguiDefinitions
     {
         public EnumDefinition[] Enums;
         public TypeDefinition[] Types;

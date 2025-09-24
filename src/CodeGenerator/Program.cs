@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+
 
 namespace CodeGenerator
 {
@@ -42,7 +43,7 @@ namespace CodeGenerator
 
             string projectNamespace = libraryName switch
             {
-                "cimgui" => "ImGuiNET",
+                "cimgui" => "Intricate.ImGui",
                 "cimplot" => "ImPlotNET",
                 "cimnodes" => "imnodesNET",
                 "cimguizmo" => "ImGuizmoNET",
@@ -113,10 +114,11 @@ namespace CodeGenerator
                     writer.Using("System.Numerics");
                     writer.Using("System.Runtime.CompilerServices");
                     writer.Using("System.Text");
+
                     if (referencesImGui)
-                    {
-                        writer.Using("ImGuiNET");
-                    }
+                        writer.Using("Intricate.ImGui");
+
+                    writer.WriteLine(string.Empty);
                     writer.WriteLine(string.Empty);
                     writer.PushBlock($"namespace {projectNamespace}");
 
@@ -280,12 +282,14 @@ namespace CodeGenerator
                 writer.Using("System");
                 writer.Using("System.Numerics");
                 writer.Using("System.Runtime.InteropServices");
+
                 if (referencesImGui)
-                {
-                    writer.Using("ImGuiNET");
-                }
+                    writer.Using("Intricate.ImGui");
+
+                writer.WriteLine(string.Empty);
                 writer.WriteLine(string.Empty);
                 writer.PushBlock($"namespace {projectNamespace}");
+
                 writer.PushBlock($"public static unsafe partial class {classPrefix}Native");
                 foreach (FunctionDefinition fd in defs.Functions)
                 {
@@ -334,15 +338,15 @@ namespace CodeGenerator
                         if (isUdtVariant)
                         {
                             writer.WriteLine($"[DllImport(\"{dllName}\", CallingConvention = CallingConvention.Cdecl, EntryPoint = \"{exportedName}\")]");
-
                         }
                         else
                         {
                             writer.WriteLine($"[DllImport(\"{dllName}\", CallingConvention = CallingConvention.Cdecl)]");
                         }
-                        writer.WriteLine($"public static extern {ret} {methodName}({parameters});");
+                        writer.WriteLine($"public static extern {ret} {methodName}({parameters});\n");
                     }
                 }
+
                 writer.PopBlock();
                 writer.PopBlock();
             }
@@ -353,12 +357,14 @@ namespace CodeGenerator
                 writer.Using("System.Numerics");
                 writer.Using("System.Runtime.InteropServices");
                 writer.Using("System.Text");
+
                 if (referencesImGui)
-                {
-                    writer.Using("ImGuiNET");
-                }
+                    writer.Using("Intricate.ImGui");
+
+                writer.WriteLine(string.Empty);
                 writer.WriteLine(string.Empty);
                 writer.PushBlock($"namespace {projectNamespace}");
+
                 writer.PushBlock($"public static unsafe partial class {classPrefix}");
                 foreach (FunctionDefinition fd in defs.Functions)
                 {
@@ -371,12 +377,12 @@ namespace CodeGenerator
                         {
                             exportedName = exportedName.Substring(2, exportedName.Length - 2);
                         }
-                        if (exportedName.Contains("~")) { continue; }
+                        if (exportedName.Contains('~')) { continue; }
                         if (overload.Parameters.Any(tr => tr.Type.Contains('('))) { continue; } // TODO: Parse function pointer parameters.
                         
                         if ((overload.FriendlyName == "GetID" || overload.FriendlyName == "PushID") && overload.Parameters.Length > 1)
                         {
-                            // skip ImGui.Get/PushID(start, end) overloads as they would overlap with existing
+                            // Skip ImGui.Get/PushID(start, end) overloads as they would overlap with existing
                             continue;
                         }
 

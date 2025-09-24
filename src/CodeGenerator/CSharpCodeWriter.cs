@@ -1,11 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
+
 namespace CodeGenerator
 {
-    class CSharpCodeWriter : IDisposable
+    internal class CSharpCodeWriter : IDisposable
     {
         private readonly StreamWriter _sw;
         private int _indentLevel = 0;
