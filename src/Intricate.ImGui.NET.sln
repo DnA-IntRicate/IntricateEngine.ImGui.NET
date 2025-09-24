@@ -6,8 +6,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intricate.ImGui.NET", "Intr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImGui.NET.SampleProgram", "ImGui.NET.SampleProgram\ImGui.NET.SampleProgram.csproj", "{D6F62D30-7A37-43A1-BD5B-BE9A3D6F964C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImGui.NET.SampleProgram.XNA", "ImGui.NET.SampleProgram.XNA\ImGui.NET.SampleProgram.XNA.csproj", "{3024336E-9A19-475F-A95D-60A60C0B1C0D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGenerator", "CodeGenerator\CodeGenerator.csproj", "{62A4CFE3-C5F5-45F5-AD18-3F7E6739BD09}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImPlot.NET", "ImPlot.NET\ImPlot.NET.csproj", "{817A9820-E750-43AB-B89E-FD51E58ACBF4}"
