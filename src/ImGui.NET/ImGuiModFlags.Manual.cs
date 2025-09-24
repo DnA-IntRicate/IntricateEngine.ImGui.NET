@@ -1,6 +1,9 @@
-﻿namespace ImGuiNET
+using System;
+
+
+namespace Intricate.ImGui
 {
-    [System.Flags]
+    [Flags]
     public enum ImGuiModFlags
     {
         None = 0,

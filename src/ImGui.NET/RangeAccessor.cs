@@ -1,10 +1,11 @@
-﻿using System;
+using System;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace ImGuiNET
+
+namespace Intricate.ImGui
 {
-    public unsafe struct RangeAccessor<T> where T : struct
+    public unsafe readonly struct RangeAccessor<T> where T : struct
     {
         private static readonly int s_sizeOfT = Unsafe.SizeOf<T>();
 
@@ -32,7 +33,7 @@ namespace ImGuiNET
         }
     }
 
-    public unsafe struct RangePtrAccessor<T> where T : struct
+    public unsafe readonly struct RangePtrAccessor<T> where T : struct
     {
         public readonly void* Data;
         public readonly int Count;

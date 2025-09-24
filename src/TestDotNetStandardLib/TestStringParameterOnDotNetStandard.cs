@@ -1,4 +1,4 @@
-using ImGuiNET;
+using Intricate.ImGui;
 
 namespace TestDotNetStandardLib
 {

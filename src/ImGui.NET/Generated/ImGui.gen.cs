@@ -3,7 +3,8 @@ using System.Numerics;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace ImGuiNET
+
+namespace Intricate.ImGui
 {
     public static unsafe partial class ImGui
     {

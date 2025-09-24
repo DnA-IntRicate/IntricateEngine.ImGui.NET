@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
@@ -9,9 +9,9 @@ using Veldrid;
 using Veldrid.Sdl2;
 using Veldrid.StartupUtilities;
 
-using static ImGuiNET.ImGuiNative;
+using static Intricate.ImGui.ImGuiNative;
 
-namespace ImGuiNET
+namespace Intricate.ImGui
 {
     class Program
     {

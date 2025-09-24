@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 using System.Globalization;
-using ImGuiNET;
+using Intricate.ImGui;
 using System.Numerics;
 
 #if false

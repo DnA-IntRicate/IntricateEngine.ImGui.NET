@@ -1,8 +1,9 @@
-﻿using System.Text;
+using System.Text;
 
-namespace ImGuiNET
+
+namespace Intricate.ImGui
 {
-    public unsafe struct NullTerminatedString
+    public unsafe readonly struct NullTerminatedString
     {
         public readonly byte* Data;
 

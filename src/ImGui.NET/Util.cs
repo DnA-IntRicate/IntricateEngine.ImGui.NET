@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace ImGuiNET
+
+namespace Intricate.ImGui
 {
     internal static unsafe class Util
     {

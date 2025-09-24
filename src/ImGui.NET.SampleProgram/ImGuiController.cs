@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Reflection;
@@ -6,7 +6,7 @@ using System.IO;
 using Veldrid;
 using System.Runtime.CompilerServices;
 
-namespace ImGuiNET
+namespace Intricate.ImGui
 {
     /// <summary>
     /// A modified version of Veldrid.ImGui's ImGuiRenderer.

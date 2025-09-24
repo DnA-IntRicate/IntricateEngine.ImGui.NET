@@ -1,7 +1,7 @@
 using System;
 using System.Numerics;
 using System.Runtime.InteropServices;
-using ImGuiNET;
+using Intricate.ImGui;
 
 namespace imnodesNET
 {

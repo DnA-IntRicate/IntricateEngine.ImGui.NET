@@ -3,7 +3,8 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace ImGuiNET
+
+namespace Intricate.ImGui
 {
     public unsafe partial struct ImGuiTextRange
     {

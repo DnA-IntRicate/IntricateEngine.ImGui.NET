@@ -1,4 +1,4 @@
-namespace ImGuiNET
+namespace Intricate.ImGui
 {
     [System.Flags]
     public enum ImGuiConfigFlags

@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace ImGuiNET
+
+namespace Intricate.ImGui
 {
     public static unsafe partial class ImGui
     {

@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Runtime.CompilerServices;
 
-namespace ImGuiNET
+
+namespace Intricate.ImGui
 {
-    public unsafe struct ImVector
+    public unsafe readonly struct ImVector
     {
         public readonly int Size;
         public readonly int Capacity;
@@ -27,7 +28,7 @@ namespace ImGuiNET
         }
     }
 
-    public unsafe struct ImVector<T>
+    public unsafe readonly struct ImVector<T>
     {
         public readonly int Size;
         public readonly int Capacity;
@@ -50,7 +51,7 @@ namespace ImGuiNET
         public ref T this[int index] => ref Unsafe.AsRef<T>((byte*)Data + index * Unsafe.SizeOf<T>());
     }
 
-    public unsafe struct ImPtrVector<T>
+    public unsafe readonly struct ImPtrVector<T>
     {
         public readonly int Size;
         public readonly int Capacity;

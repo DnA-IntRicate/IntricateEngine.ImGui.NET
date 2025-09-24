@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.Runtime.InteropServices;
 
-namespace ImGuiNET
+
+namespace Intricate.ImGui
 {
     public struct ImGuiStoragePair
     {
@@ -9,7 +10,7 @@ namespace ImGuiNET
         public UnionValue Value;
     }
 
-    public unsafe struct ImGuiStoragePairPtr
+    public unsafe readonly struct ImGuiStoragePairPtr
     {
         public ImGuiStoragePair* NativePtr { get; }
         public ImGuiStoragePairPtr(ImGuiStoragePair* nativePtr) => NativePtr = nativePtr;
@@ -24,8 +25,10 @@ namespace ImGuiNET
     {
         [FieldOffset(0)]
         public int ValueI32;
+
         [FieldOffset(0)]
         public float ValueF32;
+
         [FieldOffset(0)]
         public IntPtr ValuePtr;
     }
