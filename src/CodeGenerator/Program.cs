@@ -14,6 +14,8 @@ namespace CodeGenerator
 {
     internal static class Program
     {
+        internal const string LIBRARY_NAME = "IntricateEngine";
+
         static void Main(string[] args)
         {
             string outputPath;
@@ -38,12 +40,12 @@ namespace CodeGenerator
             }
             else
             {
-                libraryName = "cimgui";
+                libraryName = LIBRARY_NAME;
             }
 
             string projectNamespace = libraryName switch
             {
-                "cimgui" => "Intricate.ImGui",
+                LIBRARY_NAME => "Intricate.ImGui",
                 "cimplot" => "ImPlotNET",
                 "cimnodes" => "imnodesNET",
                 "cimguizmo" => "ImGuizmoNET",
@@ -52,7 +54,7 @@ namespace CodeGenerator
 
             bool referencesImGui = libraryName switch
             {
-                "cimgui" => false,
+                LIBRARY_NAME => false,
                 "cimplot" => true,
                 "cimnodes" => true,
                 "cimguizmo" => true,
@@ -61,7 +63,7 @@ namespace CodeGenerator
 
             string classPrefix = libraryName switch
             {
-                "cimgui" => "ImGui",
+                LIBRARY_NAME => "ImGui",
                 "cimplot" => "ImPlot",
                 "cimnodes" => "imnodes",
                 "cimguizmo" => "ImGuizmo",
@@ -70,14 +72,20 @@ namespace CodeGenerator
 
             string dllName = libraryName switch
             {
-                "cimgui" => "cimgui",
+                LIBRARY_NAME => LIBRARY_NAME,
                 "cimplot" => "cimplot",
                 "cimnodes" => "cimnodes",
                 "cimguizmo" => "cimguizmo",
                 _ => throw new NotImplementedException()
             };
-            
-            string definitionsPath = Path.Combine(AppContext.BaseDirectory, "definitions", libraryName);
+
+            string definitionsFolder = dllName switch
+            {
+                LIBRARY_NAME => "cimgui",
+                _ => throw new NotImplementedException()
+            };
+
+            string definitionsPath = Path.Combine(AppContext.BaseDirectory, "definitions", definitionsFolder);
             var defs = new ImguiDefinitions();
             defs.LoadFrom(definitionsPath);
 
@@ -282,6 +290,7 @@ namespace CodeGenerator
                 writer.Using("System");
                 writer.Using("System.Numerics");
                 writer.Using("System.Runtime.InteropServices");
+                writer.Using("System.Runtime.CompilerServices");
 
                 if (referencesImGui)
                     writer.Using("Intricate.ImGui");
@@ -331,19 +340,11 @@ namespace CodeGenerator
                         string parameters = string.Join(", ", paramParts);
 
                         bool isUdtVariant = exportedName.Contains("nonUDT");
-                        string methodName = isUdtVariant
-                            ? exportedName.Substring(0, exportedName.IndexOf("_nonUDT"))
-                            : exportedName;
+                        string methodName = isUdtVariant ? exportedName[..exportedName.IndexOf("_nonUDT")] : exportedName;
 
-                        if (isUdtVariant)
-                        {
-                            writer.WriteLine($"[DllImport(\"{dllName}\", CallingConvention = CallingConvention.Cdecl, EntryPoint = \"{exportedName}\")]");
-                        }
-                        else
-                        {
-                            writer.WriteLine($"[DllImport(\"{dllName}\", CallingConvention = CallingConvention.Cdecl)]");
-                        }
-                        writer.WriteLine($"public static extern {ret} {methodName}({parameters});\n");
+                        writer.WriteLine($"[LibraryImport(\"{dllName}\", EntryPoint = \"{exportedName}\")]");
+                        writer.WriteLine("[UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]");
+                        writer.WriteLine($"internal static partial {ret} {methodName}({parameters});\n");
                     }
                 }
 

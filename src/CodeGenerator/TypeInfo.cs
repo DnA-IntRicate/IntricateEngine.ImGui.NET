@@ -137,8 +137,8 @@ namespace CodeGenerator
             { "ref", "@ref" }
         };
 
-        public static readonly HashSet<string> LegalFixedTypes = new HashSet<string>()
-        {
+        public static readonly HashSet<string> LegalFixedTypes =
+        [
             "byte",
             "sbyte",
             "char",
@@ -150,13 +150,13 @@ namespace CodeGenerator
             "long",
             "float",
             "double"
-        };
+        ];
 
-        public static readonly HashSet<string> SkippedFunctions = new HashSet<string>()
-        {
+        public static readonly HashSet<string> SkippedFunctions =
+        [
             "igInputText",
             "igInputTextMultiline",
             "igInputTextWithHint"
-        };
+        ];
     }
 }
