@@ -1,4 +1,5 @@
 -- OUT_DIR and INT_DIR must be defined in the top-most premake file before including this file
+-- CIMGUI_PROJ must be defined as the name of the project containing the cimgui symbols before this file is included
 
 project "IntricateEngine.ImGui.NET"
     kind "SharedLib"
@@ -21,7 +22,7 @@ project "IntricateEngine.ImGui.NET"
 
     dependson
     {
-        "IntricateEngine"
+        CIMGUI_PROJ
     }
 
     nuget
@@ -33,7 +34,3 @@ project "IntricateEngine.ImGui.NET"
 
     filter "system:windows"
         systemversion "latest"
-
-    -- TODO: Stop MSBuild from creating net9.0 subdir
-    -- property "AppendTargetFrameworkToOutputPath" "false"
-    -- property "AppendRuntimeIdentifierToOutputPath" "false"
