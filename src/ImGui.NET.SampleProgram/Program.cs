@@ -8,9 +8,9 @@ using Veldrid;
 using Veldrid.Sdl2;
 using Veldrid.StartupUtilities;
 
-using static Intricate.ImGui.ImGuiNative;
+using static IntricateEngine.ImGui.ImGuiNative;
 
-namespace Intricate.ImGui
+namespace IntricateEngine.ImGui
 {
     class Program
     {

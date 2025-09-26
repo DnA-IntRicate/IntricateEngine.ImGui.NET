@@ -2,7 +2,7 @@ using System;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text;
-using Intricate.ImGui;
+using IntricateEngine.ImGui;
 
 namespace imnodesNET
 {

@@ -6,7 +6,7 @@ using System.IO;
 using Veldrid;
 using System.Runtime.CompilerServices;
 
-namespace Intricate.ImGui
+namespace IntricateEngine.ImGui
 {
     /// <summary>
     /// A modified version of Veldrid.ImGui's ImGuiRenderer.

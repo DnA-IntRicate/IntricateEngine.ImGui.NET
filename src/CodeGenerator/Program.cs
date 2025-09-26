@@ -45,7 +45,7 @@ namespace CodeGenerator
 
             string projectNamespace = libraryName switch
             {
-                LIBRARY_NAME => "Intricate.ImGui",
+                LIBRARY_NAME => "IntricateEngine.ImGui",
                 "cimplot" => "ImPlotNET",
                 "cimnodes" => "imnodesNET",
                 "cimguizmo" => "ImGuizmoNET",
@@ -124,7 +124,7 @@ namespace CodeGenerator
                     writer.Using("System.Text");
 
                     if (referencesImGui)
-                        writer.Using("Intricate.ImGui");
+                        writer.Using("IntricateEngine.ImGui");
 
                     writer.WriteLine(string.Empty);
                     writer.WriteLine(string.Empty);
@@ -293,7 +293,7 @@ namespace CodeGenerator
                 writer.Using("System.Runtime.CompilerServices");
 
                 if (referencesImGui)
-                    writer.Using("Intricate.ImGui");
+                    writer.Using("IntricateEngine.ImGui");
 
                 writer.WriteLine(string.Empty);
                 writer.WriteLine(string.Empty);
@@ -360,7 +360,7 @@ namespace CodeGenerator
                 writer.Using("System.Text");
 
                 if (referencesImGui)
-                    writer.Using("Intricate.ImGui");
+                    writer.Using("IntricateEngine.ImGui");
 
                 writer.WriteLine(string.Empty);
                 writer.WriteLine(string.Empty);

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Intricate.ImGui.NET\Intricate.ImGui.NET.csproj" />
+    <ProjectReference Include="..\IntricateEngine.ImGui.NET\IntricateEngine.ImGui.NET.csproj" />
     <PackageReference Include="Veldrid" Version="4.9.0" />
     <PackageReference Include="Veldrid.StartupUtilities" Version="4.9.0" />
     <ProjectReference Include="..\ImPlot.NET\ImPlot.NET.csproj" />
