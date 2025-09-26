@@ -2,7 +2,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CodeGenerator</RootNamespace>
+    <RootNamespace>IntricateEngine.ImGui</RootNamespace>
     <TargetFramework>net9.0</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
@@ -15,8 +15,8 @@
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\bin\Debug\CodeGenerator\</OutputPath>
-    <IntermediateOutputPath>..\..\bin\obj\Debug\CodeGenerator\</IntermediateOutputPath>
+    <OutputPath>..\..\bin\Debug\</OutputPath>
+    <IntermediateOutputPath>..\..\bin\obj\Debug\SampleProgram\</IntermediateOutputPath>
     <DefineConstants></DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -26,8 +26,8 @@
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\bin\Release\CodeGenerator\</OutputPath>
-    <IntermediateOutputPath>..\..\bin\obj\Release\CodeGenerator\</IntermediateOutputPath>
+    <OutputPath>..\..\bin\Release\</OutputPath>
+    <IntermediateOutputPath>..\..\bin\obj\Release\SampleProgram\</IntermediateOutputPath>
     <DefineConstants></DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -37,30 +37,32 @@
   <ItemGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CSharpCodeWriter.cs" />
-    <Compile Include="ImguiDefinitions.cs" />
+    <Compile Include="ImGuiController.cs" />
+    <Compile Include="MemoryEditor.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="TypeInfo.cs" />
-    <None Include="definitions\cimgui\definitions.json" />
-    <None Include="definitions\cimgui\structs_and_enums.json" />
-    <None Include="definitions\cimgui\variants.json" />
-    <None Include="definitions\cimguizmo\definitions.json" />
-    <None Include="definitions\cimguizmo\structs_and_enums.json" />
-    <None Include="definitions\cimguizmo\variants.json" />
-    <None Include="definitions\cimnodes\definitions.json" />
-    <None Include="definitions\cimnodes\structs_and_enums.json" />
-    <None Include="definitions\cimnodes\variants.json" />
-    <None Include="definitions\cimplot\definitions.json" />
-    <None Include="definitions\cimplot\structs_and_enums.json" />
-    <None Include="definitions\cimplot\variants.json" />
+    <EmbeddedResource Include="Shaders\GLSL\imgui-frag.glsl" />
+    <EmbeddedResource Include="Shaders\GLSL\imgui-vertex.glsl" />
+    <EmbeddedResource Include="Shaders\HLSL\imgui-frag.hlsl.bytes" />
+    <EmbeddedResource Include="Shaders\HLSL\imgui-vertex.hlsl.bytes" />
+    <EmbeddedResource Include="Shaders\Metal\imgui-frag.metallib" />
+    <EmbeddedResource Include="Shaders\Metal\imgui-vertex.metallib" />
+    <EmbeddedResource Include="Shaders\SPIR-V\imgui-frag.spv" />
+    <EmbeddedResource Include="Shaders\SPIR-V\imgui-vertex.spv" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+    <ProjectReference Include="..\IntricateEngine.ImGui.NET\IntricateEngine.ImGui.NET.csproj">
+      <Project>{3C3C1C08-A8FE-4F92-F1AE-DE1E5DB02870}</Project>
+      <Name>IntricateEngine.ImGui.NET</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Veldrid" Version="4.9.0"/>
+    <PackageReference Include="Veldrid.StartupUtilities" Version="4.9.0"/>
   </ItemGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
-    <PostBuildEvent>xcopy /Q /E /Y /I "definitions" "..\..\bin\Debug\CodeGenerator\net9.0\definitions"</PostBuildEvent>
+    <PostBuildEvent>copy /B /Y "..\..\deps\cimgui\win-x64\cimgui.dll" "..\..\bin\Debug\net9.0"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
-    <PostBuildEvent>xcopy /Q /E /Y /I "definitions" "..\..\bin\Release\CodeGenerator\net9.0\definitions"</PostBuildEvent>
+    <PostBuildEvent>copy /B /Y "..\..\deps\cimgui\win-x64\cimgui.dll" "..\..\bin\Release\net9.0"</PostBuildEvent>
   </PropertyGroup>
 </Project>

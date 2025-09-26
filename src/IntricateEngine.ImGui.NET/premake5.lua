@@ -16,8 +16,7 @@ project "IntricateEngine.ImGui.NET"
 
     files
     {
-        "./**.cs",
-        "./build/**.targets"
+        "./**.cs"
     }
 
     dependson
