@@ -265,4 +265,7 @@ deps/
 launchSettings.json
 
 # Ignored csproj files for the IntricateEngine
+IntricateEngine.ImGui.NET.sln
+CodeGenerator.csproj
 IntricateEngine.ImGui.NET.csproj
+SampleProgram.csproj
