@@ -263,3 +263,6 @@ deps/
 
 # VS Launch
 launchSettings.json
+
+# Ignored csproj files for the IntricateEngine
+IntricateEngine.ImGui.NET.csproj
