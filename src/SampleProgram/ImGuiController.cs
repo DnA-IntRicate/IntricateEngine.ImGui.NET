@@ -207,22 +207,22 @@ namespace IntricateEngine.ImGui
             {
                 case GraphicsBackend.Direct3D11:
                 {
-                    string resourceName = name + ".hlsl.bytes";
+                    string resourceName = "IntricateEngine.ImGui.Shaders.HLSL." + name + ".hlsl.bytes";
                     return GetEmbeddedResourceBytes(resourceName);
                 }
                 case GraphicsBackend.OpenGL:
                 {
-                    string resourceName = name + ".glsl";
+                    string resourceName = "IntricateEngine.ImGui.Shaders.GLSL." + name + ".glsl";
                     return GetEmbeddedResourceBytes(resourceName);
                 }
                 case GraphicsBackend.Vulkan:
                 {
-                    string resourceName = name + ".spv";
+                    string resourceName = "IntricateEngine.ImGui.Shaders.SPIR-V." + name + ".spv";
                     return GetEmbeddedResourceBytes(resourceName);
                 }
                 case GraphicsBackend.Metal:
                 {
-                    string resourceName = name + ".metallib";
+                    string resourceName = "IntricateEngine.ImGui.Shaders.Metal." + name + ".metallib";
                     return GetEmbeddedResourceBytes(resourceName);
                 }
                 default:

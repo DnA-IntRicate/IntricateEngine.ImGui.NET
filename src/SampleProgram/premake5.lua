@@ -37,25 +37,5 @@ project "SampleProgram"
         "IntricateEngine.ImGui.NET"
     }
 
-    filter "system:windows"
-        postbuildcommands
-        {
-            -- .NET SDK style projects insist on throwing everything into the net9.0 folder
-            -- TODO: Figure out a way to stop this from happening (without doing copylocals)
-            '{COPYFILE} "%{REPO_ROOT}/deps/cimgui/win-x64/cimgui.dll" "%{OUT_DIR}/net9.0"'
-        }
-
-    filter "system:linux"
-        postbuildcommands
-        {
-            '{COPYFILE} "%{REPO_ROOT}/deps/cimgui/osx/cimgui.dylib" "%{OUT_DIR}/net9.0"'
-        }
-
-    filter "system:macosx"
-        postbuildcommands
-        {
-            '{COPYFILE} "%{REPO_ROOT}/deps/cimgui/linux-x64/cimgui.so" "%{OUT_DIR}/net9.0"'
-        }
-
     filter "files:Shaders/**"
         buildaction "Embed"

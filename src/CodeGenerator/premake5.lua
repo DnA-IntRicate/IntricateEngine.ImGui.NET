@@ -23,16 +23,9 @@ project "CodeGenerator"
         "Newtonsoft.Json:13.0.3"
     }
 
-    postbuildcommands
-    {
-        -- .NET SDK style projects insist on throwing everything into the net9.0 folder
-        -- TODO: Figure out a way to stop this from happening (without doing copylocals)
-        '{COPYDIR} "./definitions" "%{OUT_DIR}/CodeGenerator/net9.0/definitions"'
-    }
-
     filter "system:windows"
         systemversion "latest"
 
     filter "files:**json"
-        buildaction "None"
+        buildaction "Copy"
         dependson { } -- Ensure tracking
