@@ -35,3 +35,4 @@ using System.Runtime.CompilerServices;
 
 // Other Assembly-wide attributes
 [assembly: DisableRuntimeMarshalling]
+[assembly: InternalsVisibleTo("IntricateEngine.CSharp")]
