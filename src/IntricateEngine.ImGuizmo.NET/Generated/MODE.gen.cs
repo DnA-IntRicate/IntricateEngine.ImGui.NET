@@ -1,4 +1,4 @@
-namespace ImGuizmoNET
+namespace IntricateEngine.ImGuizmo
 {
     public enum MODE
     {

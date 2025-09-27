@@ -14,7 +14,7 @@ namespace CodeGenerator
 {
     internal static class Program
     {
-        internal const string LIBRARY_NAME = "IntricateEngine";
+        internal const string DLL_NAME = "IntricateEngine";
 
         static void Main(string[] args)
         {
@@ -40,21 +40,21 @@ namespace CodeGenerator
             }
             else
             {
-                libraryName = LIBRARY_NAME;
+                libraryName = "cimguizmo";
             }
 
             string projectNamespace = libraryName switch
             {
-                LIBRARY_NAME => "IntricateEngine.ImGui",
+                "cimgui" => "IntricateEngine.ImGui",
                 "cimplot" => "ImPlotNET",
                 "cimnodes" => "imnodesNET",
-                "cimguizmo" => "ImGuizmoNET",
+                "cimguizmo" => "IntricateEngine.ImGuizmo",
                 _ => throw new NotImplementedException($"Library \"{libraryName}\" is not supported.")
             };
 
             bool referencesImGui = libraryName switch
             {
-                LIBRARY_NAME => false,
+                "cimgui" => false,
                 "cimplot" => true,
                 "cimnodes" => true,
                 "cimguizmo" => true,
@@ -63,7 +63,7 @@ namespace CodeGenerator
 
             string classPrefix = libraryName switch
             {
-                LIBRARY_NAME => "ImGui",
+                "cimgui" => "ImGui",
                 "cimplot" => "ImPlot",
                 "cimnodes" => "imnodes",
                 "cimguizmo" => "ImGuizmo",
@@ -72,16 +72,17 @@ namespace CodeGenerator
 
             string dllName = libraryName switch
             {
-                LIBRARY_NAME => LIBRARY_NAME,
+                "cimgui" => DLL_NAME,
                 "cimplot" => "cimplot",
                 "cimnodes" => "cimnodes",
-                "cimguizmo" => "cimguizmo",
+                "cimguizmo" => DLL_NAME,
                 _ => throw new NotImplementedException()
             };
 
-            string definitionsFolder = dllName switch
+            string definitionsFolder = libraryName switch
             {
-                LIBRARY_NAME => "cimgui",
+                "cimgui" => "cimgui",
+                "cimguizmo" => "cimguizmo",
                 _ => throw new NotImplementedException()
             };
 

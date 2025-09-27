@@ -4,7 +4,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using IntricateEngine.ImGui;
 
-namespace ImGuizmoNET
+
+namespace IntricateEngine.ImGuizmo
 {
     public static unsafe partial class ImGuizmo
     {
