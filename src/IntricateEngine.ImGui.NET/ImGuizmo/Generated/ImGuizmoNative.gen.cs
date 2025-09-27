@@ -7,7 +7,7 @@ using IntricateEngine.ImGui;
 
 namespace IntricateEngine.ImGuizmo
 {
-    public static unsafe partial class ImGuizmoNative
+    internal static unsafe partial class ImGuizmoNative
     {
         [LibraryImport("IntricateEngine", EntryPoint = "ImGuizmo_AllowAxisFlip")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]

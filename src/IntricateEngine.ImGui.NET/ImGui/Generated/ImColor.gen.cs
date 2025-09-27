@@ -10,7 +10,8 @@ namespace IntricateEngine.ImGui
     {
         public Vector4 Value;
     }
-    public unsafe partial struct ImColorPtr
+    
+    public readonly unsafe partial struct ImColorPtr
     {
         public ImColor* NativePtr { get; }
         public ImColorPtr(ImColor* nativePtr) => NativePtr = nativePtr;

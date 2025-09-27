@@ -15,7 +15,8 @@ namespace IntricateEngine.ImGui
         public byte RangeSrcReset;
         public int ItemsCount;
     }
-    public unsafe partial struct ImGuiMultiSelectIOPtr
+    
+    public readonly unsafe partial struct ImGuiMultiSelectIOPtr
     {
         public ImGuiMultiSelectIO* NativePtr { get; }
         public ImGuiMultiSelectIOPtr(ImGuiMultiSelectIO* nativePtr) => NativePtr = nativePtr;

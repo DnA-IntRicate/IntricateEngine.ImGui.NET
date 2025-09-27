@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace IntricateEngine.ImGui
 {
-    public static unsafe partial class ImGuiNative
+    internal static unsafe partial class ImGuiNative
     {
         [LibraryImport("IntricateEngine", EntryPoint = "ImGuiPlatformIO_Set_Platform_GetWindowPos")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]

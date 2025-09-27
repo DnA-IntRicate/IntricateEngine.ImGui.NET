@@ -7,7 +7,6 @@ using Veldrid;
 using Veldrid.Sdl2;
 using Veldrid.StartupUtilities;
 
-using static IntricateEngine.ImGui.ImGuiNative;
 
 namespace IntricateEngine.ImGui
 {

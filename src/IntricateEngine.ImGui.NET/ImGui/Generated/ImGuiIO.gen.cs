@@ -277,7 +277,8 @@ namespace IntricateEngine.ImGui
         public ushort InputQueueSurrogate;
         public ImVector InputQueueCharacters;
     }
-    public unsafe partial struct ImGuiIOPtr
+    
+    public readonly unsafe partial struct ImGuiIOPtr
     {
         public ImGuiIO* NativePtr { get; }
         public ImGuiIOPtr(ImGuiIO* nativePtr) => NativePtr = nativePtr;

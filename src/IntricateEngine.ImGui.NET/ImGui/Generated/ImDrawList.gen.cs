@@ -25,7 +25,8 @@ namespace IntricateEngine.ImGui
         public float _FringeScale;
         public byte* _OwnerName;
     }
-    public unsafe partial struct ImDrawListPtr
+    
+    public readonly unsafe partial struct ImDrawListPtr
     {
         public ImDrawList* NativePtr { get; }
         public ImDrawListPtr(ImDrawList* nativePtr) => NativePtr = nativePtr;

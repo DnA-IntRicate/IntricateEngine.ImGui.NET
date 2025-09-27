@@ -17,7 +17,8 @@ namespace IntricateEngine.ImGui
         public byte Preview;
         public byte Delivery;
     }
-    public unsafe partial struct ImGuiPayloadPtr
+    
+    public readonly unsafe partial struct ImGuiPayloadPtr
     {
         public ImGuiPayload* NativePtr { get; }
         public ImGuiPayloadPtr(ImGuiPayload* nativePtr) => NativePtr = nativePtr;

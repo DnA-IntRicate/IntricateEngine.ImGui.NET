@@ -94,7 +94,8 @@ namespace IntricateEngine.ImGui
         public int PackIdMouseCursors;
         public int PackIdLines;
     }
-    public unsafe partial struct ImFontAtlasPtr
+    
+    public readonly unsafe partial struct ImFontAtlasPtr
     {
         public ImFontAtlas* NativePtr { get; }
         public ImFontAtlasPtr(ImFontAtlas* nativePtr) => NativePtr = nativePtr;

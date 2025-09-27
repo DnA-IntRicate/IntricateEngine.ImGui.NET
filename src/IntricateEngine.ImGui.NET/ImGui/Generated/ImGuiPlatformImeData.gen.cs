@@ -12,7 +12,8 @@ namespace IntricateEngine.ImGui
         public Vector2 InputPos;
         public float InputLineHeight;
     }
-    public unsafe partial struct ImGuiPlatformImeDataPtr
+    
+    public readonly unsafe partial struct ImGuiPlatformImeDataPtr
     {
         public ImGuiPlatformImeData* NativePtr { get; }
         public ImGuiPlatformImeDataPtr(ImGuiPlatformImeData* nativePtr) => NativePtr = nativePtr;

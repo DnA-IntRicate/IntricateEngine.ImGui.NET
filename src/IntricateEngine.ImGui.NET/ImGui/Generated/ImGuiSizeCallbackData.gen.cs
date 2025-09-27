@@ -13,7 +13,8 @@ namespace IntricateEngine.ImGui
         public Vector2 CurrentSize;
         public Vector2 DesiredSize;
     }
-    public unsafe partial struct ImGuiSizeCallbackDataPtr
+    
+    public readonly unsafe partial struct ImGuiSizeCallbackDataPtr
     {
         public ImGuiSizeCallbackData* NativePtr { get; }
         public ImGuiSizeCallbackDataPtr(ImGuiSizeCallbackData* nativePtr) => NativePtr = nativePtr;

@@ -11,7 +11,8 @@ namespace IntricateEngine.ImGui
         public void* UserData;
         public IntPtr AdapterSetItemSelected;
     }
-    public unsafe partial struct ImGuiSelectionExternalStoragePtr
+    
+    public readonly unsafe partial struct ImGuiSelectionExternalStoragePtr
     {
         public ImGuiSelectionExternalStorage* NativePtr { get; }
         public ImGuiSelectionExternalStoragePtr(ImGuiSelectionExternalStorage* nativePtr) => NativePtr = nativePtr;

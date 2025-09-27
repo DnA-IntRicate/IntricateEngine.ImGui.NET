@@ -29,7 +29,8 @@ namespace IntricateEngine.ImGui
         public fixed byte Name[40];
         public ImFont* DstFont;
     }
-    public unsafe partial struct ImFontConfigPtr
+    
+    public readonly unsafe partial struct ImFontConfigPtr
     {
         public ImFontConfig* NativePtr { get; }
         public ImFontConfigPtr(ImFontConfig* nativePtr) => NativePtr = nativePtr;

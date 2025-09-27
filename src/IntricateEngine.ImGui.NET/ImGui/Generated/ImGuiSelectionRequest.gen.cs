@@ -14,7 +14,8 @@ namespace IntricateEngine.ImGui
         public long RangeFirstItem;
         public long RangeLastItem;
     }
-    public unsafe partial struct ImGuiSelectionRequestPtr
+    
+    public readonly unsafe partial struct ImGuiSelectionRequestPtr
     {
         public ImGuiSelectionRequest* NativePtr { get; }
         public ImGuiSelectionRequestPtr(ImGuiSelectionRequest* nativePtr) => NativePtr = nativePtr;

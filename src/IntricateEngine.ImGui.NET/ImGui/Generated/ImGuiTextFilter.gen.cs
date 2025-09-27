@@ -12,7 +12,8 @@ namespace IntricateEngine.ImGui
         public ImVector Filters;
         public int CountGrep;
     }
-    public unsafe partial struct ImGuiTextFilterPtr
+    
+    public readonly unsafe partial struct ImGuiTextFilterPtr
     {
         public ImGuiTextFilter* NativePtr { get; }
         public ImGuiTextFilterPtr(ImGuiTextFilter* nativePtr) => NativePtr = nativePtr;

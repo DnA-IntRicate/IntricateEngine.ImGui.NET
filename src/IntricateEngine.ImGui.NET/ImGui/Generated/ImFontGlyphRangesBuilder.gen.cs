@@ -10,7 +10,8 @@ namespace IntricateEngine.ImGui
     {
         public ImVector UsedChars;
     }
-    public unsafe partial struct ImFontGlyphRangesBuilderPtr
+    
+    public readonly unsafe partial struct ImFontGlyphRangesBuilderPtr
     {
         public ImFontGlyphRangesBuilder* NativePtr { get; }
         public ImFontGlyphRangesBuilderPtr(ImFontGlyphRangesBuilder* nativePtr) => NativePtr = nativePtr;

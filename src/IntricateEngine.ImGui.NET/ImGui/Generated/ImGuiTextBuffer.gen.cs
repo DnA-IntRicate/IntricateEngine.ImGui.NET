@@ -10,7 +10,8 @@ namespace IntricateEngine.ImGui
     {
         public ImVector Buf;
     }
-    public unsafe partial struct ImGuiTextBufferPtr
+    
+    public readonly unsafe partial struct ImGuiTextBufferPtr
     {
         public ImGuiTextBuffer* NativePtr { get; }
         public ImGuiTextBufferPtr(ImGuiTextBuffer* nativePtr) => NativePtr = nativePtr;

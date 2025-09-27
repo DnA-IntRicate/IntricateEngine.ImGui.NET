@@ -17,7 +17,8 @@ namespace IntricateEngine.ImGui
         public double StartSeekOffsetY;
         public void* TempData;
     }
-    public unsafe partial struct ImGuiListClipperPtr
+    
+    public readonly unsafe partial struct ImGuiListClipperPtr
     {
         public ImGuiListClipper* NativePtr { get; }
         public ImGuiListClipperPtr(ImGuiListClipper* nativePtr) => NativePtr = nativePtr;

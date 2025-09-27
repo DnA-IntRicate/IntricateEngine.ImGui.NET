@@ -12,7 +12,8 @@ namespace IntricateEngine.ImGui
         public int _Count;
         public ImVector _Channels;
     }
-    public unsafe partial struct ImDrawListSplitterPtr
+    
+    public readonly unsafe partial struct ImDrawListSplitterPtr
     {
         public ImDrawListSplitter* NativePtr { get; }
         public ImDrawListSplitterPtr(ImDrawListSplitter* nativePtr) => NativePtr = nativePtr;

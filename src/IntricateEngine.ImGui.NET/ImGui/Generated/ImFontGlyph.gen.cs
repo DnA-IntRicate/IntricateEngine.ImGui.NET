@@ -21,7 +21,8 @@ namespace IntricateEngine.ImGui
         public float U1;
         public float V1;
     }
-    public unsafe partial struct ImFontGlyphPtr
+    
+    public readonly unsafe partial struct ImFontGlyphPtr
     {
         public ImFontGlyph* NativePtr { get; }
         public ImFontGlyphPtr(ImFontGlyph* nativePtr) => NativePtr = nativePtr;

@@ -18,7 +18,8 @@ namespace IntricateEngine.ImGui
         public byte DockingAlwaysTabBar;
         public byte DockingAllowUnclassed;
     }
-    public unsafe partial struct ImGuiWindowClassPtr
+    
+    public readonly unsafe partial struct ImGuiWindowClassPtr
     {
         public ImGuiWindowClass* NativePtr { get; }
         public ImGuiWindowClassPtr(ImGuiWindowClass* nativePtr) => NativePtr = nativePtr;

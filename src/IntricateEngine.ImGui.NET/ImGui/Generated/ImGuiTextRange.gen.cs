@@ -11,7 +11,8 @@ namespace IntricateEngine.ImGui
         public byte* b;
         public byte* e;
     }
-    public unsafe partial struct ImGuiTextRangePtr
+    
+    public readonly unsafe partial struct ImGuiTextRangePtr
     {
         public ImGuiTextRange* NativePtr { get; }
         public ImGuiTextRangePtr(ImGuiTextRange* nativePtr) => NativePtr = nativePtr;

@@ -18,7 +18,8 @@ namespace IntricateEngine.ImGui
         public int UserCallbackDataSize;
         public int UserCallbackDataOffset;
     }
-    public unsafe partial struct ImDrawCmdPtr
+    
+    public readonly unsafe partial struct ImDrawCmdPtr
     {
         public ImDrawCmd* NativePtr { get; }
         public ImDrawCmdPtr(ImDrawCmd* nativePtr) => NativePtr = nativePtr;

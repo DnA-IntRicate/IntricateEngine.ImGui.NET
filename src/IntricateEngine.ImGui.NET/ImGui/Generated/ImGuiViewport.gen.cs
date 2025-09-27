@@ -26,7 +26,8 @@ namespace IntricateEngine.ImGui
         public byte PlatformRequestResize;
         public byte PlatformRequestClose;
     }
-    public unsafe partial struct ImGuiViewportPtr
+    
+    public readonly unsafe partial struct ImGuiViewportPtr
     {
         public ImGuiViewport* NativePtr { get; }
         public ImGuiViewportPtr(ImGuiViewport* nativePtr) => NativePtr = nativePtr;

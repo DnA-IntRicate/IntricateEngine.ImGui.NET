@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 
 namespace IntricateEngine.ImGui
 {
-    public static unsafe partial class ImGuiNative
+    internal static unsafe partial class ImGuiNative
     {
         [LibraryImport("IntricateEngine", EntryPoint = "igAcceptDragDropPayload")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]

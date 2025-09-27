@@ -15,7 +15,8 @@ namespace IntricateEngine.ImGui
         public float DpiScale;
         public void* PlatformHandle;
     }
-    public unsafe partial struct ImGuiPlatformMonitorPtr
+    
+    public readonly unsafe partial struct ImGuiPlatformMonitorPtr
     {
         public ImGuiPlatformMonitor* NativePtr { get; }
         public ImGuiPlatformMonitorPtr(ImGuiPlatformMonitor* nativePtr) => NativePtr = nativePtr;

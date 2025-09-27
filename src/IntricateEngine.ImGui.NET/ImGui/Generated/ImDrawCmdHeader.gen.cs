@@ -12,7 +12,8 @@ namespace IntricateEngine.ImGui
         public IntPtr TextureId;
         public uint VtxOffset;
     }
-    public unsafe partial struct ImDrawCmdHeaderPtr
+    
+    public readonly unsafe partial struct ImDrawCmdHeaderPtr
     {
         public ImDrawCmdHeader* NativePtr { get; }
         public ImDrawCmdHeaderPtr(ImDrawCmdHeader* nativePtr) => NativePtr = nativePtr;

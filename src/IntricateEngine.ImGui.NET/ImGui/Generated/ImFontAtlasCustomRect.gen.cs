@@ -18,7 +18,8 @@ namespace IntricateEngine.ImGui
         public Vector2 GlyphOffset;
         public ImFont* Font;
     }
-    public unsafe partial struct ImFontAtlasCustomRectPtr
+    
+    public readonly unsafe partial struct ImFontAtlasCustomRectPtr
     {
         public ImFontAtlasCustomRect* NativePtr { get; }
         public ImFontAtlasCustomRectPtr(ImFontAtlasCustomRect* nativePtr) => NativePtr = nativePtr;

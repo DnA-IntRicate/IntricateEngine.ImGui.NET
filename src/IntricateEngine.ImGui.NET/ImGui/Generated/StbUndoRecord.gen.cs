@@ -13,7 +13,7 @@ namespace IntricateEngine.ImGui
         public int delete_length;
         public int char_storage;
     }
-    public unsafe partial struct StbUndoRecordPtr
+    public readonly unsafe partial struct StbUndoRecordPtr
     {
         public StbUndoRecord* NativePtr { get; }
         public StbUndoRecordPtr(StbUndoRecord* nativePtr) => NativePtr = nativePtr;

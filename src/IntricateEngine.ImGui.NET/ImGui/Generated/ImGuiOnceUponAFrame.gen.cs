@@ -10,7 +10,8 @@ namespace IntricateEngine.ImGui
     {
         public int RefFrame;
     }
-    public unsafe partial struct ImGuiOnceUponAFramePtr
+    
+    public readonly unsafe partial struct ImGuiOnceUponAFramePtr
     {
         public ImGuiOnceUponAFrame* NativePtr { get; }
         public ImGuiOnceUponAFramePtr(ImGuiOnceUponAFrame* nativePtr) => NativePtr = nativePtr;

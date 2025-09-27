@@ -18,7 +18,8 @@ namespace IntricateEngine.ImGui
         public Vector2 FramebufferScale;
         public ImGuiViewport* OwnerViewport;
     }
-    public unsafe partial struct ImDrawDataPtr
+    
+    public readonly unsafe partial struct ImDrawDataPtr
     {
         public ImDrawData* NativePtr { get; }
         public ImDrawDataPtr(ImDrawData* nativePtr) => NativePtr = nativePtr;

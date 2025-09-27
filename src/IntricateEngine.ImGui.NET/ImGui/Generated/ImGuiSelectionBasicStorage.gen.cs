@@ -15,7 +15,8 @@ namespace IntricateEngine.ImGui
         public int _SelectionOrder;
         public ImGuiStorage _Storage;
     }
-    public unsafe partial struct ImGuiSelectionBasicStoragePtr
+    
+    public readonly unsafe partial struct ImGuiSelectionBasicStoragePtr
     {
         public ImGuiSelectionBasicStorage* NativePtr { get; }
         public ImGuiSelectionBasicStoragePtr(ImGuiSelectionBasicStorage* nativePtr) => NativePtr = nativePtr;

@@ -15,7 +15,7 @@ namespace IntricateEngine.ImGui
         public float ymax;
         public int num_chars;
     }
-    public unsafe partial struct StbTexteditRowPtr
+    public readonly unsafe partial struct StbTexteditRowPtr
     {
         public StbTexteditRow* NativePtr { get; }
         public StbTexteditRowPtr(StbTexteditRow* nativePtr) => NativePtr = nativePtr;

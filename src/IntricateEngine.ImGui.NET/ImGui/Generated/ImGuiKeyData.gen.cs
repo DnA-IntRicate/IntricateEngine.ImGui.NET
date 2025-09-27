@@ -13,7 +13,8 @@ namespace IntricateEngine.ImGui
         public float DownDurationPrev;
         public float AnalogValue;
     }
-    public unsafe partial struct ImGuiKeyDataPtr
+    
+    public readonly unsafe partial struct ImGuiKeyDataPtr
     {
         public ImGuiKeyData* NativePtr { get; }
         public ImGuiKeyDataPtr(ImGuiKeyData* nativePtr) => NativePtr = nativePtr;

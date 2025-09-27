@@ -29,7 +29,8 @@ namespace IntricateEngine.ImGui
         public int MetricsTotalSurface;
         public fixed byte Used4kPagesMap[2];
     }
-    public unsafe partial struct ImFontPtr
+    
+    public readonly unsafe partial struct ImFontPtr
     {
         public ImFont* NativePtr { get; }
         public ImFontPtr(ImFont* nativePtr) => NativePtr = nativePtr;

@@ -10,7 +10,8 @@ namespace IntricateEngine.ImGui
     {
         public ImVector Data;
     }
-    public unsafe partial struct ImGuiStoragePtr
+    
+    public readonly unsafe partial struct ImGuiStoragePtr
     {
         public ImGuiStorage* NativePtr { get; }
         public ImGuiStoragePtr(ImGuiStorage* nativePtr) => NativePtr = nativePtr;

@@ -23,7 +23,7 @@ namespace IntricateEngine.ImGui
         public float preferred_x;
         public StbUndoState undostate;
     }
-    public unsafe partial struct STB_TexteditStatePtr
+    public readonly unsafe partial struct STB_TexteditStatePtr
     {
         public STB_TexteditState* NativePtr { get; }
         public STB_TexteditStatePtr(STB_TexteditState* nativePtr) => NativePtr = nativePtr;

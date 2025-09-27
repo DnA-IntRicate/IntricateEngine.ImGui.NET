@@ -1,6 +1,9 @@
+using System;
+
+
 namespace IntricateEngine.ImGui
 {
-    [System.Flags]
+    [Flags]
     public enum ImGuiTreeNodeFlags
     {
         None = 0,

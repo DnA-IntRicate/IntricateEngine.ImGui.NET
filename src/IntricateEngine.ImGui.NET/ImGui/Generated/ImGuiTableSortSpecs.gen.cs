@@ -12,7 +12,8 @@ namespace IntricateEngine.ImGui
         public int SpecsCount;
         public byte SpecsDirty;
     }
-    public unsafe partial struct ImGuiTableSortSpecsPtr
+    
+    public readonly unsafe partial struct ImGuiTableSortSpecsPtr
     {
         public ImGuiTableSortSpecs* NativePtr { get; }
         public ImGuiTableSortSpecsPtr(ImGuiTableSortSpecs* nativePtr) => NativePtr = nativePtr;

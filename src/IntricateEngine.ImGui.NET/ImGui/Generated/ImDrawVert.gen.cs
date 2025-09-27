@@ -12,7 +12,8 @@ namespace IntricateEngine.ImGui
         public Vector2 uv;
         public uint col;
     }
-    public unsafe partial struct ImDrawVertPtr
+    
+    public readonly unsafe partial struct ImDrawVertPtr
     {
         public ImDrawVert* NativePtr { get; }
         public ImDrawVertPtr(ImDrawVert* nativePtr) => NativePtr = nativePtr;

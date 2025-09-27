@@ -113,7 +113,7 @@ namespace IntricateEngine.ImGui
         public int undo_char_point;
         public int redo_char_point;
     }
-    public unsafe partial struct StbUndoStatePtr
+    public readonly unsafe partial struct StbUndoStatePtr
     {
         public StbUndoState* NativePtr { get; }
         public StbUndoStatePtr(StbUndoState* nativePtr) => NativePtr = nativePtr;

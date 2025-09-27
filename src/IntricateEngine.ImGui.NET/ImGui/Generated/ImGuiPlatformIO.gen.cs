@@ -44,7 +44,8 @@ namespace IntricateEngine.ImGui
         public ImVector Monitors;
         public ImVector Viewports;
     }
-    public unsafe partial struct ImGuiPlatformIOPtr
+    
+    public readonly unsafe partial struct ImGuiPlatformIOPtr
     {
         public ImGuiPlatformIO* NativePtr { get; }
         public ImGuiPlatformIOPtr(ImGuiPlatformIO* nativePtr) => NativePtr = nativePtr;

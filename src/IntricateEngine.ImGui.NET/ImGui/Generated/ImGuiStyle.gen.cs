@@ -120,7 +120,8 @@ namespace IntricateEngine.ImGui
         public ImGuiHoveredFlags HoverFlagsForTooltipMouse;
         public ImGuiHoveredFlags HoverFlagsForTooltipNav;
     }
-    public unsafe partial struct ImGuiStylePtr
+    
+    public readonly unsafe partial struct ImGuiStylePtr
     {
         public ImGuiStyle* NativePtr { get; }
         public ImGuiStylePtr(ImGuiStyle* nativePtr) => NativePtr = nativePtr;

@@ -11,7 +11,8 @@ namespace IntricateEngine.ImGui
         public ImVector _CmdBuffer;
         public ImVector _IdxBuffer;
     }
-    public unsafe partial struct ImDrawChannelPtr
+    
+    public readonly unsafe partial struct ImDrawChannelPtr
     {
         public ImDrawChannel* NativePtr { get; }
         public ImDrawChannelPtr(ImDrawChannel* nativePtr) => NativePtr = nativePtr;

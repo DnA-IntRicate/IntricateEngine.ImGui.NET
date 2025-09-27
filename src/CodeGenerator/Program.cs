@@ -40,7 +40,7 @@ namespace CodeGenerator
             }
             else
             {
-                libraryName = "cimguizmo";
+                libraryName = "cimgui";
             }
 
             string projectNamespace = libraryName switch
@@ -96,11 +96,18 @@ namespace CodeGenerator
             {
                 using (CSharpCodeWriter writer = new CSharpCodeWriter(Path.Combine(outputPath, ed.FriendlyNames[0] + ".gen.cs")))
                 {
-                    writer.PushBlock($"namespace {projectNamespace}");
-                    if (ed.FriendlyNames[0].Contains("Flags"))
+                    bool isFlagsType = ed.FriendlyNames[0].Contains("Flags");
+                    if (isFlagsType)
                     {
-                        writer.WriteLine("[System.Flags]");
+                        writer.Using("System");
+                        writer.WriteLine(string.Empty);
+                        writer.WriteLine(string.Empty);
                     }
+
+                    writer.PushBlock($"namespace {projectNamespace}");
+                    if (isFlagsType)
+                        writer.WriteLine("[Flags]");
+
                     writer.PushBlock($"public enum {ed.FriendlyNames[0]}");
                     foreach (EnumMember member in ed.Members)
                     {
@@ -108,6 +115,7 @@ namespace CodeGenerator
                         string sanitizedValue = ed.SanitizeNames(member.Value);
                         writer.WriteLine($"{sanitizedName} = {sanitizedValue},");
                     }
+
                     writer.PopBlock();
                     writer.PopBlock();
                 }
@@ -156,9 +164,10 @@ namespace CodeGenerator
                         }
                     }
                     writer.PopBlock();
+                    writer.WriteLine(string.Empty);
 
                     string ptrTypeName = td.Name + "Ptr";
-                    writer.PushBlock($"public unsafe partial struct {ptrTypeName}");
+                    writer.PushBlock($"public readonly unsafe partial struct {ptrTypeName}");
                     writer.WriteLine($"public {td.Name}* NativePtr {{ get; }}");
                     writer.WriteLine($"public {ptrTypeName}({td.Name}* nativePtr) => NativePtr = nativePtr;");
                     writer.WriteLine($"public {ptrTypeName}(IntPtr nativePtr) => NativePtr = ({td.Name}*)nativePtr;");
@@ -300,7 +309,7 @@ namespace CodeGenerator
                 writer.WriteLine(string.Empty);
                 writer.PushBlock($"namespace {projectNamespace}");
 
-                writer.PushBlock($"public static unsafe partial class {classPrefix}Native");
+                writer.PushBlock($"internal static unsafe partial class {classPrefix}Native");
                 foreach (FunctionDefinition fd in defs.Functions)
                 {
                     foreach (OverloadDefinition overload in fd.Overloads)

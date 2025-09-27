@@ -22,7 +22,8 @@ namespace IntricateEngine.ImGui
         public int SelectionStart;
         public int SelectionEnd;
     }
-    public unsafe partial struct ImGuiInputTextCallbackDataPtr
+    
+    public readonly unsafe partial struct ImGuiInputTextCallbackDataPtr
     {
         public ImGuiInputTextCallbackData* NativePtr { get; }
         public ImGuiInputTextCallbackDataPtr(ImGuiInputTextCallbackData* nativePtr) => NativePtr = nativePtr;
