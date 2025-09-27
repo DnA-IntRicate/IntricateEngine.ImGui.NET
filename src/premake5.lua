@@ -65,8 +65,6 @@ workspace "IntricateEngine.ImGui.NET"
             "NoIncrementalLink"
         }
 
-CIMGUI_PROJ = ""
 include "CodeGenerator"
 include "SampleProgram"
 include "IntricateEngine.ImGui.NET"
-include "IntricateEngine.ImGuizmo.NET"

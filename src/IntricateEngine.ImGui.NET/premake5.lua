@@ -1,5 +1,4 @@
 -- OUT_DIR and INT_DIR must be defined in the top-most premake file before including this file
--- CIMGUI_PROJ must be defined as the name of the project containing the cimgui symbols before this file is included
 
 project "IntricateEngine.ImGui.NET"
     kind "SharedLib"
@@ -8,7 +7,7 @@ project "IntricateEngine.ImGui.NET"
     clr "unsafe"
     dotnetframework "net9.0"
     dotnetassemblyinfo "off"
-    namespace "IntricateEngine.ImGui"
+    namespace "IntricateEngine"
 
     debugdir (OUT_DIR)
     targetdir (OUT_DIR)
@@ -16,12 +15,10 @@ project "IntricateEngine.ImGui.NET"
 
     files
     {
-        "./**.cs"
-    }
-
-    dependson
-    {
-        CIMGUI_PROJ
+        "./Common/**.cs",
+        "./ImGui/**.cs",
+        "./ImGuizmo/**.cs",
+        "./Properties/**.cs"
     }
 
     nuget
