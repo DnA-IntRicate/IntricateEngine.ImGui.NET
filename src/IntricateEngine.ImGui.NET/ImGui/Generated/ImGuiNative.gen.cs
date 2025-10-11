@@ -500,7 +500,7 @@ namespace IntricateEngine.ImGui
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial uint igGetID_Int(int int_id);
 
-        [LibraryImport("IntricateEngine", EntryPoint = "igGetIO")]
+        [LibraryImport("IntricateEngine", EntryPoint = "igGetIO_Nil")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial ImGuiIO* igGetIO();
 
