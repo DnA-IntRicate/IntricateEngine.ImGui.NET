@@ -1,11 +1,16 @@
--- OUT_DIR and INT_DIR must be defined in the top-most premake file before including this file
+--[[
+    Note: The following string variables must be defined before including this file in the inclusion hierarchy:
+        OUT_DIR: The output target directory
+        INT_DIR: The intermediate target directory
+        DOTNET_FRAMEWORK: The Premake "dotnetframework" version string
+]]
 
 project "IntricateEngine.ImGui.NET"
     kind "SharedLib"
     language "C#"
     csversion "latest"
     clr "unsafe"
-    dotnetframework "net9.0"
+    dotnetframework (DOTNET_FRAMEWORK)
     dotnetassemblyinfo "off"
     namespace "IntricateEngine"
 
@@ -19,13 +24,6 @@ project "IntricateEngine.ImGui.NET"
         "./ImGui/**.cs",
         "./ImGuizmo/**.cs",
         "./Properties/**.cs"
-    }
-
-    nuget
-    {
-        "System.Numerics.Vectors:4.5.0",
-        "System.Runtime.CompilerServices.Unsafe:6.0.0",
-        "System.Buffers:4.5.1"
     }
 
     filter "system:windows"

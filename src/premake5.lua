@@ -5,6 +5,7 @@ include "../vendor/premake/customization/projectproperties.lua"
 REPO_ROOT = "../.."
 OUT_DIR = "%{REPO_ROOT}/bin/%{cfg.buildcfg}"
 INT_DIR = "%{REPO_ROOT}/bin/obj/%{cfg.buildcfg}/%{prj.name}"
+DOTNET_FRAMEWORK = "net10.0"
 
 workspace "IntricateEngine.ImGui.NET"
     startproject "SampleProgram"
