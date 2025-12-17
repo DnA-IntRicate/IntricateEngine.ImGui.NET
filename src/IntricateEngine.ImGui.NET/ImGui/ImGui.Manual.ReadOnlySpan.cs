@@ -1,5 +1,4 @@
 using System;
-using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text;
 
@@ -164,20 +163,20 @@ namespace IntricateEngine.ImGui
             ReadOnlySpan<char> label,
             ref string input,
             uint maxLength,
-            Vector2 size) => InputTextMultiline(label, ref input, maxLength, size, 0, null, IntPtr.Zero);
+            ImVec2 size) => InputTextMultiline(label, ref input, maxLength, size, 0, null, IntPtr.Zero);
 
         public static bool InputTextMultiline(
             ReadOnlySpan<char> label,
             ref string input,
             uint maxLength,
-            Vector2 size,
+            ImVec2 size,
             ImGuiInputTextFlags flags) => InputTextMultiline(label, ref input, maxLength, size, flags, null, IntPtr.Zero);
 
         public static bool InputTextMultiline(
             ReadOnlySpan<char> label,
             ref string input,
             uint maxLength,
-            Vector2 size,
+            ImVec2 size,
             ImGuiInputTextFlags flags,
             ImGuiInputTextCallback callback) => InputTextMultiline(label, ref input, maxLength, size, flags, callback, IntPtr.Zero);
 
@@ -185,7 +184,7 @@ namespace IntricateEngine.ImGui
             ReadOnlySpan<char> label,
             ref string input,
             uint maxLength,
-            Vector2 size,
+            ImVec2 size,
             ImGuiInputTextFlags flags,
             ImGuiInputTextCallback callback,
             IntPtr user_data)
@@ -359,31 +358,31 @@ namespace IntricateEngine.ImGui
             return result != 0;
         }
 
-        public static Vector2 CalcTextSize(ReadOnlySpan<char> text, int start)
+        public static ImVec2 CalcTextSize(ReadOnlySpan<char> text, int start)
             => CalcTextSizeImpl(text, start);
 
-        public static Vector2 CalcTextSize(ReadOnlySpan<char> text, float wrapWidth)
+        public static ImVec2 CalcTextSize(ReadOnlySpan<char> text, float wrapWidth)
             => CalcTextSizeImpl(text, wrapWidth: wrapWidth);
 
-        public static Vector2 CalcTextSize(ReadOnlySpan<char> text, int start, int length)
+        public static ImVec2 CalcTextSize(ReadOnlySpan<char> text, int start, int length)
             => CalcTextSizeImpl(text, start, length);
 
-        public static Vector2 CalcTextSize(ReadOnlySpan<char> text, int start, bool hideTextAfterDoubleHash)
+        public static ImVec2 CalcTextSize(ReadOnlySpan<char> text, int start, bool hideTextAfterDoubleHash)
             => CalcTextSizeImpl(text, start, hideTextAfterDoubleHash: hideTextAfterDoubleHash);
 
-        public static Vector2 CalcTextSize(ReadOnlySpan<char> text, int start, float wrapWidth)
+        public static ImVec2 CalcTextSize(ReadOnlySpan<char> text, int start, float wrapWidth)
             => CalcTextSizeImpl(text, start, wrapWidth: wrapWidth);
 
-        public static Vector2 CalcTextSize(ReadOnlySpan<char> text, int start, int length, bool hideTextAfterDoubleHash)
+        public static ImVec2 CalcTextSize(ReadOnlySpan<char> text, int start, int length, bool hideTextAfterDoubleHash)
             => CalcTextSizeImpl(text, start, length, hideTextAfterDoubleHash);
 
-        public static Vector2 CalcTextSize(ReadOnlySpan<char> text, int start, int length, float wrapWidth)
+        public static ImVec2 CalcTextSize(ReadOnlySpan<char> text, int start, int length, float wrapWidth)
             => CalcTextSizeImpl(text, start, length, wrapWidth: wrapWidth);
 
-        public static Vector2 CalcTextSize(ReadOnlySpan<char> text, int start, int length, bool hideTextAfterDoubleHash, float wrapWidth)
+        public static ImVec2 CalcTextSize(ReadOnlySpan<char> text, int start, int length, bool hideTextAfterDoubleHash, float wrapWidth)
             => CalcTextSizeImpl(text, start, length, hideTextAfterDoubleHash, wrapWidth);
 
-        private static Vector2 CalcTextSizeImpl(
+        private static ImVec2 CalcTextSizeImpl(
             ReadOnlySpan<char> text,
             int start = 0,
             int? length = null,

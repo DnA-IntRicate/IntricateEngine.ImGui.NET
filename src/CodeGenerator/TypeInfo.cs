@@ -12,7 +12,7 @@ namespace CodeGenerator
             { "signed char", "sbyte" },
             { "char", "byte" },
             { "ImWchar", "ushort" },
-            { "ImFileHandle", "IntPtr" },
+            { "ImFileHandle", "nint" },
             { "ImU8", "byte" },
             { "ImS8", "sbyte" },
             { "ImU16", "ushort" },
@@ -23,41 +23,55 @@ namespace CodeGenerator
             { "ImS64", "long" },
             { "unsigned short", "ushort" },
             { "unsigned int", "uint" },
-            { "ImVec2", "Vector2" },
-            { "ImVec2_Simple", "Vector2" },
-            { "ImVec3", "Vector3" },
-            { "ImVec4", "Vector4" },
+            { "ImVec2", "ImVec2" },
+            { "ImVec2_Simple", "ImVec2" },
+            { "ImVec2_c", "ImVec2" },
+            { "ImVec2i_c", "ImVec2i"},
+            { "ImVec2ih_c", "ImVec2ih"},
+            { "ImVec3", "ImVec3" },
+            { "ImVec3_c", "ImVec3" },
+            { "ImVec4", "ImVec4" },
             { "ImWchar16", "ushort" }, // char is not blittable
-            { "ImVec4_Simple", "Vector4" },
+            { "ImVec4_Simple", "ImVec4" },
+            { "ImVec4_c", "ImVec4" },
             { "ImColor_Simple", "ImColor" },
-            { "ImTextureID", "IntPtr" },
+            { "ImColor_c", "ImColor" },
+            { "ImTextureID", "nint" },
+            { "ImTextureRef_c", "ImTextureRef" },
             { "ImGuiID", "uint" },
             { "ImDrawIdx", "ushort" },
-            { "ImDrawListSharedData", "IntPtr" },
-            { "ImDrawListSharedData*", "IntPtr" },
-            { "ImDrawCallback", "IntPtr" },
+            { "ImDrawListSharedData", "nint" },
+            { "ImDrawListSharedData*", "nint" },
+            { "ImDrawCallback", "nint" },
             { "size_t", "uint" },
-            { "ImGuiContext*", "IntPtr" },
-            { "ImPlotContext*", "IntPtr" },
-            { "EditorContext*", "IntPtr" },
-            { "ImGuiMemAllocFunc", "IntPtr" },
-            { "ImGuiMemFreeFunc", "IntPtr" },
-            { "ImFontBuilderIO", "IntPtr" },
-            { "float[2]", "Vector2*" },
-            { "float[3]", "Vector3*" },
-            { "float[4]", "Vector4*" },
+            { "ImGuiContext*", "nint" },
+            { "ImPlotContext*", "nint" },
+            { "EditorContext*", "nint" },
+            { "ImGuiMemAllocFunc", "nint" },
+            { "ImGuiMemFreeFunc", "nint" },
+            { "ImFontBuilderIO", "nint" },
+            { "float[2]", "ImVec2*" },
+            { "float[3]", "ImVec3*" },
+            { "float[4]", "ImVec4*" },
             { "int[2]", "int*" },
             { "int[3]", "int*" },
             { "int[4]", "int*" },
             { "float&", "float*" },
-            { "ImVec2[2]", "Vector2*" },
+            { "ImVec2[2]", "ImVec2*" },
             { "char* []", "byte**" },
+            { "char[5]", "byte*" },
             { "unsigned char[256]", "byte*"},
-            { "ImPlotFormatter", "IntPtr" },
-            { "ImPlotGetter", "IntPtr" },
-            { "ImPlotTransform", "IntPtr" },
+            { "ImPlotFormatter", "nint" },
+            { "ImPlotGetter", "nint" },
+            { "ImPlotTransform", "nint" },
             { "ImGuiKeyChord", "ImGuiKey" },
-            { "ImGuiSelectionUserData", "long" }
+            { "ImGuiSelectionUserData", "long" },
+            { "ImGuiFreeTypeLoaderFlags*", "nint"},
+            { "ImRect", "ImRect" },
+            // { "ImRect*", "nint" },
+            { "ImRect_c", "ImRect" },
+            { "ImGuiDir*", "nint" },
+            { "ImFontAtlasRectId", "int" }
         };
         
         public static readonly List<string> WellKnownEnums = [ "ImGuiMouseButton" ];
@@ -81,7 +95,9 @@ namespace CodeGenerator
         [
             "ImVector",
             "ImVec2",
+            "ImVec3",
             "ImVec4",
+            // "ImRect",
             "ImGuiStoragePair"
         ];
 
@@ -91,16 +107,16 @@ namespace CodeGenerator
             { "((void*)0)", "null" },
             { "NULL", "null"},
             { "nullptr", "null"},
-            { "ImVec2(0,0)", "new Vector2()" },
-            { "ImVec2(0.0f,0.0f)", "new Vector2()" },
-            { "ImVec2(-FLT_MIN,0)", "new Vector2(-float.MinValue, 0.0f)" },
-            { "ImVec2(-1,0)", "new Vector2(-1, 0)" },
-            { "ImVec2(1,0)", "new Vector2(1, 0)" },
-            { "ImVec2(1,1)", "new Vector2(1, 1)" },
-            { "ImVec2(0,1)", "new Vector2(0, 1)" },
-            { "ImVec4(0,0,0,0)", "new Vector4()" },
-            { "ImVec4(1,1,1,1)", "new Vector4(1, 1, 1, 1)" },
-            { "ImVec4(0,0,0,-1)", "new Vector4(0, 0, 0, -1)" },
+            { "ImVec2(0,0)", "new ImVec2()" },
+            { "ImVec2(0.0f,0.0f)", "new ImVec2()" },
+            { "ImVec2(-FLT_MIN,0)", "new ImVec2(-float.MinValue, 0.0f)" },
+            { "ImVec2(-1,0)", "new ImVec2(-1, 0)" },
+            { "ImVec2(1,0)", "new ImVec2(1, 0)" },
+            { "ImVec2(1,1)", "new ImVec2(1, 1)" },
+            { "ImVec2(0,1)", "new ImVec2(0, 1)" },
+            { "ImVec4(0,0,0,0)", "new ImVec4()" },
+            { "ImVec4(1,1,1,1)", "new ImVec4(1, 1, 1, 1)" },
+            { "ImVec4(0,0,0,-1)", "new ImVec4(0, 0, 0, -1)" },
             { "ImPlotPoint(0,0)", "new ImPlotPoint { x = 0, y = 0 }" },
             { "ImPlotPoint(1,1)", "new ImPlotPoint { x = 1, y = 1 }" },
             { "ImDrawCornerFlags_All", "ImDrawCornerFlags.All" },
@@ -127,7 +143,8 @@ namespace CodeGenerator
             { "ImPlotBin_Sturges", "(int)ImPlotBin.Sturges" },
             { "ImPlotRect()", "new ImPlotRect()" },
             { "ImPlotCond_Once", "ImPlotCond.Once" },
-            { "ImPlotRange()", "new ImPlotRange()" }
+            { "ImPlotRange()", "new ImPlotRange()" },
+            { "ImGuiTypingSelectFlags_None", "ImGuiTypingSelectFlags.None" } // TODO(Adam): Eh?
         };
 
         public static readonly Dictionary<string, string> IdentifierReplacements = new Dictionary<string, string>()
@@ -156,7 +173,13 @@ namespace CodeGenerator
         [
             "igInputText",
             "igInputTextMultiline",
-            "igInputTextWithHint"
+            "igInputTextWithHint"// ,
+
+            // Weird functions
+            // "FindBestWindowPosForPopupEx",
+
+            // Fonts
+            // Freetype
         ];
     }
 }

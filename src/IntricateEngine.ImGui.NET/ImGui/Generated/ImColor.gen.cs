@@ -8,7 +8,7 @@ namespace IntricateEngine.ImGui
 {
     public unsafe partial struct ImColor
     {
-        public Vector4 Value;
+        public ImVec4 Value;
     }
     
     public readonly unsafe partial struct ImColorPtr
@@ -19,23 +19,21 @@ namespace IntricateEngine.ImGui
         public static implicit operator ImColorPtr(ImColor* nativePtr) => new ImColorPtr(nativePtr);
         public static implicit operator ImColor* (ImColorPtr wrappedPtr) => wrappedPtr.NativePtr;
         public static implicit operator ImColorPtr(IntPtr nativePtr) => new ImColorPtr(nativePtr);
-        public ref Vector4 Value => ref Unsafe.AsRef<Vector4>(&NativePtr->Value);
+        public ref ImVec4 Value => ref Unsafe.AsRef<ImVec4>(&NativePtr->Value);
         public void Destroy()
         {
             ImGuiNative.ImColor_destroy((ImColor*)(NativePtr));
         }
         public ImColor HSV(float h, float s, float v)
         {
-            ImColor __retval;
             float a = 1.0f;
-            ImGuiNative.ImColor_HSV(&__retval, h, s, v, a);
-            return __retval;
+            ImColor ret = ImGuiNative.ImColor_HSV(h, s, v, a);
+            return ret;
         }
         public ImColor HSV(float h, float s, float v, float a)
         {
-            ImColor __retval;
-            ImGuiNative.ImColor_HSV(&__retval, h, s, v, a);
-            return __retval;
+            ImColor ret = ImGuiNative.ImColor_HSV(h, s, v, a);
+            return ret;
         }
         public void SetHSV(float h, float s, float v)
         {

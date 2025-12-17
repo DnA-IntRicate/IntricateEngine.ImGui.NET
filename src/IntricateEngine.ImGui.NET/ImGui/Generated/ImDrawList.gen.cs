@@ -13,14 +13,14 @@ namespace IntricateEngine.ImGui
         public ImVector VtxBuffer;
         public ImDrawListFlags Flags;
         public uint _VtxCurrentIdx;
-        public IntPtr _Data;
+        public nint _Data;
         public ImDrawVert* _VtxWritePtr;
         public ushort* _IdxWritePtr;
         public ImVector _Path;
         public ImDrawCmdHeader _CmdHeader;
         public ImDrawListSplitter _Splitter;
         public ImVector _ClipRectStack;
-        public ImVector _TextureIdStack;
+        public ImVector _TextureStack;
         public ImVector _CallbacksDataBuf;
         public float _FringeScale;
         public byte* _OwnerName;
@@ -39,14 +39,14 @@ namespace IntricateEngine.ImGui
         public ImPtrVector<ImDrawVertPtr> VtxBuffer => new ImPtrVector<ImDrawVertPtr>(NativePtr->VtxBuffer, Unsafe.SizeOf<ImDrawVert>());
         public ref ImDrawListFlags Flags => ref Unsafe.AsRef<ImDrawListFlags>(&NativePtr->Flags);
         public ref uint _VtxCurrentIdx => ref Unsafe.AsRef<uint>(&NativePtr->_VtxCurrentIdx);
-        public ref IntPtr _Data => ref Unsafe.AsRef<IntPtr>(&NativePtr->_Data);
+        public ref nint _Data => ref Unsafe.AsRef<nint>(&NativePtr->_Data);
         public ImDrawVertPtr _VtxWritePtr => new ImDrawVertPtr(NativePtr->_VtxWritePtr);
         public IntPtr _IdxWritePtr { get => (IntPtr)NativePtr->_IdxWritePtr; set => NativePtr->_IdxWritePtr = (ushort*)value; }
-        public ImVector<Vector2> _Path => new ImVector<Vector2>(NativePtr->_Path);
+        public ImVector<ImVec2> _Path => new ImVector<ImVec2>(NativePtr->_Path);
         public ref ImDrawCmdHeader _CmdHeader => ref Unsafe.AsRef<ImDrawCmdHeader>(&NativePtr->_CmdHeader);
         public ref ImDrawListSplitter _Splitter => ref Unsafe.AsRef<ImDrawListSplitter>(&NativePtr->_Splitter);
-        public ImVector<Vector4> _ClipRectStack => new ImVector<Vector4>(NativePtr->_ClipRectStack);
-        public ImVector<IntPtr> _TextureIdStack => new ImVector<IntPtr>(NativePtr->_TextureIdStack);
+        public ImVector<ImVec4> _ClipRectStack => new ImVector<ImVec4>(NativePtr->_ClipRectStack);
+        public ImPtrVector<ImTextureRefPtr> _TextureStack => new ImPtrVector<ImTextureRefPtr>(NativePtr->_TextureStack, Unsafe.SizeOf<ImTextureRef>());
         public ImVector<byte> _CallbacksDataBuf => new ImVector<byte>(NativePtr->_CallbacksDataBuf);
         public ref float _FringeScale => ref Unsafe.AsRef<float>(&NativePtr->_FringeScale);
         public NullTerminatedString _OwnerName => new NullTerminatedString(NativePtr->_OwnerName);
@@ -63,19 +63,19 @@ namespace IntricateEngine.ImGui
         {
             ImGuiNative.ImDrawList__OnChangedClipRect((ImDrawList*)(NativePtr));
         }
-        public void _OnChangedTextureID()
+        public void _OnChangedTexture()
         {
-            ImGuiNative.ImDrawList__OnChangedTextureID((ImDrawList*)(NativePtr));
+            ImGuiNative.ImDrawList__OnChangedTexture((ImDrawList*)(NativePtr));
         }
         public void _OnChangedVtxOffset()
         {
             ImGuiNative.ImDrawList__OnChangedVtxOffset((ImDrawList*)(NativePtr));
         }
-        public void _PathArcToFastEx(Vector2 center, float radius, int a_min_sample, int a_max_sample, int a_step)
+        public void _PathArcToFastEx(ImVec2 center, float radius, int a_min_sample, int a_max_sample, int a_step)
         {
             ImGuiNative.ImDrawList__PathArcToFastEx((ImDrawList*)(NativePtr), center, radius, a_min_sample, a_max_sample, a_step);
         }
-        public void _PathArcToN(Vector2 center, float radius, float a_min, float a_max, int num_segments)
+        public void _PathArcToN(ImVec2 center, float radius, float a_min, float a_max, int num_segments)
         {
             ImGuiNative.ImDrawList__PathArcToN((ImDrawList*)(NativePtr), center, radius, a_min, a_max, num_segments);
         }
@@ -87,77 +87,84 @@ namespace IntricateEngine.ImGui
         {
             ImGuiNative.ImDrawList__ResetForNewFrame((ImDrawList*)(NativePtr));
         }
-        public void _SetTextureID(IntPtr texture_id)
+        // public void _SetDrawListSharedData(ref nint data)
+        // {
+        //     fixed (nint native_data = &data)
+        //     {
+        //         ImGuiNative.ImDrawList__SetDrawListSharedData((ImDrawList*)(NativePtr), native_data);
+        //     }
+        // }
+        public void _SetTexture(ImTextureRef tex_ref)
         {
-            ImGuiNative.ImDrawList__SetTextureID((ImDrawList*)(NativePtr), texture_id);
+            ImGuiNative.ImDrawList__SetTexture((ImDrawList*)(NativePtr), tex_ref);
         }
         public void _TryMergeDrawCmds()
         {
             ImGuiNative.ImDrawList__TryMergeDrawCmds((ImDrawList*)(NativePtr));
         }
-        public void AddBezierCubic(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, uint col, float thickness)
+        public void AddBezierCubic(ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, uint col, float thickness)
         {
             int num_segments = 0;
             ImGuiNative.ImDrawList_AddBezierCubic((ImDrawList*)(NativePtr), p1, p2, p3, p4, col, thickness, num_segments);
         }
-        public void AddBezierCubic(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, uint col, float thickness, int num_segments)
+        public void AddBezierCubic(ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, uint col, float thickness, int num_segments)
         {
             ImGuiNative.ImDrawList_AddBezierCubic((ImDrawList*)(NativePtr), p1, p2, p3, p4, col, thickness, num_segments);
         }
-        public void AddBezierQuadratic(Vector2 p1, Vector2 p2, Vector2 p3, uint col, float thickness)
+        public void AddBezierQuadratic(ImVec2 p1, ImVec2 p2, ImVec2 p3, uint col, float thickness)
         {
             int num_segments = 0;
             ImGuiNative.ImDrawList_AddBezierQuadratic((ImDrawList*)(NativePtr), p1, p2, p3, col, thickness, num_segments);
         }
-        public void AddBezierQuadratic(Vector2 p1, Vector2 p2, Vector2 p3, uint col, float thickness, int num_segments)
+        public void AddBezierQuadratic(ImVec2 p1, ImVec2 p2, ImVec2 p3, uint col, float thickness, int num_segments)
         {
             ImGuiNative.ImDrawList_AddBezierQuadratic((ImDrawList*)(NativePtr), p1, p2, p3, col, thickness, num_segments);
         }
-        public void AddCallback(IntPtr callback, IntPtr userdata)
+        public void AddCallback(nint callback, IntPtr userdata)
         {
             void* native_userdata = (void*)userdata.ToPointer();
             uint userdata_size = 0;
             ImGuiNative.ImDrawList_AddCallback((ImDrawList*)(NativePtr), callback, native_userdata, userdata_size);
         }
-        public void AddCallback(IntPtr callback, IntPtr userdata, uint userdata_size)
+        public void AddCallback(nint callback, IntPtr userdata, uint userdata_size)
         {
             void* native_userdata = (void*)userdata.ToPointer();
             ImGuiNative.ImDrawList_AddCallback((ImDrawList*)(NativePtr), callback, native_userdata, userdata_size);
         }
-        public void AddCircle(Vector2 center, float radius, uint col)
+        public void AddCircle(ImVec2 center, float radius, uint col)
         {
             int num_segments = 0;
             float thickness = 1.0f;
             ImGuiNative.ImDrawList_AddCircle((ImDrawList*)(NativePtr), center, radius, col, num_segments, thickness);
         }
-        public void AddCircle(Vector2 center, float radius, uint col, int num_segments)
+        public void AddCircle(ImVec2 center, float radius, uint col, int num_segments)
         {
             float thickness = 1.0f;
             ImGuiNative.ImDrawList_AddCircle((ImDrawList*)(NativePtr), center, radius, col, num_segments, thickness);
         }
-        public void AddCircle(Vector2 center, float radius, uint col, int num_segments, float thickness)
+        public void AddCircle(ImVec2 center, float radius, uint col, int num_segments, float thickness)
         {
             ImGuiNative.ImDrawList_AddCircle((ImDrawList*)(NativePtr), center, radius, col, num_segments, thickness);
         }
-        public void AddCircleFilled(Vector2 center, float radius, uint col)
+        public void AddCircleFilled(ImVec2 center, float radius, uint col)
         {
             int num_segments = 0;
             ImGuiNative.ImDrawList_AddCircleFilled((ImDrawList*)(NativePtr), center, radius, col, num_segments);
         }
-        public void AddCircleFilled(Vector2 center, float radius, uint col, int num_segments)
+        public void AddCircleFilled(ImVec2 center, float radius, uint col, int num_segments)
         {
             ImGuiNative.ImDrawList_AddCircleFilled((ImDrawList*)(NativePtr), center, radius, col, num_segments);
         }
-        public void AddConcavePolyFilled(ref Vector2 points, int num_points, uint col)
+        public void AddConcavePolyFilled(ref ImVec2 points, int num_points, uint col)
         {
-            fixed (Vector2* native_points = &points)
+            fixed (ImVec2* native_points = &points)
             {
                 ImGuiNative.ImDrawList_AddConcavePolyFilled((ImDrawList*)(NativePtr), native_points, num_points, col);
             }
         }
-        public void AddConvexPolyFilled(ref Vector2 points, int num_points, uint col)
+        public void AddConvexPolyFilled(ref ImVec2 points, int num_points, uint col)
         {
-            fixed (Vector2* native_points = &points)
+            fixed (ImVec2* native_points = &points)
             {
                 ImGuiNative.ImDrawList_AddConvexPolyFilled((ImDrawList*)(NativePtr), native_points, num_points, col);
             }
@@ -166,198 +173,198 @@ namespace IntricateEngine.ImGui
         {
             ImGuiNative.ImDrawList_AddDrawCmd((ImDrawList*)(NativePtr));
         }
-        public void AddEllipse(Vector2 center, Vector2 radius, uint col)
+        public void AddEllipse(ImVec2 center, ImVec2 radius, uint col)
         {
             float rot = 0.0f;
             int num_segments = 0;
             float thickness = 1.0f;
             ImGuiNative.ImDrawList_AddEllipse((ImDrawList*)(NativePtr), center, radius, col, rot, num_segments, thickness);
         }
-        public void AddEllipse(Vector2 center, Vector2 radius, uint col, float rot)
+        public void AddEllipse(ImVec2 center, ImVec2 radius, uint col, float rot)
         {
             int num_segments = 0;
             float thickness = 1.0f;
             ImGuiNative.ImDrawList_AddEllipse((ImDrawList*)(NativePtr), center, radius, col, rot, num_segments, thickness);
         }
-        public void AddEllipse(Vector2 center, Vector2 radius, uint col, float rot, int num_segments)
+        public void AddEllipse(ImVec2 center, ImVec2 radius, uint col, float rot, int num_segments)
         {
             float thickness = 1.0f;
             ImGuiNative.ImDrawList_AddEllipse((ImDrawList*)(NativePtr), center, radius, col, rot, num_segments, thickness);
         }
-        public void AddEllipse(Vector2 center, Vector2 radius, uint col, float rot, int num_segments, float thickness)
+        public void AddEllipse(ImVec2 center, ImVec2 radius, uint col, float rot, int num_segments, float thickness)
         {
             ImGuiNative.ImDrawList_AddEllipse((ImDrawList*)(NativePtr), center, radius, col, rot, num_segments, thickness);
         }
-        public void AddEllipseFilled(Vector2 center, Vector2 radius, uint col)
+        public void AddEllipseFilled(ImVec2 center, ImVec2 radius, uint col)
         {
             float rot = 0.0f;
             int num_segments = 0;
             ImGuiNative.ImDrawList_AddEllipseFilled((ImDrawList*)(NativePtr), center, radius, col, rot, num_segments);
         }
-        public void AddEllipseFilled(Vector2 center, Vector2 radius, uint col, float rot)
+        public void AddEllipseFilled(ImVec2 center, ImVec2 radius, uint col, float rot)
         {
             int num_segments = 0;
             ImGuiNative.ImDrawList_AddEllipseFilled((ImDrawList*)(NativePtr), center, radius, col, rot, num_segments);
         }
-        public void AddEllipseFilled(Vector2 center, Vector2 radius, uint col, float rot, int num_segments)
+        public void AddEllipseFilled(ImVec2 center, ImVec2 radius, uint col, float rot, int num_segments)
         {
             ImGuiNative.ImDrawList_AddEllipseFilled((ImDrawList*)(NativePtr), center, radius, col, rot, num_segments);
         }
-        public void AddImage(IntPtr user_texture_id, Vector2 p_min, Vector2 p_max)
+        public void AddImage(ImTextureRef tex_ref, ImVec2 p_min, ImVec2 p_max)
         {
-            Vector2 uv_min = new Vector2();
-            Vector2 uv_max = new Vector2(1, 1);
+            ImVec2 uv_min = new ImVec2();
+            ImVec2 uv_max = new ImVec2(1, 1);
             uint col = 4294967295;
-            ImGuiNative.ImDrawList_AddImage((ImDrawList*)(NativePtr), user_texture_id, p_min, p_max, uv_min, uv_max, col);
+            ImGuiNative.ImDrawList_AddImage((ImDrawList*)(NativePtr), tex_ref, p_min, p_max, uv_min, uv_max, col);
         }
-        public void AddImage(IntPtr user_texture_id, Vector2 p_min, Vector2 p_max, Vector2 uv_min)
+        public void AddImage(ImTextureRef tex_ref, ImVec2 p_min, ImVec2 p_max, ImVec2 uv_min)
         {
-            Vector2 uv_max = new Vector2(1, 1);
+            ImVec2 uv_max = new ImVec2(1, 1);
             uint col = 4294967295;
-            ImGuiNative.ImDrawList_AddImage((ImDrawList*)(NativePtr), user_texture_id, p_min, p_max, uv_min, uv_max, col);
+            ImGuiNative.ImDrawList_AddImage((ImDrawList*)(NativePtr), tex_ref, p_min, p_max, uv_min, uv_max, col);
         }
-        public void AddImage(IntPtr user_texture_id, Vector2 p_min, Vector2 p_max, Vector2 uv_min, Vector2 uv_max)
-        {
-            uint col = 4294967295;
-            ImGuiNative.ImDrawList_AddImage((ImDrawList*)(NativePtr), user_texture_id, p_min, p_max, uv_min, uv_max, col);
-        }
-        public void AddImage(IntPtr user_texture_id, Vector2 p_min, Vector2 p_max, Vector2 uv_min, Vector2 uv_max, uint col)
-        {
-            ImGuiNative.ImDrawList_AddImage((ImDrawList*)(NativePtr), user_texture_id, p_min, p_max, uv_min, uv_max, col);
-        }
-        public void AddImageQuad(IntPtr user_texture_id, Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4)
-        {
-            Vector2 uv1 = new Vector2();
-            Vector2 uv2 = new Vector2(1, 0);
-            Vector2 uv3 = new Vector2(1, 1);
-            Vector2 uv4 = new Vector2(0, 1);
-            uint col = 4294967295;
-            ImGuiNative.ImDrawList_AddImageQuad((ImDrawList*)(NativePtr), user_texture_id, p1, p2, p3, p4, uv1, uv2, uv3, uv4, col);
-        }
-        public void AddImageQuad(IntPtr user_texture_id, Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, Vector2 uv1)
-        {
-            Vector2 uv2 = new Vector2(1, 0);
-            Vector2 uv3 = new Vector2(1, 1);
-            Vector2 uv4 = new Vector2(0, 1);
-            uint col = 4294967295;
-            ImGuiNative.ImDrawList_AddImageQuad((ImDrawList*)(NativePtr), user_texture_id, p1, p2, p3, p4, uv1, uv2, uv3, uv4, col);
-        }
-        public void AddImageQuad(IntPtr user_texture_id, Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, Vector2 uv1, Vector2 uv2)
-        {
-            Vector2 uv3 = new Vector2(1, 1);
-            Vector2 uv4 = new Vector2(0, 1);
-            uint col = 4294967295;
-            ImGuiNative.ImDrawList_AddImageQuad((ImDrawList*)(NativePtr), user_texture_id, p1, p2, p3, p4, uv1, uv2, uv3, uv4, col);
-        }
-        public void AddImageQuad(IntPtr user_texture_id, Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, Vector2 uv1, Vector2 uv2, Vector2 uv3)
-        {
-            Vector2 uv4 = new Vector2(0, 1);
-            uint col = 4294967295;
-            ImGuiNative.ImDrawList_AddImageQuad((ImDrawList*)(NativePtr), user_texture_id, p1, p2, p3, p4, uv1, uv2, uv3, uv4, col);
-        }
-        public void AddImageQuad(IntPtr user_texture_id, Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, Vector2 uv1, Vector2 uv2, Vector2 uv3, Vector2 uv4)
+        public void AddImage(ImTextureRef tex_ref, ImVec2 p_min, ImVec2 p_max, ImVec2 uv_min, ImVec2 uv_max)
         {
             uint col = 4294967295;
-            ImGuiNative.ImDrawList_AddImageQuad((ImDrawList*)(NativePtr), user_texture_id, p1, p2, p3, p4, uv1, uv2, uv3, uv4, col);
+            ImGuiNative.ImDrawList_AddImage((ImDrawList*)(NativePtr), tex_ref, p_min, p_max, uv_min, uv_max, col);
         }
-        public void AddImageQuad(IntPtr user_texture_id, Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, Vector2 uv1, Vector2 uv2, Vector2 uv3, Vector2 uv4, uint col)
+        public void AddImage(ImTextureRef tex_ref, ImVec2 p_min, ImVec2 p_max, ImVec2 uv_min, ImVec2 uv_max, uint col)
         {
-            ImGuiNative.ImDrawList_AddImageQuad((ImDrawList*)(NativePtr), user_texture_id, p1, p2, p3, p4, uv1, uv2, uv3, uv4, col);
+            ImGuiNative.ImDrawList_AddImage((ImDrawList*)(NativePtr), tex_ref, p_min, p_max, uv_min, uv_max, col);
         }
-        public void AddImageRounded(IntPtr user_texture_id, Vector2 p_min, Vector2 p_max, Vector2 uv_min, Vector2 uv_max, uint col, float rounding)
+        public void AddImageQuad(ImTextureRef tex_ref, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4)
+        {
+            ImVec2 uv1 = new ImVec2();
+            ImVec2 uv2 = new ImVec2(1, 0);
+            ImVec2 uv3 = new ImVec2(1, 1);
+            ImVec2 uv4 = new ImVec2(0, 1);
+            uint col = 4294967295;
+            ImGuiNative.ImDrawList_AddImageQuad((ImDrawList*)(NativePtr), tex_ref, p1, p2, p3, p4, uv1, uv2, uv3, uv4, col);
+        }
+        public void AddImageQuad(ImTextureRef tex_ref, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, ImVec2 uv1)
+        {
+            ImVec2 uv2 = new ImVec2(1, 0);
+            ImVec2 uv3 = new ImVec2(1, 1);
+            ImVec2 uv4 = new ImVec2(0, 1);
+            uint col = 4294967295;
+            ImGuiNative.ImDrawList_AddImageQuad((ImDrawList*)(NativePtr), tex_ref, p1, p2, p3, p4, uv1, uv2, uv3, uv4, col);
+        }
+        public void AddImageQuad(ImTextureRef tex_ref, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, ImVec2 uv1, ImVec2 uv2)
+        {
+            ImVec2 uv3 = new ImVec2(1, 1);
+            ImVec2 uv4 = new ImVec2(0, 1);
+            uint col = 4294967295;
+            ImGuiNative.ImDrawList_AddImageQuad((ImDrawList*)(NativePtr), tex_ref, p1, p2, p3, p4, uv1, uv2, uv3, uv4, col);
+        }
+        public void AddImageQuad(ImTextureRef tex_ref, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, ImVec2 uv1, ImVec2 uv2, ImVec2 uv3)
+        {
+            ImVec2 uv4 = new ImVec2(0, 1);
+            uint col = 4294967295;
+            ImGuiNative.ImDrawList_AddImageQuad((ImDrawList*)(NativePtr), tex_ref, p1, p2, p3, p4, uv1, uv2, uv3, uv4, col);
+        }
+        public void AddImageQuad(ImTextureRef tex_ref, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, ImVec2 uv1, ImVec2 uv2, ImVec2 uv3, ImVec2 uv4)
+        {
+            uint col = 4294967295;
+            ImGuiNative.ImDrawList_AddImageQuad((ImDrawList*)(NativePtr), tex_ref, p1, p2, p3, p4, uv1, uv2, uv3, uv4, col);
+        }
+        public void AddImageQuad(ImTextureRef tex_ref, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, ImVec2 uv1, ImVec2 uv2, ImVec2 uv3, ImVec2 uv4, uint col)
+        {
+            ImGuiNative.ImDrawList_AddImageQuad((ImDrawList*)(NativePtr), tex_ref, p1, p2, p3, p4, uv1, uv2, uv3, uv4, col);
+        }
+        public void AddImageRounded(ImTextureRef tex_ref, ImVec2 p_min, ImVec2 p_max, ImVec2 uv_min, ImVec2 uv_max, uint col, float rounding)
         {
             ImDrawFlags flags = (ImDrawFlags)0;
-            ImGuiNative.ImDrawList_AddImageRounded((ImDrawList*)(NativePtr), user_texture_id, p_min, p_max, uv_min, uv_max, col, rounding, flags);
+            ImGuiNative.ImDrawList_AddImageRounded((ImDrawList*)(NativePtr), tex_ref, p_min, p_max, uv_min, uv_max, col, rounding, flags);
         }
-        public void AddImageRounded(IntPtr user_texture_id, Vector2 p_min, Vector2 p_max, Vector2 uv_min, Vector2 uv_max, uint col, float rounding, ImDrawFlags flags)
+        public void AddImageRounded(ImTextureRef tex_ref, ImVec2 p_min, ImVec2 p_max, ImVec2 uv_min, ImVec2 uv_max, uint col, float rounding, ImDrawFlags flags)
         {
-            ImGuiNative.ImDrawList_AddImageRounded((ImDrawList*)(NativePtr), user_texture_id, p_min, p_max, uv_min, uv_max, col, rounding, flags);
+            ImGuiNative.ImDrawList_AddImageRounded((ImDrawList*)(NativePtr), tex_ref, p_min, p_max, uv_min, uv_max, col, rounding, flags);
         }
-        public void AddLine(Vector2 p1, Vector2 p2, uint col)
+        public void AddLine(ImVec2 p1, ImVec2 p2, uint col)
         {
             float thickness = 1.0f;
             ImGuiNative.ImDrawList_AddLine((ImDrawList*)(NativePtr), p1, p2, col, thickness);
         }
-        public void AddLine(Vector2 p1, Vector2 p2, uint col, float thickness)
+        public void AddLine(ImVec2 p1, ImVec2 p2, uint col, float thickness)
         {
             ImGuiNative.ImDrawList_AddLine((ImDrawList*)(NativePtr), p1, p2, col, thickness);
         }
-        public void AddNgon(Vector2 center, float radius, uint col, int num_segments)
+        public void AddNgon(ImVec2 center, float radius, uint col, int num_segments)
         {
             float thickness = 1.0f;
             ImGuiNative.ImDrawList_AddNgon((ImDrawList*)(NativePtr), center, radius, col, num_segments, thickness);
         }
-        public void AddNgon(Vector2 center, float radius, uint col, int num_segments, float thickness)
+        public void AddNgon(ImVec2 center, float radius, uint col, int num_segments, float thickness)
         {
             ImGuiNative.ImDrawList_AddNgon((ImDrawList*)(NativePtr), center, radius, col, num_segments, thickness);
         }
-        public void AddNgonFilled(Vector2 center, float radius, uint col, int num_segments)
+        public void AddNgonFilled(ImVec2 center, float radius, uint col, int num_segments)
         {
             ImGuiNative.ImDrawList_AddNgonFilled((ImDrawList*)(NativePtr), center, radius, col, num_segments);
         }
-        public void AddPolyline(ref Vector2 points, int num_points, uint col, ImDrawFlags flags, float thickness)
+        public void AddPolyline(ref ImVec2 points, int num_points, uint col, ImDrawFlags flags, float thickness)
         {
-            fixed (Vector2* native_points = &points)
+            fixed (ImVec2* native_points = &points)
             {
                 ImGuiNative.ImDrawList_AddPolyline((ImDrawList*)(NativePtr), native_points, num_points, col, flags, thickness);
             }
         }
-        public void AddQuad(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, uint col)
+        public void AddQuad(ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, uint col)
         {
             float thickness = 1.0f;
             ImGuiNative.ImDrawList_AddQuad((ImDrawList*)(NativePtr), p1, p2, p3, p4, col, thickness);
         }
-        public void AddQuad(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, uint col, float thickness)
+        public void AddQuad(ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, uint col, float thickness)
         {
             ImGuiNative.ImDrawList_AddQuad((ImDrawList*)(NativePtr), p1, p2, p3, p4, col, thickness);
         }
-        public void AddQuadFilled(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, uint col)
+        public void AddQuadFilled(ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, uint col)
         {
             ImGuiNative.ImDrawList_AddQuadFilled((ImDrawList*)(NativePtr), p1, p2, p3, p4, col);
         }
-        public void AddRect(Vector2 p_min, Vector2 p_max, uint col)
+        public void AddRect(ImVec2 p_min, ImVec2 p_max, uint col)
         {
             float rounding = 0.0f;
             ImDrawFlags flags = (ImDrawFlags)0;
             float thickness = 1.0f;
             ImGuiNative.ImDrawList_AddRect((ImDrawList*)(NativePtr), p_min, p_max, col, rounding, flags, thickness);
         }
-        public void AddRect(Vector2 p_min, Vector2 p_max, uint col, float rounding)
+        public void AddRect(ImVec2 p_min, ImVec2 p_max, uint col, float rounding)
         {
             ImDrawFlags flags = (ImDrawFlags)0;
             float thickness = 1.0f;
             ImGuiNative.ImDrawList_AddRect((ImDrawList*)(NativePtr), p_min, p_max, col, rounding, flags, thickness);
         }
-        public void AddRect(Vector2 p_min, Vector2 p_max, uint col, float rounding, ImDrawFlags flags)
+        public void AddRect(ImVec2 p_min, ImVec2 p_max, uint col, float rounding, ImDrawFlags flags)
         {
             float thickness = 1.0f;
             ImGuiNative.ImDrawList_AddRect((ImDrawList*)(NativePtr), p_min, p_max, col, rounding, flags, thickness);
         }
-        public void AddRect(Vector2 p_min, Vector2 p_max, uint col, float rounding, ImDrawFlags flags, float thickness)
+        public void AddRect(ImVec2 p_min, ImVec2 p_max, uint col, float rounding, ImDrawFlags flags, float thickness)
         {
             ImGuiNative.ImDrawList_AddRect((ImDrawList*)(NativePtr), p_min, p_max, col, rounding, flags, thickness);
         }
-        public void AddRectFilled(Vector2 p_min, Vector2 p_max, uint col)
+        public void AddRectFilled(ImVec2 p_min, ImVec2 p_max, uint col)
         {
             float rounding = 0.0f;
             ImDrawFlags flags = (ImDrawFlags)0;
             ImGuiNative.ImDrawList_AddRectFilled((ImDrawList*)(NativePtr), p_min, p_max, col, rounding, flags);
         }
-        public void AddRectFilled(Vector2 p_min, Vector2 p_max, uint col, float rounding)
+        public void AddRectFilled(ImVec2 p_min, ImVec2 p_max, uint col, float rounding)
         {
             ImDrawFlags flags = (ImDrawFlags)0;
             ImGuiNative.ImDrawList_AddRectFilled((ImDrawList*)(NativePtr), p_min, p_max, col, rounding, flags);
         }
-        public void AddRectFilled(Vector2 p_min, Vector2 p_max, uint col, float rounding, ImDrawFlags flags)
+        public void AddRectFilled(ImVec2 p_min, ImVec2 p_max, uint col, float rounding, ImDrawFlags flags)
         {
             ImGuiNative.ImDrawList_AddRectFilled((ImDrawList*)(NativePtr), p_min, p_max, col, rounding, flags);
         }
-        public void AddRectFilledMultiColor(Vector2 p_min, Vector2 p_max, uint col_upr_left, uint col_upr_right, uint col_bot_right, uint col_bot_left)
+        public void AddRectFilledMultiColor(ImVec2 p_min, ImVec2 p_max, uint col_upr_left, uint col_upr_right, uint col_bot_right, uint col_bot_left)
         {
             ImGuiNative.ImDrawList_AddRectFilledMultiColor((ImDrawList*)(NativePtr), p_min, p_max, col_upr_left, col_upr_right, col_bot_right, col_bot_left);
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public void AddText(Vector2 pos, uint col, ReadOnlySpan<char> text_begin)
+        public void AddText(ImVec2 pos, uint col, ReadOnlySpan<char> text_begin)
         {
             byte* native_text_begin;
             int text_begin_byteCount = 0;
@@ -380,7 +387,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public void AddText(Vector2 pos, uint col, string text_begin)
+        public void AddText(ImVec2 pos, uint col, string text_begin)
         {
             byte* native_text_begin;
             int text_begin_byteCount = 0;
@@ -403,7 +410,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public void AddText(ImFontPtr font, float font_size, Vector2 pos, uint col, ReadOnlySpan<char> text_begin)
+        public void AddText(ImFontPtr font, float font_size, ImVec2 pos, uint col, ReadOnlySpan<char> text_begin)
         {
             ImFont* native_font = font.NativePtr;
             byte* native_text_begin;
@@ -421,7 +428,7 @@ namespace IntricateEngine.ImGui
                 int native_text_begin_offset = Util.GetUtf8(text_begin, native_text_begin, text_begin_byteCount);
                 native_text_begin[native_text_begin_offset] = 0;
             float wrap_width = 0.0f;
-            Vector4* cpu_fine_clip_rect = null;
+            ImVec4* cpu_fine_clip_rect = null;
             ImGuiNative.ImDrawList_AddText_FontPtr((ImDrawList*)(NativePtr), native_font, font_size, pos, col, native_text_begin, native_text_begin+text_begin_byteCount, wrap_width, cpu_fine_clip_rect);
             if (text_begin_byteCount > Util.StackAllocationSizeLimit)
             {
@@ -429,7 +436,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public void AddText(ImFontPtr font, float font_size, Vector2 pos, uint col, string text_begin)
+        public void AddText(ImFontPtr font, float font_size, ImVec2 pos, uint col, string text_begin)
         {
             ImFont* native_font = font.NativePtr;
             byte* native_text_begin;
@@ -447,7 +454,7 @@ namespace IntricateEngine.ImGui
                 int native_text_begin_offset = Util.GetUtf8(text_begin, native_text_begin, text_begin_byteCount);
                 native_text_begin[native_text_begin_offset] = 0;
             float wrap_width = 0.0f;
-            Vector4* cpu_fine_clip_rect = null;
+            ImVec4* cpu_fine_clip_rect = null;
             ImGuiNative.ImDrawList_AddText_FontPtr((ImDrawList*)(NativePtr), native_font, font_size, pos, col, native_text_begin, native_text_begin+text_begin_byteCount, wrap_width, cpu_fine_clip_rect);
             if (text_begin_byteCount > Util.StackAllocationSizeLimit)
             {
@@ -455,7 +462,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public void AddText(ImFontPtr font, float font_size, Vector2 pos, uint col, ReadOnlySpan<char> text_begin, float wrap_width)
+        public void AddText(ImFontPtr font, float font_size, ImVec2 pos, uint col, ReadOnlySpan<char> text_begin, float wrap_width)
         {
             ImFont* native_font = font.NativePtr;
             byte* native_text_begin;
@@ -472,7 +479,7 @@ namespace IntricateEngine.ImGui
                 }
                 int native_text_begin_offset = Util.GetUtf8(text_begin, native_text_begin, text_begin_byteCount);
                 native_text_begin[native_text_begin_offset] = 0;
-            Vector4* cpu_fine_clip_rect = null;
+            ImVec4* cpu_fine_clip_rect = null;
             ImGuiNative.ImDrawList_AddText_FontPtr((ImDrawList*)(NativePtr), native_font, font_size, pos, col, native_text_begin, native_text_begin+text_begin_byteCount, wrap_width, cpu_fine_clip_rect);
             if (text_begin_byteCount > Util.StackAllocationSizeLimit)
             {
@@ -480,7 +487,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public void AddText(ImFontPtr font, float font_size, Vector2 pos, uint col, string text_begin, float wrap_width)
+        public void AddText(ImFontPtr font, float font_size, ImVec2 pos, uint col, string text_begin, float wrap_width)
         {
             ImFont* native_font = font.NativePtr;
             byte* native_text_begin;
@@ -497,7 +504,7 @@ namespace IntricateEngine.ImGui
                 }
                 int native_text_begin_offset = Util.GetUtf8(text_begin, native_text_begin, text_begin_byteCount);
                 native_text_begin[native_text_begin_offset] = 0;
-            Vector4* cpu_fine_clip_rect = null;
+            ImVec4* cpu_fine_clip_rect = null;
             ImGuiNative.ImDrawList_AddText_FontPtr((ImDrawList*)(NativePtr), native_font, font_size, pos, col, native_text_begin, native_text_begin+text_begin_byteCount, wrap_width, cpu_fine_clip_rect);
             if (text_begin_byteCount > Util.StackAllocationSizeLimit)
             {
@@ -505,7 +512,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public void AddText(ImFontPtr font, float font_size, Vector2 pos, uint col, ReadOnlySpan<char> text_begin, float wrap_width, ref Vector4 cpu_fine_clip_rect)
+        public void AddText(ImFontPtr font, float font_size, ImVec2 pos, uint col, ReadOnlySpan<char> text_begin, float wrap_width, ref ImVec4 cpu_fine_clip_rect)
         {
             ImFont* native_font = font.NativePtr;
             byte* native_text_begin;
@@ -522,7 +529,7 @@ namespace IntricateEngine.ImGui
                 }
                 int native_text_begin_offset = Util.GetUtf8(text_begin, native_text_begin, text_begin_byteCount);
                 native_text_begin[native_text_begin_offset] = 0;
-            fixed (Vector4* native_cpu_fine_clip_rect = &cpu_fine_clip_rect)
+            fixed (ImVec4* native_cpu_fine_clip_rect = &cpu_fine_clip_rect)
             {
                 ImGuiNative.ImDrawList_AddText_FontPtr((ImDrawList*)(NativePtr), native_font, font_size, pos, col, native_text_begin, native_text_begin+text_begin_byteCount, wrap_width, native_cpu_fine_clip_rect);
                 if (text_begin_byteCount > Util.StackAllocationSizeLimit)
@@ -532,7 +539,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public void AddText(ImFontPtr font, float font_size, Vector2 pos, uint col, string text_begin, float wrap_width, ref Vector4 cpu_fine_clip_rect)
+        public void AddText(ImFontPtr font, float font_size, ImVec2 pos, uint col, string text_begin, float wrap_width, ref ImVec4 cpu_fine_clip_rect)
         {
             ImFont* native_font = font.NativePtr;
             byte* native_text_begin;
@@ -549,7 +556,7 @@ namespace IntricateEngine.ImGui
                 }
                 int native_text_begin_offset = Util.GetUtf8(text_begin, native_text_begin, text_begin_byteCount);
                 native_text_begin[native_text_begin_offset] = 0;
-            fixed (Vector4* native_cpu_fine_clip_rect = &cpu_fine_clip_rect)
+            fixed (ImVec4* native_cpu_fine_clip_rect = &cpu_fine_clip_rect)
             {
                 ImGuiNative.ImDrawList_AddText_FontPtr((ImDrawList*)(NativePtr), native_font, font_size, pos, col, native_text_begin, native_text_begin+text_begin_byteCount, wrap_width, native_cpu_fine_clip_rect);
                 if (text_begin_byteCount > Util.StackAllocationSizeLimit)
@@ -558,16 +565,16 @@ namespace IntricateEngine.ImGui
                 }
             }
         }
-        public void AddTriangle(Vector2 p1, Vector2 p2, Vector2 p3, uint col)
+        public void AddTriangle(ImVec2 p1, ImVec2 p2, ImVec2 p3, uint col)
         {
             float thickness = 1.0f;
             ImGuiNative.ImDrawList_AddTriangle((ImDrawList*)(NativePtr), p1, p2, p3, col, thickness);
         }
-        public void AddTriangle(Vector2 p1, Vector2 p2, Vector2 p3, uint col, float thickness)
+        public void AddTriangle(ImVec2 p1, ImVec2 p2, ImVec2 p3, uint col, float thickness)
         {
             ImGuiNative.ImDrawList_AddTriangle((ImDrawList*)(NativePtr), p1, p2, p3, col, thickness);
         }
-        public void AddTriangleFilled(Vector2 p1, Vector2 p2, Vector2 p3, uint col)
+        public void AddTriangleFilled(ImVec2 p1, ImVec2 p2, ImVec2 p3, uint col)
         {
             ImGuiNative.ImDrawList_AddTriangleFilled((ImDrawList*)(NativePtr), p1, p2, p3, col);
         }
@@ -592,46 +599,44 @@ namespace IntricateEngine.ImGui
         {
             ImGuiNative.ImDrawList_destroy((ImDrawList*)(NativePtr));
         }
-        public Vector2 GetClipRectMax()
+        public ImVec2 GetClipRectMax()
         {
-            Vector2 __retval;
-            ImGuiNative.ImDrawList_GetClipRectMax(&__retval, (ImDrawList*)(NativePtr));
-            return __retval;
+            ImVec2 ret = ImGuiNative.ImDrawList_GetClipRectMax((ImDrawList*)(NativePtr));
+            return ret;
         }
-        public Vector2 GetClipRectMin()
+        public ImVec2 GetClipRectMin()
         {
-            Vector2 __retval;
-            ImGuiNative.ImDrawList_GetClipRectMin(&__retval, (ImDrawList*)(NativePtr));
-            return __retval;
+            ImVec2 ret = ImGuiNative.ImDrawList_GetClipRectMin((ImDrawList*)(NativePtr));
+            return ret;
         }
-        public void PathArcTo(Vector2 center, float radius, float a_min, float a_max)
+        public void PathArcTo(ImVec2 center, float radius, float a_min, float a_max)
         {
             int num_segments = 0;
             ImGuiNative.ImDrawList_PathArcTo((ImDrawList*)(NativePtr), center, radius, a_min, a_max, num_segments);
         }
-        public void PathArcTo(Vector2 center, float radius, float a_min, float a_max, int num_segments)
+        public void PathArcTo(ImVec2 center, float radius, float a_min, float a_max, int num_segments)
         {
             ImGuiNative.ImDrawList_PathArcTo((ImDrawList*)(NativePtr), center, radius, a_min, a_max, num_segments);
         }
-        public void PathArcToFast(Vector2 center, float radius, int a_min_of_12, int a_max_of_12)
+        public void PathArcToFast(ImVec2 center, float radius, int a_min_of_12, int a_max_of_12)
         {
             ImGuiNative.ImDrawList_PathArcToFast((ImDrawList*)(NativePtr), center, radius, a_min_of_12, a_max_of_12);
         }
-        public void PathBezierCubicCurveTo(Vector2 p2, Vector2 p3, Vector2 p4)
+        public void PathBezierCubicCurveTo(ImVec2 p2, ImVec2 p3, ImVec2 p4)
         {
             int num_segments = 0;
             ImGuiNative.ImDrawList_PathBezierCubicCurveTo((ImDrawList*)(NativePtr), p2, p3, p4, num_segments);
         }
-        public void PathBezierCubicCurveTo(Vector2 p2, Vector2 p3, Vector2 p4, int num_segments)
+        public void PathBezierCubicCurveTo(ImVec2 p2, ImVec2 p3, ImVec2 p4, int num_segments)
         {
             ImGuiNative.ImDrawList_PathBezierCubicCurveTo((ImDrawList*)(NativePtr), p2, p3, p4, num_segments);
         }
-        public void PathBezierQuadraticCurveTo(Vector2 p2, Vector2 p3)
+        public void PathBezierQuadraticCurveTo(ImVec2 p2, ImVec2 p3)
         {
             int num_segments = 0;
             ImGuiNative.ImDrawList_PathBezierQuadraticCurveTo((ImDrawList*)(NativePtr), p2, p3, num_segments);
         }
-        public void PathBezierQuadraticCurveTo(Vector2 p2, Vector2 p3, int num_segments)
+        public void PathBezierQuadraticCurveTo(ImVec2 p2, ImVec2 p3, int num_segments)
         {
             ImGuiNative.ImDrawList_PathBezierQuadraticCurveTo((ImDrawList*)(NativePtr), p2, p3, num_segments);
         }
@@ -639,12 +644,12 @@ namespace IntricateEngine.ImGui
         {
             ImGuiNative.ImDrawList_PathClear((ImDrawList*)(NativePtr));
         }
-        public void PathEllipticalArcTo(Vector2 center, Vector2 radius, float rot, float a_min, float a_max)
+        public void PathEllipticalArcTo(ImVec2 center, ImVec2 radius, float rot, float a_min, float a_max)
         {
             int num_segments = 0;
             ImGuiNative.ImDrawList_PathEllipticalArcTo((ImDrawList*)(NativePtr), center, radius, rot, a_min, a_max, num_segments);
         }
-        public void PathEllipticalArcTo(Vector2 center, Vector2 radius, float rot, float a_min, float a_max, int num_segments)
+        public void PathEllipticalArcTo(ImVec2 center, ImVec2 radius, float rot, float a_min, float a_max, int num_segments)
         {
             ImGuiNative.ImDrawList_PathEllipticalArcTo((ImDrawList*)(NativePtr), center, radius, rot, a_min, a_max, num_segments);
         }
@@ -656,26 +661,26 @@ namespace IntricateEngine.ImGui
         {
             ImGuiNative.ImDrawList_PathFillConvex((ImDrawList*)(NativePtr), col);
         }
-        public void PathLineTo(Vector2 pos)
+        public void PathLineTo(ImVec2 pos)
         {
             ImGuiNative.ImDrawList_PathLineTo((ImDrawList*)(NativePtr), pos);
         }
-        public void PathLineToMergeDuplicate(Vector2 pos)
+        public void PathLineToMergeDuplicate(ImVec2 pos)
         {
             ImGuiNative.ImDrawList_PathLineToMergeDuplicate((ImDrawList*)(NativePtr), pos);
         }
-        public void PathRect(Vector2 rect_min, Vector2 rect_max)
+        public void PathRect(ImVec2 rect_min, ImVec2 rect_max)
         {
             float rounding = 0.0f;
             ImDrawFlags flags = (ImDrawFlags)0;
             ImGuiNative.ImDrawList_PathRect((ImDrawList*)(NativePtr), rect_min, rect_max, rounding, flags);
         }
-        public void PathRect(Vector2 rect_min, Vector2 rect_max, float rounding)
+        public void PathRect(ImVec2 rect_min, ImVec2 rect_max, float rounding)
         {
             ImDrawFlags flags = (ImDrawFlags)0;
             ImGuiNative.ImDrawList_PathRect((ImDrawList*)(NativePtr), rect_min, rect_max, rounding, flags);
         }
-        public void PathRect(Vector2 rect_min, Vector2 rect_max, float rounding, ImDrawFlags flags)
+        public void PathRect(ImVec2 rect_min, ImVec2 rect_max, float rounding, ImDrawFlags flags)
         {
             ImGuiNative.ImDrawList_PathRect((ImDrawList*)(NativePtr), rect_min, rect_max, rounding, flags);
         }
@@ -698,19 +703,19 @@ namespace IntricateEngine.ImGui
         {
             ImGuiNative.ImDrawList_PopClipRect((ImDrawList*)(NativePtr));
         }
-        public void PopTextureID()
+        public void PopTexture()
         {
-            ImGuiNative.ImDrawList_PopTextureID((ImDrawList*)(NativePtr));
+            ImGuiNative.ImDrawList_PopTexture((ImDrawList*)(NativePtr));
         }
-        public void PrimQuadUV(Vector2 a, Vector2 b, Vector2 c, Vector2 d, Vector2 uv_a, Vector2 uv_b, Vector2 uv_c, Vector2 uv_d, uint col)
+        public void PrimQuadUV(ImVec2 a, ImVec2 b, ImVec2 c, ImVec2 d, ImVec2 uv_a, ImVec2 uv_b, ImVec2 uv_c, ImVec2 uv_d, uint col)
         {
             ImGuiNative.ImDrawList_PrimQuadUV((ImDrawList*)(NativePtr), a, b, c, d, uv_a, uv_b, uv_c, uv_d, col);
         }
-        public void PrimRect(Vector2 a, Vector2 b, uint col)
+        public void PrimRect(ImVec2 a, ImVec2 b, uint col)
         {
             ImGuiNative.ImDrawList_PrimRect((ImDrawList*)(NativePtr), a, b, col);
         }
-        public void PrimRectUV(Vector2 a, Vector2 b, Vector2 uv_a, Vector2 uv_b, uint col)
+        public void PrimRectUV(ImVec2 a, ImVec2 b, ImVec2 uv_a, ImVec2 uv_b, uint col)
         {
             ImGuiNative.ImDrawList_PrimRectUV((ImDrawList*)(NativePtr), a, b, uv_a, uv_b, col);
         }
@@ -722,7 +727,7 @@ namespace IntricateEngine.ImGui
         {
             ImGuiNative.ImDrawList_PrimUnreserve((ImDrawList*)(NativePtr), idx_count, vtx_count);
         }
-        public void PrimVtx(Vector2 pos, Vector2 uv, uint col)
+        public void PrimVtx(ImVec2 pos, ImVec2 uv, uint col)
         {
             ImGuiNative.ImDrawList_PrimVtx((ImDrawList*)(NativePtr), pos, uv, col);
         }
@@ -730,16 +735,16 @@ namespace IntricateEngine.ImGui
         {
             ImGuiNative.ImDrawList_PrimWriteIdx((ImDrawList*)(NativePtr), idx);
         }
-        public void PrimWriteVtx(Vector2 pos, Vector2 uv, uint col)
+        public void PrimWriteVtx(ImVec2 pos, ImVec2 uv, uint col)
         {
             ImGuiNative.ImDrawList_PrimWriteVtx((ImDrawList*)(NativePtr), pos, uv, col);
         }
-        public void PushClipRect(Vector2 clip_rect_min, Vector2 clip_rect_max)
+        public void PushClipRect(ImVec2 clip_rect_min, ImVec2 clip_rect_max)
         {
             byte intersect_with_current_clip_rect = 0;
             ImGuiNative.ImDrawList_PushClipRect((ImDrawList*)(NativePtr), clip_rect_min, clip_rect_max, intersect_with_current_clip_rect);
         }
-        public void PushClipRect(Vector2 clip_rect_min, Vector2 clip_rect_max, bool intersect_with_current_clip_rect)
+        public void PushClipRect(ImVec2 clip_rect_min, ImVec2 clip_rect_max, bool intersect_with_current_clip_rect)
         {
             byte native_intersect_with_current_clip_rect = intersect_with_current_clip_rect ? (byte)1 : (byte)0;
             ImGuiNative.ImDrawList_PushClipRect((ImDrawList*)(NativePtr), clip_rect_min, clip_rect_max, native_intersect_with_current_clip_rect);
@@ -748,9 +753,9 @@ namespace IntricateEngine.ImGui
         {
             ImGuiNative.ImDrawList_PushClipRectFullScreen((ImDrawList*)(NativePtr));
         }
-        public void PushTextureID(IntPtr texture_id)
+        public void PushTexture(ImTextureRef tex_ref)
         {
-            ImGuiNative.ImDrawList_PushTextureID((ImDrawList*)(NativePtr), texture_id);
+            ImGuiNative.ImDrawList_PushTexture((ImDrawList*)(NativePtr), tex_ref);
         }
     }
 }

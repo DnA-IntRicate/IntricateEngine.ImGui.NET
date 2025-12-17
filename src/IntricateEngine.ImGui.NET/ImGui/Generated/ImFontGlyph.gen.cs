@@ -10,6 +10,7 @@ namespace IntricateEngine.ImGui
     {
         public uint Colored;
         public uint Visible;
+        public uint SourceIdx;
         public uint Codepoint;
         public float AdvanceX;
         public float X0;
@@ -20,6 +21,7 @@ namespace IntricateEngine.ImGui
         public float V0;
         public float U1;
         public float V1;
+        public int PackId;
     }
     
     public readonly unsafe partial struct ImFontGlyphPtr
@@ -32,6 +34,7 @@ namespace IntricateEngine.ImGui
         public static implicit operator ImFontGlyphPtr(IntPtr nativePtr) => new ImFontGlyphPtr(nativePtr);
         public ref uint Colored => ref Unsafe.AsRef<uint>(&NativePtr->Colored);
         public ref uint Visible => ref Unsafe.AsRef<uint>(&NativePtr->Visible);
+        public ref uint SourceIdx => ref Unsafe.AsRef<uint>(&NativePtr->SourceIdx);
         public ref uint Codepoint => ref Unsafe.AsRef<uint>(&NativePtr->Codepoint);
         public ref float AdvanceX => ref Unsafe.AsRef<float>(&NativePtr->AdvanceX);
         public ref float X0 => ref Unsafe.AsRef<float>(&NativePtr->X0);
@@ -42,5 +45,10 @@ namespace IntricateEngine.ImGui
         public ref float V0 => ref Unsafe.AsRef<float>(&NativePtr->V0);
         public ref float U1 => ref Unsafe.AsRef<float>(&NativePtr->U1);
         public ref float V1 => ref Unsafe.AsRef<float>(&NativePtr->V1);
+        public ref int PackId => ref Unsafe.AsRef<int>(&NativePtr->PackId);
+        public void Destroy()
+        {
+            ImGuiNative.ImFontGlyph_destroy((ImFontGlyph*)(NativePtr));
+        }
     }
 }

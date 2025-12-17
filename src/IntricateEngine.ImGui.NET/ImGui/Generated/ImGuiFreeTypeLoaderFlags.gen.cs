@@ -4,7 +4,7 @@ using System;
 namespace IntricateEngine.ImGui
 {
     [Flags]
-    public enum ImGuiFreeTypeBuilderFlags
+    public enum ImGuiFreeTypeLoaderFlags
     {
         NoHinting = 1,
         NoAutoHint = 2,

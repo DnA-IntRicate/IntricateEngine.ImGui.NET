@@ -13,5 +13,6 @@ namespace IntricateEngine.ImGui
         Disabled = 8,
         AllowOverlap = 16,
         Highlight = 32,
+        SelectOnNav = 64,
     }
 }

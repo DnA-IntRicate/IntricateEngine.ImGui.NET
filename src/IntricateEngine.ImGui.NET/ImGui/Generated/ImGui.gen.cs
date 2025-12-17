@@ -389,7 +389,7 @@ namespace IntricateEngine.ImGui
                 native_str_id[native_str_id_offset] = 0;
             }
             else { native_str_id = null; }
-            Vector2 size = new Vector2();
+            ImVec2 size = new ImVec2();
             ImGuiChildFlags child_flags = (ImGuiChildFlags)0;
             ImGuiWindowFlags window_flags = (ImGuiWindowFlags)0;
             byte ret = ImGuiNative.igBeginChild_Str(native_str_id, size, child_flags, window_flags);
@@ -420,7 +420,7 @@ namespace IntricateEngine.ImGui
                 native_str_id[native_str_id_offset] = 0;
             }
             else { native_str_id = null; }
-            Vector2 size = new Vector2();
+            ImVec2 size = new ImVec2();
             ImGuiChildFlags child_flags = (ImGuiChildFlags)0;
             ImGuiWindowFlags window_flags = (ImGuiWindowFlags)0;
             byte ret = ImGuiNative.igBeginChild_Str(native_str_id, size, child_flags, window_flags);
@@ -431,7 +431,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool BeginChild(ReadOnlySpan<char> str_id, Vector2 size)
+        public static bool BeginChild(ReadOnlySpan<char> str_id, ImVec2 size)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -461,7 +461,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #endif
-        public static bool BeginChild(string str_id, Vector2 size)
+        public static bool BeginChild(string str_id, ImVec2 size)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -491,7 +491,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool BeginChild(ReadOnlySpan<char> str_id, Vector2 size, ImGuiChildFlags child_flags)
+        public static bool BeginChild(ReadOnlySpan<char> str_id, ImVec2 size, ImGuiChildFlags child_flags)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -520,7 +520,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #endif
-        public static bool BeginChild(string str_id, Vector2 size, ImGuiChildFlags child_flags)
+        public static bool BeginChild(string str_id, ImVec2 size, ImGuiChildFlags child_flags)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -549,7 +549,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool BeginChild(ReadOnlySpan<char> str_id, Vector2 size, ImGuiChildFlags child_flags, ImGuiWindowFlags window_flags)
+        public static bool BeginChild(ReadOnlySpan<char> str_id, ImVec2 size, ImGuiChildFlags child_flags, ImGuiWindowFlags window_flags)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -577,7 +577,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #endif
-        public static bool BeginChild(string str_id, Vector2 size, ImGuiChildFlags child_flags, ImGuiWindowFlags window_flags)
+        public static bool BeginChild(string str_id, ImVec2 size, ImGuiChildFlags child_flags, ImGuiWindowFlags window_flags)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -606,26 +606,26 @@ namespace IntricateEngine.ImGui
         }
         public static bool BeginChild(uint id)
         {
-            Vector2 size = new Vector2();
+            ImVec2 size = new ImVec2();
             ImGuiChildFlags child_flags = (ImGuiChildFlags)0;
             ImGuiWindowFlags window_flags = (ImGuiWindowFlags)0;
             byte ret = ImGuiNative.igBeginChild_ID(id, size, child_flags, window_flags);
             return ret != 0;
         }
-        public static bool BeginChild(uint id, Vector2 size)
+        public static bool BeginChild(uint id, ImVec2 size)
         {
             ImGuiChildFlags child_flags = (ImGuiChildFlags)0;
             ImGuiWindowFlags window_flags = (ImGuiWindowFlags)0;
             byte ret = ImGuiNative.igBeginChild_ID(id, size, child_flags, window_flags);
             return ret != 0;
         }
-        public static bool BeginChild(uint id, Vector2 size, ImGuiChildFlags child_flags)
+        public static bool BeginChild(uint id, ImVec2 size, ImGuiChildFlags child_flags)
         {
             ImGuiWindowFlags window_flags = (ImGuiWindowFlags)0;
             byte ret = ImGuiNative.igBeginChild_ID(id, size, child_flags, window_flags);
             return ret != 0;
         }
-        public static bool BeginChild(uint id, Vector2 size, ImGuiChildFlags child_flags, ImGuiWindowFlags window_flags)
+        public static bool BeginChild(uint id, ImVec2 size, ImGuiChildFlags child_flags, ImGuiWindowFlags window_flags)
         {
             byte ret = ImGuiNative.igBeginChild_ID(id, size, child_flags, window_flags);
             return ret != 0;
@@ -888,7 +888,7 @@ namespace IntricateEngine.ImGui
                 native_label[native_label_offset] = 0;
             }
             else { native_label = null; }
-            Vector2 size = new Vector2();
+            ImVec2 size = new ImVec2();
             byte ret = ImGuiNative.igBeginListBox(native_label, size);
             if (label_byteCount > Util.StackAllocationSizeLimit)
             {
@@ -917,7 +917,7 @@ namespace IntricateEngine.ImGui
                 native_label[native_label_offset] = 0;
             }
             else { native_label = null; }
-            Vector2 size = new Vector2();
+            ImVec2 size = new ImVec2();
             byte ret = ImGuiNative.igBeginListBox(native_label, size);
             if (label_byteCount > Util.StackAllocationSizeLimit)
             {
@@ -926,7 +926,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool BeginListBox(ReadOnlySpan<char> label, Vector2 size)
+        public static bool BeginListBox(ReadOnlySpan<char> label, ImVec2 size)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -954,7 +954,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #endif
-        public static bool BeginListBox(string label, Vector2 size)
+        public static bool BeginListBox(string label, ImVec2 size)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -2110,7 +2110,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_str_id = null; }
             ImGuiTableFlags flags = (ImGuiTableFlags)0;
-            Vector2 outer_size = new Vector2();
+            ImVec2 outer_size = new ImVec2();
             float inner_width = 0.0f;
             byte ret = ImGuiNative.igBeginTable(native_str_id, columns, flags, outer_size, inner_width);
             if (str_id_byteCount > Util.StackAllocationSizeLimit)
@@ -2141,7 +2141,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_str_id = null; }
             ImGuiTableFlags flags = (ImGuiTableFlags)0;
-            Vector2 outer_size = new Vector2();
+            ImVec2 outer_size = new ImVec2();
             float inner_width = 0.0f;
             byte ret = ImGuiNative.igBeginTable(native_str_id, columns, flags, outer_size, inner_width);
             if (str_id_byteCount > Util.StackAllocationSizeLimit)
@@ -2171,7 +2171,7 @@ namespace IntricateEngine.ImGui
                 native_str_id[native_str_id_offset] = 0;
             }
             else { native_str_id = null; }
-            Vector2 outer_size = new Vector2();
+            ImVec2 outer_size = new ImVec2();
             float inner_width = 0.0f;
             byte ret = ImGuiNative.igBeginTable(native_str_id, columns, flags, outer_size, inner_width);
             if (str_id_byteCount > Util.StackAllocationSizeLimit)
@@ -2201,7 +2201,7 @@ namespace IntricateEngine.ImGui
                 native_str_id[native_str_id_offset] = 0;
             }
             else { native_str_id = null; }
-            Vector2 outer_size = new Vector2();
+            ImVec2 outer_size = new ImVec2();
             float inner_width = 0.0f;
             byte ret = ImGuiNative.igBeginTable(native_str_id, columns, flags, outer_size, inner_width);
             if (str_id_byteCount > Util.StackAllocationSizeLimit)
@@ -2211,7 +2211,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool BeginTable(ReadOnlySpan<char> str_id, int columns, ImGuiTableFlags flags, Vector2 outer_size)
+        public static bool BeginTable(ReadOnlySpan<char> str_id, int columns, ImGuiTableFlags flags, ImVec2 outer_size)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -2240,7 +2240,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #endif
-        public static bool BeginTable(string str_id, int columns, ImGuiTableFlags flags, Vector2 outer_size)
+        public static bool BeginTable(string str_id, int columns, ImGuiTableFlags flags, ImVec2 outer_size)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -2269,7 +2269,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool BeginTable(ReadOnlySpan<char> str_id, int columns, ImGuiTableFlags flags, Vector2 outer_size, float inner_width)
+        public static bool BeginTable(ReadOnlySpan<char> str_id, int columns, ImGuiTableFlags flags, ImVec2 outer_size, float inner_width)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -2297,7 +2297,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #endif
-        public static bool BeginTable(string str_id, int columns, ImGuiTableFlags flags, Vector2 outer_size, float inner_width)
+        public static bool BeginTable(string str_id, int columns, ImGuiTableFlags flags, ImVec2 outer_size, float inner_width)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -2408,7 +2408,7 @@ namespace IntricateEngine.ImGui
                 native_label[native_label_offset] = 0;
             }
             else { native_label = null; }
-            Vector2 size = new Vector2();
+            ImVec2 size = new ImVec2();
             byte ret = ImGuiNative.igButton(native_label, size);
             if (label_byteCount > Util.StackAllocationSizeLimit)
             {
@@ -2437,7 +2437,7 @@ namespace IntricateEngine.ImGui
                 native_label[native_label_offset] = 0;
             }
             else { native_label = null; }
-            Vector2 size = new Vector2();
+            ImVec2 size = new ImVec2();
             byte ret = ImGuiNative.igButton(native_label, size);
             if (label_byteCount > Util.StackAllocationSizeLimit)
             {
@@ -2446,7 +2446,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool Button(ReadOnlySpan<char> label, Vector2 size)
+        public static bool Button(ReadOnlySpan<char> label, ImVec2 size)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -2474,7 +2474,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #endif
-        public static bool Button(string label, Vector2 size)
+        public static bool Button(string label, ImVec2 size)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -2507,9 +2507,8 @@ namespace IntricateEngine.ImGui
             return ret;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static Vector2 CalcTextSize(ReadOnlySpan<char> text)
+        public static ImVec2 CalcTextSize(ReadOnlySpan<char> text)
         {
-            Vector2 __retval;
             byte* native_text;
             int text_byteCount = 0;
             if (text != null)
@@ -2530,17 +2529,16 @@ namespace IntricateEngine.ImGui
             else { native_text = null; }
             byte hide_text_after_double_hash = 0;
             float wrap_width = -1.0f;
-            ImGuiNative.igCalcTextSize(&__retval, native_text, native_text+text_byteCount, hide_text_after_double_hash, wrap_width);
+            ImVec2 ret = ImGuiNative.igCalcTextSize(native_text, native_text+text_byteCount, hide_text_after_double_hash, wrap_width);
             if (text_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_text);
             }
-            return __retval;
+            return ret;
         }
 #endif
-        public static Vector2 CalcTextSize(string text)
+        public static ImVec2 CalcTextSize(string text)
         {
-            Vector2 __retval;
             byte* native_text;
             int text_byteCount = 0;
             if (text != null)
@@ -2561,17 +2559,16 @@ namespace IntricateEngine.ImGui
             else { native_text = null; }
             byte hide_text_after_double_hash = 0;
             float wrap_width = -1.0f;
-            ImGuiNative.igCalcTextSize(&__retval, native_text, native_text+text_byteCount, hide_text_after_double_hash, wrap_width);
+            ImVec2 ret = ImGuiNative.igCalcTextSize(native_text, native_text+text_byteCount, hide_text_after_double_hash, wrap_width);
             if (text_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_text);
             }
-            return __retval;
+            return ret;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static Vector2 CalcTextSize(ReadOnlySpan<char> text, bool hide_text_after_double_hash)
+        public static ImVec2 CalcTextSize(ReadOnlySpan<char> text, bool hide_text_after_double_hash)
         {
-            Vector2 __retval;
             byte* native_text;
             int text_byteCount = 0;
             if (text != null)
@@ -2592,17 +2589,16 @@ namespace IntricateEngine.ImGui
             else { native_text = null; }
             byte native_hide_text_after_double_hash = hide_text_after_double_hash ? (byte)1 : (byte)0;
             float wrap_width = -1.0f;
-            ImGuiNative.igCalcTextSize(&__retval, native_text, native_text+text_byteCount, native_hide_text_after_double_hash, wrap_width);
+            ImVec2 ret = ImGuiNative.igCalcTextSize(native_text, native_text+text_byteCount, native_hide_text_after_double_hash, wrap_width);
             if (text_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_text);
             }
-            return __retval;
+            return ret;
         }
 #endif
-        public static Vector2 CalcTextSize(string text, bool hide_text_after_double_hash)
+        public static ImVec2 CalcTextSize(string text, bool hide_text_after_double_hash)
         {
-            Vector2 __retval;
             byte* native_text;
             int text_byteCount = 0;
             if (text != null)
@@ -2623,17 +2619,16 @@ namespace IntricateEngine.ImGui
             else { native_text = null; }
             byte native_hide_text_after_double_hash = hide_text_after_double_hash ? (byte)1 : (byte)0;
             float wrap_width = -1.0f;
-            ImGuiNative.igCalcTextSize(&__retval, native_text, native_text+text_byteCount, native_hide_text_after_double_hash, wrap_width);
+            ImVec2 ret = ImGuiNative.igCalcTextSize(native_text, native_text+text_byteCount, native_hide_text_after_double_hash, wrap_width);
             if (text_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_text);
             }
-            return __retval;
+            return ret;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static Vector2 CalcTextSize(ReadOnlySpan<char> text, bool hide_text_after_double_hash, float wrap_width)
+        public static ImVec2 CalcTextSize(ReadOnlySpan<char> text, bool hide_text_after_double_hash, float wrap_width)
         {
-            Vector2 __retval;
             byte* native_text;
             int text_byteCount = 0;
             if (text != null)
@@ -2653,17 +2648,16 @@ namespace IntricateEngine.ImGui
             }
             else { native_text = null; }
             byte native_hide_text_after_double_hash = hide_text_after_double_hash ? (byte)1 : (byte)0;
-            ImGuiNative.igCalcTextSize(&__retval, native_text, native_text+text_byteCount, native_hide_text_after_double_hash, wrap_width);
+            ImVec2 ret = ImGuiNative.igCalcTextSize(native_text, native_text+text_byteCount, native_hide_text_after_double_hash, wrap_width);
             if (text_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_text);
             }
-            return __retval;
+            return ret;
         }
 #endif
-        public static Vector2 CalcTextSize(string text, bool hide_text_after_double_hash, float wrap_width)
+        public static ImVec2 CalcTextSize(string text, bool hide_text_after_double_hash, float wrap_width)
         {
-            Vector2 __retval;
             byte* native_text;
             int text_byteCount = 0;
             if (text != null)
@@ -2683,12 +2677,12 @@ namespace IntricateEngine.ImGui
             }
             else { native_text = null; }
             byte native_hide_text_after_double_hash = hide_text_after_double_hash ? (byte)1 : (byte)0;
-            ImGuiNative.igCalcTextSize(&__retval, native_text, native_text+text_byteCount, native_hide_text_after_double_hash, wrap_width);
+            ImVec2 ret = ImGuiNative.igCalcTextSize(native_text, native_text+text_byteCount, native_hide_text_after_double_hash, wrap_width);
             if (text_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_text);
             }
-            return __retval;
+            return ret;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
         public static bool Checkbox(ReadOnlySpan<char> label, ref bool v)
@@ -3121,7 +3115,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool ColorButton(ReadOnlySpan<char> desc_id, Vector4 col)
+        public static bool ColorButton(ReadOnlySpan<char> desc_id, ImVec4 col)
         {
             byte* native_desc_id;
             int desc_id_byteCount = 0;
@@ -3142,7 +3136,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_desc_id = null; }
             ImGuiColorEditFlags flags = (ImGuiColorEditFlags)0;
-            Vector2 size = new Vector2();
+            ImVec2 size = new ImVec2();
             byte ret = ImGuiNative.igColorButton(native_desc_id, col, flags, size);
             if (desc_id_byteCount > Util.StackAllocationSizeLimit)
             {
@@ -3151,7 +3145,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #endif
-        public static bool ColorButton(string desc_id, Vector4 col)
+        public static bool ColorButton(string desc_id, ImVec4 col)
         {
             byte* native_desc_id;
             int desc_id_byteCount = 0;
@@ -3172,7 +3166,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_desc_id = null; }
             ImGuiColorEditFlags flags = (ImGuiColorEditFlags)0;
-            Vector2 size = new Vector2();
+            ImVec2 size = new ImVec2();
             byte ret = ImGuiNative.igColorButton(native_desc_id, col, flags, size);
             if (desc_id_byteCount > Util.StackAllocationSizeLimit)
             {
@@ -3181,7 +3175,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool ColorButton(ReadOnlySpan<char> desc_id, Vector4 col, ImGuiColorEditFlags flags)
+        public static bool ColorButton(ReadOnlySpan<char> desc_id, ImVec4 col, ImGuiColorEditFlags flags)
         {
             byte* native_desc_id;
             int desc_id_byteCount = 0;
@@ -3201,7 +3195,7 @@ namespace IntricateEngine.ImGui
                 native_desc_id[native_desc_id_offset] = 0;
             }
             else { native_desc_id = null; }
-            Vector2 size = new Vector2();
+            ImVec2 size = new ImVec2();
             byte ret = ImGuiNative.igColorButton(native_desc_id, col, flags, size);
             if (desc_id_byteCount > Util.StackAllocationSizeLimit)
             {
@@ -3210,7 +3204,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #endif
-        public static bool ColorButton(string desc_id, Vector4 col, ImGuiColorEditFlags flags)
+        public static bool ColorButton(string desc_id, ImVec4 col, ImGuiColorEditFlags flags)
         {
             byte* native_desc_id;
             int desc_id_byteCount = 0;
@@ -3230,7 +3224,7 @@ namespace IntricateEngine.ImGui
                 native_desc_id[native_desc_id_offset] = 0;
             }
             else { native_desc_id = null; }
-            Vector2 size = new Vector2();
+            ImVec2 size = new ImVec2();
             byte ret = ImGuiNative.igColorButton(native_desc_id, col, flags, size);
             if (desc_id_byteCount > Util.StackAllocationSizeLimit)
             {
@@ -3239,7 +3233,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool ColorButton(ReadOnlySpan<char> desc_id, Vector4 col, ImGuiColorEditFlags flags, Vector2 size)
+        public static bool ColorButton(ReadOnlySpan<char> desc_id, ImVec4 col, ImGuiColorEditFlags flags, ImVec2 size)
         {
             byte* native_desc_id;
             int desc_id_byteCount = 0;
@@ -3267,7 +3261,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #endif
-        public static bool ColorButton(string desc_id, Vector4 col, ImGuiColorEditFlags flags, Vector2 size)
+        public static bool ColorButton(string desc_id, ImVec4 col, ImGuiColorEditFlags flags, ImVec2 size)
         {
             byte* native_desc_id;
             int desc_id_byteCount = 0;
@@ -3294,7 +3288,7 @@ namespace IntricateEngine.ImGui
             }
             return ret != 0;
         }
-        public static uint ColorConvertFloat4ToU32(Vector4 @in)
+        public static uint ColorConvertFloat4ToU32(ImVec4 @in)
         {
             uint ret = ImGuiNative.igColorConvertFloat4ToU32(@in);
             return ret;
@@ -3325,14 +3319,13 @@ namespace IntricateEngine.ImGui
                 }
             }
         }
-        public static Vector4 ColorConvertU32ToFloat4(uint @in)
+        public static ImVec4 ColorConvertU32ToFloat4(uint @in)
         {
-            Vector4 __retval;
-            ImGuiNative.igColorConvertU32ToFloat4(&__retval, @in);
-            return __retval;
+            ImVec4 ret = ImGuiNative.igColorConvertU32ToFloat4(@in);
+            return ret;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool ColorEdit3(ReadOnlySpan<char> label, ref Vector3 col)
+        public static bool ColorEdit3(ReadOnlySpan<char> label, ref ImVec3 col)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -3353,7 +3346,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_label = null; }
             ImGuiColorEditFlags flags = (ImGuiColorEditFlags)0;
-            fixed (Vector3* native_col = &col)
+            fixed (ImVec3* native_col = &col)
             {
                 byte ret = ImGuiNative.igColorEdit3(native_label, native_col, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -3364,7 +3357,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool ColorEdit3(string label, ref Vector3 col)
+        public static bool ColorEdit3(string label, ref ImVec3 col)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -3385,7 +3378,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_label = null; }
             ImGuiColorEditFlags flags = (ImGuiColorEditFlags)0;
-            fixed (Vector3* native_col = &col)
+            fixed (ImVec3* native_col = &col)
             {
                 byte ret = ImGuiNative.igColorEdit3(native_label, native_col, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -3396,7 +3389,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool ColorEdit3(ReadOnlySpan<char> label, ref Vector3 col, ImGuiColorEditFlags flags)
+        public static bool ColorEdit3(ReadOnlySpan<char> label, ref ImVec3 col, ImGuiColorEditFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -3416,7 +3409,7 @@ namespace IntricateEngine.ImGui
                 native_label[native_label_offset] = 0;
             }
             else { native_label = null; }
-            fixed (Vector3* native_col = &col)
+            fixed (ImVec3* native_col = &col)
             {
                 byte ret = ImGuiNative.igColorEdit3(native_label, native_col, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -3427,7 +3420,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool ColorEdit3(string label, ref Vector3 col, ImGuiColorEditFlags flags)
+        public static bool ColorEdit3(string label, ref ImVec3 col, ImGuiColorEditFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -3447,7 +3440,7 @@ namespace IntricateEngine.ImGui
                 native_label[native_label_offset] = 0;
             }
             else { native_label = null; }
-            fixed (Vector3* native_col = &col)
+            fixed (ImVec3* native_col = &col)
             {
                 byte ret = ImGuiNative.igColorEdit3(native_label, native_col, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -3458,7 +3451,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool ColorEdit4(ReadOnlySpan<char> label, ref Vector4 col)
+        public static bool ColorEdit4(ReadOnlySpan<char> label, ref ImVec4 col)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -3479,7 +3472,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_label = null; }
             ImGuiColorEditFlags flags = (ImGuiColorEditFlags)0;
-            fixed (Vector4* native_col = &col)
+            fixed (ImVec4* native_col = &col)
             {
                 byte ret = ImGuiNative.igColorEdit4(native_label, native_col, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -3490,7 +3483,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool ColorEdit4(string label, ref Vector4 col)
+        public static bool ColorEdit4(string label, ref ImVec4 col)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -3511,7 +3504,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_label = null; }
             ImGuiColorEditFlags flags = (ImGuiColorEditFlags)0;
-            fixed (Vector4* native_col = &col)
+            fixed (ImVec4* native_col = &col)
             {
                 byte ret = ImGuiNative.igColorEdit4(native_label, native_col, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -3522,7 +3515,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool ColorEdit4(ReadOnlySpan<char> label, ref Vector4 col, ImGuiColorEditFlags flags)
+        public static bool ColorEdit4(ReadOnlySpan<char> label, ref ImVec4 col, ImGuiColorEditFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -3542,7 +3535,7 @@ namespace IntricateEngine.ImGui
                 native_label[native_label_offset] = 0;
             }
             else { native_label = null; }
-            fixed (Vector4* native_col = &col)
+            fixed (ImVec4* native_col = &col)
             {
                 byte ret = ImGuiNative.igColorEdit4(native_label, native_col, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -3553,7 +3546,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool ColorEdit4(string label, ref Vector4 col, ImGuiColorEditFlags flags)
+        public static bool ColorEdit4(string label, ref ImVec4 col, ImGuiColorEditFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -3573,7 +3566,7 @@ namespace IntricateEngine.ImGui
                 native_label[native_label_offset] = 0;
             }
             else { native_label = null; }
-            fixed (Vector4* native_col = &col)
+            fixed (ImVec4* native_col = &col)
             {
                 byte ret = ImGuiNative.igColorEdit4(native_label, native_col, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -3584,7 +3577,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool ColorPicker3(ReadOnlySpan<char> label, ref Vector3 col)
+        public static bool ColorPicker3(ReadOnlySpan<char> label, ref ImVec3 col)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -3605,7 +3598,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_label = null; }
             ImGuiColorEditFlags flags = (ImGuiColorEditFlags)0;
-            fixed (Vector3* native_col = &col)
+            fixed (ImVec3* native_col = &col)
             {
                 byte ret = ImGuiNative.igColorPicker3(native_label, native_col, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -3616,7 +3609,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool ColorPicker3(string label, ref Vector3 col)
+        public static bool ColorPicker3(string label, ref ImVec3 col)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -3637,7 +3630,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_label = null; }
             ImGuiColorEditFlags flags = (ImGuiColorEditFlags)0;
-            fixed (Vector3* native_col = &col)
+            fixed (ImVec3* native_col = &col)
             {
                 byte ret = ImGuiNative.igColorPicker3(native_label, native_col, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -3648,7 +3641,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool ColorPicker3(ReadOnlySpan<char> label, ref Vector3 col, ImGuiColorEditFlags flags)
+        public static bool ColorPicker3(ReadOnlySpan<char> label, ref ImVec3 col, ImGuiColorEditFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -3668,7 +3661,7 @@ namespace IntricateEngine.ImGui
                 native_label[native_label_offset] = 0;
             }
             else { native_label = null; }
-            fixed (Vector3* native_col = &col)
+            fixed (ImVec3* native_col = &col)
             {
                 byte ret = ImGuiNative.igColorPicker3(native_label, native_col, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -3679,7 +3672,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool ColorPicker3(string label, ref Vector3 col, ImGuiColorEditFlags flags)
+        public static bool ColorPicker3(string label, ref ImVec3 col, ImGuiColorEditFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -3699,7 +3692,7 @@ namespace IntricateEngine.ImGui
                 native_label[native_label_offset] = 0;
             }
             else { native_label = null; }
-            fixed (Vector3* native_col = &col)
+            fixed (ImVec3* native_col = &col)
             {
                 byte ret = ImGuiNative.igColorPicker3(native_label, native_col, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -3710,7 +3703,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool ColorPicker4(ReadOnlySpan<char> label, ref Vector4 col)
+        public static bool ColorPicker4(ReadOnlySpan<char> label, ref ImVec4 col)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -3732,7 +3725,7 @@ namespace IntricateEngine.ImGui
             else { native_label = null; }
             ImGuiColorEditFlags flags = (ImGuiColorEditFlags)0;
             float* ref_col = null;
-            fixed (Vector4* native_col = &col)
+            fixed (ImVec4* native_col = &col)
             {
                 byte ret = ImGuiNative.igColorPicker4(native_label, native_col, flags, ref_col);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -3743,7 +3736,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool ColorPicker4(string label, ref Vector4 col)
+        public static bool ColorPicker4(string label, ref ImVec4 col)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -3765,7 +3758,7 @@ namespace IntricateEngine.ImGui
             else { native_label = null; }
             ImGuiColorEditFlags flags = (ImGuiColorEditFlags)0;
             float* ref_col = null;
-            fixed (Vector4* native_col = &col)
+            fixed (ImVec4* native_col = &col)
             {
                 byte ret = ImGuiNative.igColorPicker4(native_label, native_col, flags, ref_col);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -3776,7 +3769,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool ColorPicker4(ReadOnlySpan<char> label, ref Vector4 col, ImGuiColorEditFlags flags)
+        public static bool ColorPicker4(ReadOnlySpan<char> label, ref ImVec4 col, ImGuiColorEditFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -3797,7 +3790,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_label = null; }
             float* ref_col = null;
-            fixed (Vector4* native_col = &col)
+            fixed (ImVec4* native_col = &col)
             {
                 byte ret = ImGuiNative.igColorPicker4(native_label, native_col, flags, ref_col);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -3808,7 +3801,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool ColorPicker4(string label, ref Vector4 col, ImGuiColorEditFlags flags)
+        public static bool ColorPicker4(string label, ref ImVec4 col, ImGuiColorEditFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -3829,7 +3822,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_label = null; }
             float* ref_col = null;
-            fixed (Vector4* native_col = &col)
+            fixed (ImVec4* native_col = &col)
             {
                 byte ret = ImGuiNative.igColorPicker4(native_label, native_col, flags, ref_col);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -3840,7 +3833,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool ColorPicker4(ReadOnlySpan<char> label, ref Vector4 col, ImGuiColorEditFlags flags, ref float ref_col)
+        public static bool ColorPicker4(ReadOnlySpan<char> label, ref ImVec4 col, ImGuiColorEditFlags flags, ref float ref_col)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -3860,7 +3853,7 @@ namespace IntricateEngine.ImGui
                 native_label[native_label_offset] = 0;
             }
             else { native_label = null; }
-            fixed (Vector4* native_col = &col)
+            fixed (ImVec4* native_col = &col)
             {
                 fixed (float* native_ref_col = &ref_col)
                 {
@@ -3874,7 +3867,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool ColorPicker4(string label, ref Vector4 col, ImGuiColorEditFlags flags, ref float ref_col)
+        public static bool ColorPicker4(string label, ref ImVec4 col, ImGuiColorEditFlags flags, ref float ref_col)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -3894,7 +3887,7 @@ namespace IntricateEngine.ImGui
                 native_label[native_label_offset] = 0;
             }
             else { native_label = null; }
-            fixed (Vector4* native_col = &col)
+            fixed (ImVec4* native_col = &col)
             {
                 fixed (float* native_ref_col = &ref_col)
                 {
@@ -4464,16 +4457,16 @@ namespace IntricateEngine.ImGui
                 return ret != 0;
             }
         }
-        public static IntPtr CreateContext()
+        public static nint CreateContext()
         {
             ImFontAtlas* shared_font_atlas = null;
-            IntPtr ret = ImGuiNative.igCreateContext(shared_font_atlas);
+            nint ret = ImGuiNative.igCreateContext(shared_font_atlas);
             return ret;
         }
-        public static IntPtr CreateContext(ImFontAtlasPtr shared_font_atlas)
+        public static nint CreateContext(ImFontAtlasPtr shared_font_atlas)
         {
             ImFontAtlas* native_shared_font_atlas = shared_font_atlas.NativePtr;
-            IntPtr ret = ImGuiNative.igCreateContext(native_shared_font_atlas);
+            nint ret = ImGuiNative.igCreateContext(native_shared_font_atlas);
             return ret;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
@@ -4650,10 +4643,10 @@ namespace IntricateEngine.ImGui
         }
         public static void DestroyContext()
         {
-            IntPtr ctx = IntPtr.Zero;
+            nint ctx = IntPtr.Zero;
             ImGuiNative.igDestroyContext(ctx);
         }
-        public static void DestroyContext(IntPtr ctx)
+        public static void DestroyContext(nint ctx)
         {
             ImGuiNative.igDestroyContext(ctx);
         }
@@ -4663,26 +4656,26 @@ namespace IntricateEngine.ImGui
         }
         public static uint DockSpace(uint dockspace_id)
         {
-            Vector2 size = new Vector2();
+            ImVec2 size = new ImVec2();
             ImGuiDockNodeFlags flags = (ImGuiDockNodeFlags)0;
             ImGuiWindowClass* window_class = null;
             uint ret = ImGuiNative.igDockSpace(dockspace_id, size, flags, window_class);
             return ret;
         }
-        public static uint DockSpace(uint dockspace_id, Vector2 size)
+        public static uint DockSpace(uint dockspace_id, ImVec2 size)
         {
             ImGuiDockNodeFlags flags = (ImGuiDockNodeFlags)0;
             ImGuiWindowClass* window_class = null;
             uint ret = ImGuiNative.igDockSpace(dockspace_id, size, flags, window_class);
             return ret;
         }
-        public static uint DockSpace(uint dockspace_id, Vector2 size, ImGuiDockNodeFlags flags)
+        public static uint DockSpace(uint dockspace_id, ImVec2 size, ImGuiDockNodeFlags flags)
         {
             ImGuiWindowClass* window_class = null;
             uint ret = ImGuiNative.igDockSpace(dockspace_id, size, flags, window_class);
             return ret;
         }
-        public static uint DockSpace(uint dockspace_id, Vector2 size, ImGuiDockNodeFlags flags, ImGuiWindowClassPtr window_class)
+        public static uint DockSpace(uint dockspace_id, ImVec2 size, ImGuiDockNodeFlags flags, ImGuiWindowClassPtr window_class)
         {
             ImGuiWindowClass* native_window_class = window_class.NativePtr;
             uint ret = ImGuiNative.igDockSpace(dockspace_id, size, flags, native_window_class);
@@ -5354,7 +5347,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool DragFloat2(ReadOnlySpan<char> label, ref Vector2 v)
+        public static bool DragFloat2(ReadOnlySpan<char> label, ref ImVec2 v)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -5392,7 +5385,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat2(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -5407,7 +5400,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool DragFloat2(string label, ref Vector2 v)
+        public static bool DragFloat2(string label, ref ImVec2 v)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -5445,7 +5438,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat2(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -5460,7 +5453,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool DragFloat2(ReadOnlySpan<char> label, ref Vector2 v, float v_speed)
+        public static bool DragFloat2(ReadOnlySpan<char> label, ref ImVec2 v, float v_speed)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -5497,7 +5490,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat2(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -5512,7 +5505,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool DragFloat2(string label, ref Vector2 v, float v_speed)
+        public static bool DragFloat2(string label, ref ImVec2 v, float v_speed)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -5549,7 +5542,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat2(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -5564,7 +5557,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool DragFloat2(ReadOnlySpan<char> label, ref Vector2 v, float v_speed, float v_min)
+        public static bool DragFloat2(ReadOnlySpan<char> label, ref ImVec2 v, float v_speed, float v_min)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -5600,7 +5593,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat2(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -5615,7 +5608,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool DragFloat2(string label, ref Vector2 v, float v_speed, float v_min)
+        public static bool DragFloat2(string label, ref ImVec2 v, float v_speed, float v_min)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -5651,7 +5644,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat2(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -5666,7 +5659,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool DragFloat2(ReadOnlySpan<char> label, ref Vector2 v, float v_speed, float v_min, float v_max)
+        public static bool DragFloat2(ReadOnlySpan<char> label, ref ImVec2 v, float v_speed, float v_min, float v_max)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -5701,7 +5694,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat2(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -5716,7 +5709,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool DragFloat2(string label, ref Vector2 v, float v_speed, float v_min, float v_max)
+        public static bool DragFloat2(string label, ref ImVec2 v, float v_speed, float v_min, float v_max)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -5751,7 +5744,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat2(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -5766,7 +5759,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool DragFloat2(ReadOnlySpan<char> label, ref Vector2 v, float v_speed, float v_min, float v_max, ReadOnlySpan<char> format)
+        public static bool DragFloat2(ReadOnlySpan<char> label, ref ImVec2 v, float v_speed, float v_min, float v_max, ReadOnlySpan<char> format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -5805,7 +5798,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_format = null; }
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat2(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -5820,7 +5813,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool DragFloat2(string label, ref Vector2 v, float v_speed, float v_min, float v_max, string format)
+        public static bool DragFloat2(string label, ref ImVec2 v, float v_speed, float v_min, float v_max, string format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -5859,7 +5852,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_format = null; }
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat2(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -5874,7 +5867,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool DragFloat2(ReadOnlySpan<char> label, ref Vector2 v, float v_speed, float v_min, float v_max, ReadOnlySpan<char> format, ImGuiSliderFlags flags)
+        public static bool DragFloat2(ReadOnlySpan<char> label, ref ImVec2 v, float v_speed, float v_min, float v_max, ReadOnlySpan<char> format, ImGuiSliderFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -5912,7 +5905,7 @@ namespace IntricateEngine.ImGui
                 native_format[native_format_offset] = 0;
             }
             else { native_format = null; }
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat2(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -5927,7 +5920,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool DragFloat2(string label, ref Vector2 v, float v_speed, float v_min, float v_max, string format, ImGuiSliderFlags flags)
+        public static bool DragFloat2(string label, ref ImVec2 v, float v_speed, float v_min, float v_max, string format, ImGuiSliderFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -5965,7 +5958,7 @@ namespace IntricateEngine.ImGui
                 native_format[native_format_offset] = 0;
             }
             else { native_format = null; }
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat2(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -5980,7 +5973,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool DragFloat3(ReadOnlySpan<char> label, ref Vector3 v)
+        public static bool DragFloat3(ReadOnlySpan<char> label, ref ImVec3 v)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -6018,7 +6011,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat3(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -6033,7 +6026,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool DragFloat3(string label, ref Vector3 v)
+        public static bool DragFloat3(string label, ref ImVec3 v)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -6071,7 +6064,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat3(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -6086,7 +6079,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool DragFloat3(ReadOnlySpan<char> label, ref Vector3 v, float v_speed)
+        public static bool DragFloat3(ReadOnlySpan<char> label, ref ImVec3 v, float v_speed)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -6123,7 +6116,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat3(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -6138,7 +6131,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool DragFloat3(string label, ref Vector3 v, float v_speed)
+        public static bool DragFloat3(string label, ref ImVec3 v, float v_speed)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -6175,7 +6168,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat3(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -6190,7 +6183,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool DragFloat3(ReadOnlySpan<char> label, ref Vector3 v, float v_speed, float v_min)
+        public static bool DragFloat3(ReadOnlySpan<char> label, ref ImVec3 v, float v_speed, float v_min)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -6226,7 +6219,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat3(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -6241,7 +6234,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool DragFloat3(string label, ref Vector3 v, float v_speed, float v_min)
+        public static bool DragFloat3(string label, ref ImVec3 v, float v_speed, float v_min)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -6277,7 +6270,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat3(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -6292,7 +6285,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool DragFloat3(ReadOnlySpan<char> label, ref Vector3 v, float v_speed, float v_min, float v_max)
+        public static bool DragFloat3(ReadOnlySpan<char> label, ref ImVec3 v, float v_speed, float v_min, float v_max)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -6327,7 +6320,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat3(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -6342,7 +6335,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool DragFloat3(string label, ref Vector3 v, float v_speed, float v_min, float v_max)
+        public static bool DragFloat3(string label, ref ImVec3 v, float v_speed, float v_min, float v_max)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -6377,7 +6370,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat3(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -6392,7 +6385,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool DragFloat3(ReadOnlySpan<char> label, ref Vector3 v, float v_speed, float v_min, float v_max, ReadOnlySpan<char> format)
+        public static bool DragFloat3(ReadOnlySpan<char> label, ref ImVec3 v, float v_speed, float v_min, float v_max, ReadOnlySpan<char> format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -6431,7 +6424,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_format = null; }
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat3(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -6446,7 +6439,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool DragFloat3(string label, ref Vector3 v, float v_speed, float v_min, float v_max, string format)
+        public static bool DragFloat3(string label, ref ImVec3 v, float v_speed, float v_min, float v_max, string format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -6485,7 +6478,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_format = null; }
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat3(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -6500,7 +6493,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool DragFloat3(ReadOnlySpan<char> label, ref Vector3 v, float v_speed, float v_min, float v_max, ReadOnlySpan<char> format, ImGuiSliderFlags flags)
+        public static bool DragFloat3(ReadOnlySpan<char> label, ref ImVec3 v, float v_speed, float v_min, float v_max, ReadOnlySpan<char> format, ImGuiSliderFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -6538,7 +6531,7 @@ namespace IntricateEngine.ImGui
                 native_format[native_format_offset] = 0;
             }
             else { native_format = null; }
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat3(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -6553,7 +6546,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool DragFloat3(string label, ref Vector3 v, float v_speed, float v_min, float v_max, string format, ImGuiSliderFlags flags)
+        public static bool DragFloat3(string label, ref ImVec3 v, float v_speed, float v_min, float v_max, string format, ImGuiSliderFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -6591,7 +6584,7 @@ namespace IntricateEngine.ImGui
                 native_format[native_format_offset] = 0;
             }
             else { native_format = null; }
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat3(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -6606,7 +6599,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool DragFloat4(ReadOnlySpan<char> label, ref Vector4 v)
+        public static bool DragFloat4(ReadOnlySpan<char> label, ref ImVec4 v)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -6644,7 +6637,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat4(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -6659,7 +6652,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool DragFloat4(string label, ref Vector4 v)
+        public static bool DragFloat4(string label, ref ImVec4 v)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -6697,7 +6690,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat4(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -6712,7 +6705,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool DragFloat4(ReadOnlySpan<char> label, ref Vector4 v, float v_speed)
+        public static bool DragFloat4(ReadOnlySpan<char> label, ref ImVec4 v, float v_speed)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -6749,7 +6742,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat4(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -6764,7 +6757,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool DragFloat4(string label, ref Vector4 v, float v_speed)
+        public static bool DragFloat4(string label, ref ImVec4 v, float v_speed)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -6801,7 +6794,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat4(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -6816,7 +6809,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool DragFloat4(ReadOnlySpan<char> label, ref Vector4 v, float v_speed, float v_min)
+        public static bool DragFloat4(ReadOnlySpan<char> label, ref ImVec4 v, float v_speed, float v_min)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -6852,7 +6845,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat4(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -6867,7 +6860,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool DragFloat4(string label, ref Vector4 v, float v_speed, float v_min)
+        public static bool DragFloat4(string label, ref ImVec4 v, float v_speed, float v_min)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -6903,7 +6896,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat4(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -6918,7 +6911,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool DragFloat4(ReadOnlySpan<char> label, ref Vector4 v, float v_speed, float v_min, float v_max)
+        public static bool DragFloat4(ReadOnlySpan<char> label, ref ImVec4 v, float v_speed, float v_min, float v_max)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -6953,7 +6946,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat4(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -6968,7 +6961,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool DragFloat4(string label, ref Vector4 v, float v_speed, float v_min, float v_max)
+        public static bool DragFloat4(string label, ref ImVec4 v, float v_speed, float v_min, float v_max)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -7003,7 +6996,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat4(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -7018,7 +7011,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool DragFloat4(ReadOnlySpan<char> label, ref Vector4 v, float v_speed, float v_min, float v_max, ReadOnlySpan<char> format)
+        public static bool DragFloat4(ReadOnlySpan<char> label, ref ImVec4 v, float v_speed, float v_min, float v_max, ReadOnlySpan<char> format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -7057,7 +7050,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_format = null; }
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat4(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -7072,7 +7065,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool DragFloat4(string label, ref Vector4 v, float v_speed, float v_min, float v_max, string format)
+        public static bool DragFloat4(string label, ref ImVec4 v, float v_speed, float v_min, float v_max, string format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -7111,7 +7104,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_format = null; }
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat4(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -7126,7 +7119,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool DragFloat4(ReadOnlySpan<char> label, ref Vector4 v, float v_speed, float v_min, float v_max, ReadOnlySpan<char> format, ImGuiSliderFlags flags)
+        public static bool DragFloat4(ReadOnlySpan<char> label, ref ImVec4 v, float v_speed, float v_min, float v_max, ReadOnlySpan<char> format, ImGuiSliderFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -7164,7 +7157,7 @@ namespace IntricateEngine.ImGui
                 native_format[native_format_offset] = 0;
             }
             else { native_format = null; }
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat4(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -7179,7 +7172,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool DragFloat4(string label, ref Vector4 v, float v_speed, float v_min, float v_max, string format, ImGuiSliderFlags flags)
+        public static bool DragFloat4(string label, ref ImVec4 v, float v_speed, float v_min, float v_max, string format, ImGuiSliderFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -7217,7 +7210,7 @@ namespace IntricateEngine.ImGui
                 native_format[native_format_offset] = 0;
             }
             else { native_format = null; }
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igDragFloat4(native_label, native_v, v_speed, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -12443,7 +12436,7 @@ namespace IntricateEngine.ImGui
             }
             return ret != 0;
         }
-        public static void Dummy(Vector2 size)
+        public static void Dummy(ImVec2 size)
         {
             ImGuiNative.igDummy(size);
         }
@@ -12520,9 +12513,9 @@ namespace IntricateEngine.ImGui
         {
             ImGuiNative.igEndTooltip();
         }
-        public static ImGuiViewportPtr FindViewportByID(uint id)
+        public static ImGuiViewportPtr FindViewportByID(uint viewport_id)
         {
-            ImGuiViewport* ret = ImGuiNative.igFindViewportByID(id);
+            ImGuiViewport* ret = ImGuiNative.igFindViewportByID(viewport_id);
             return new ImGuiViewportPtr(ret);
         }
         public static ImGuiViewportPtr FindViewportByPlatformHandle(IntPtr platform_handle)
@@ -12531,11 +12524,11 @@ namespace IntricateEngine.ImGui
             ImGuiViewport* ret = ImGuiNative.igFindViewportByPlatformHandle(native_platform_handle);
             return new ImGuiViewportPtr(ret);
         }
-        public static void GetAllocatorFunctions(ref IntPtr p_alloc_func, ref IntPtr p_free_func, ref void* p_user_data)
+        public static void GetAllocatorFunctions(ref nint p_alloc_func, ref nint p_free_func, ref void* p_user_data)
         {
-            fixed (IntPtr* native_p_alloc_func = &p_alloc_func)
+            fixed (nint* native_p_alloc_func = &p_alloc_func)
             {
-                fixed (IntPtr* native_p_free_func = &p_free_func)
+                fixed (nint* native_p_free_func = &p_free_func)
                 {
                     fixed (void** native_p_user_data = &p_user_data)
                     {
@@ -12572,7 +12565,7 @@ namespace IntricateEngine.ImGui
             uint ret = ImGuiNative.igGetColorU32_Col(idx, alpha_mul);
             return ret;
         }
-        public static uint GetColorU32(Vector4 col)
+        public static uint GetColorU32(ImVec4 col)
         {
             uint ret = ImGuiNative.igGetColorU32_Vec4(col);
             return ret;
@@ -12620,22 +12613,20 @@ namespace IntricateEngine.ImGui
             float ret = ImGuiNative.igGetColumnWidth(column_index);
             return ret;
         }
-        public static Vector2 GetContentRegionAvail()
+        public static ImVec2 GetContentRegionAvail()
         {
-            Vector2 __retval;
-            ImGuiNative.igGetContentRegionAvail(&__retval);
-            return __retval;
-        }
-        public static IntPtr GetCurrentContext()
-        {
-            IntPtr ret = ImGuiNative.igGetCurrentContext();
+            ImVec2 ret = ImGuiNative.igGetContentRegionAvail();
             return ret;
         }
-        public static Vector2 GetCursorPos()
+        public static nint GetCurrentContext()
         {
-            Vector2 __retval;
-            ImGuiNative.igGetCursorPos(&__retval);
-            return __retval;
+            nint ret = ImGuiNative.igGetCurrentContext();
+            return ret;
+        }
+        public static ImVec2 GetCursorPos()
+        {
+            ImVec2 ret = ImGuiNative.igGetCursorPos();
+            return ret;
         }
         public static float GetCursorPosX()
         {
@@ -12647,17 +12638,15 @@ namespace IntricateEngine.ImGui
             float ret = ImGuiNative.igGetCursorPosY();
             return ret;
         }
-        public static Vector2 GetCursorScreenPos()
+        public static ImVec2 GetCursorScreenPos()
         {
-            Vector2 __retval;
-            ImGuiNative.igGetCursorScreenPos(&__retval);
-            return __retval;
+            ImVec2 ret = ImGuiNative.igGetCursorScreenPos();
+            return ret;
         }
-        public static Vector2 GetCursorStartPos()
+        public static ImVec2 GetCursorStartPos()
         {
-            Vector2 __retval;
-            ImGuiNative.igGetCursorStartPos(&__retval);
-            return __retval;
+            ImVec2 ret = ImGuiNative.igGetCursorStartPos();
+            return ret;
         }
         public static ImGuiPayloadPtr GetDragDropPayload()
         {
@@ -12669,9 +12658,9 @@ namespace IntricateEngine.ImGui
             ImDrawData* ret = ImGuiNative.igGetDrawData();
             return new ImDrawDataPtr(ret);
         }
-        public static IntPtr GetDrawListSharedData()
+        public static nint GetDrawListSharedData()
         {
-            IntPtr ret = ImGuiNative.igGetDrawListSharedData();
+            nint ret = ImGuiNative.igGetDrawListSharedData();
             return ret;
         }
         public static ImFontPtr GetFont()
@@ -12679,16 +12668,20 @@ namespace IntricateEngine.ImGui
             ImFont* ret = ImGuiNative.igGetFont();
             return new ImFontPtr(ret);
         }
+        public static ImFontBakedPtr GetFontBaked()
+        {
+            ImFontBaked* ret = ImGuiNative.igGetFontBaked();
+            return new ImFontBakedPtr(ret);
+        }
         public static float GetFontSize()
         {
             float ret = ImGuiNative.igGetFontSize();
             return ret;
         }
-        public static Vector2 GetFontTexUvWhitePixel()
+        public static ImVec2 GetFontTexUvWhitePixel()
         {
-            Vector2 __retval;
-            ImGuiNative.igGetFontTexUvWhitePixel(&__retval);
-            return __retval;
+            ImVec2 ret = ImGuiNative.igGetFontTexUvWhitePixel();
+            return ret;
         }
         public static ImDrawListPtr GetForegroundDrawList()
         {
@@ -12786,7 +12779,7 @@ namespace IntricateEngine.ImGui
         }
         public static ImGuiIOPtr GetIO()
         {
-            ImGuiIO* ret = ImGuiNative.igGetIO();
+            ImGuiIO* ret = ImGuiNative.igGetIO_Nil();
             return new ImGuiIOPtr(ret);
         }
         public static uint GetItemID()
@@ -12794,23 +12787,20 @@ namespace IntricateEngine.ImGui
             uint ret = ImGuiNative.igGetItemID();
             return ret;
         }
-        public static Vector2 GetItemRectMax()
+        public static ImVec2 GetItemRectMax()
         {
-            Vector2 __retval;
-            ImGuiNative.igGetItemRectMax(&__retval);
-            return __retval;
+            ImVec2 ret = ImGuiNative.igGetItemRectMax();
+            return ret;
         }
-        public static Vector2 GetItemRectMin()
+        public static ImVec2 GetItemRectMin()
         {
-            Vector2 __retval;
-            ImGuiNative.igGetItemRectMin(&__retval);
-            return __retval;
+            ImVec2 ret = ImGuiNative.igGetItemRectMin();
+            return ret;
         }
-        public static Vector2 GetItemRectSize()
+        public static ImVec2 GetItemRectSize()
         {
-            Vector2 __retval;
-            ImGuiNative.igGetItemRectSize(&__retval);
-            return __retval;
+            ImVec2 ret = ImGuiNative.igGetItemRectSize();
+            return ret;
         }
         public static string GetKeyName(ImGuiKey key)
         {
@@ -12837,42 +12827,37 @@ namespace IntricateEngine.ImGui
             ImGuiMouseCursor ret = ImGuiNative.igGetMouseCursor();
             return ret;
         }
-        public static Vector2 GetMouseDragDelta()
+        public static ImVec2 GetMouseDragDelta()
         {
-            Vector2 __retval;
             ImGuiMouseButton button = (ImGuiMouseButton)0;
             float lock_threshold = -1.0f;
-            ImGuiNative.igGetMouseDragDelta(&__retval, button, lock_threshold);
-            return __retval;
+            ImVec2 ret = ImGuiNative.igGetMouseDragDelta(button, lock_threshold);
+            return ret;
         }
-        public static Vector2 GetMouseDragDelta(ImGuiMouseButton button)
+        public static ImVec2 GetMouseDragDelta(ImGuiMouseButton button)
         {
-            Vector2 __retval;
             float lock_threshold = -1.0f;
-            ImGuiNative.igGetMouseDragDelta(&__retval, button, lock_threshold);
-            return __retval;
+            ImVec2 ret = ImGuiNative.igGetMouseDragDelta(button, lock_threshold);
+            return ret;
         }
-        public static Vector2 GetMouseDragDelta(ImGuiMouseButton button, float lock_threshold)
+        public static ImVec2 GetMouseDragDelta(ImGuiMouseButton button, float lock_threshold)
         {
-            Vector2 __retval;
-            ImGuiNative.igGetMouseDragDelta(&__retval, button, lock_threshold);
-            return __retval;
+            ImVec2 ret = ImGuiNative.igGetMouseDragDelta(button, lock_threshold);
+            return ret;
         }
-        public static Vector2 GetMousePos()
+        public static ImVec2 GetMousePos()
         {
-            Vector2 __retval;
-            ImGuiNative.igGetMousePos(&__retval);
-            return __retval;
+            ImVec2 ret = ImGuiNative.igGetMousePos();
+            return ret;
         }
-        public static Vector2 GetMousePosOnOpeningCurrentPopup()
+        public static ImVec2 GetMousePosOnOpeningCurrentPopup()
         {
-            Vector2 __retval;
-            ImGuiNative.igGetMousePosOnOpeningCurrentPopup(&__retval);
-            return __retval;
+            ImVec2 ret = ImGuiNative.igGetMousePosOnOpeningCurrentPopup();
+            return ret;
         }
         public static ImGuiPlatformIOPtr GetPlatformIO()
         {
-            ImGuiPlatformIO* ret = ImGuiNative.igGetPlatformIO();
+            ImGuiPlatformIO* ret = ImGuiNative.igGetPlatformIO_Nil();
             return new ImGuiPlatformIOPtr(ret);
         }
         public static float GetScrollMaxX()
@@ -12910,9 +12895,9 @@ namespace IntricateEngine.ImGui
             byte* ret = ImGuiNative.igGetStyleColorName(idx);
             return Util.StringFromPtr(ret);
         }
-        public static Vector4* GetStyleColorVec4(ImGuiCol idx)
+        public static ImVec4* GetStyleColorVec4(ImGuiCol idx)
         {
-            Vector4* ret = ImGuiNative.igGetStyleColorVec4(idx);
+            ImVec4* ret = ImGuiNative.igGetStyleColorVec4(idx);
             return ret;
         }
         public static float GetTextLineHeight()
@@ -12960,17 +12945,15 @@ namespace IntricateEngine.ImGui
             float ret = ImGuiNative.igGetWindowHeight();
             return ret;
         }
-        public static Vector2 GetWindowPos()
+        public static ImVec2 GetWindowPos()
         {
-            Vector2 __retval;
-            ImGuiNative.igGetWindowPos(&__retval);
-            return __retval;
+            ImVec2 ret = ImGuiNative.igGetWindowPos();
+            return ret;
         }
-        public static Vector2 GetWindowSize()
+        public static ImVec2 GetWindowSize()
         {
-            Vector2 __retval;
-            ImGuiNative.igGetWindowSize(&__retval);
-            return __retval;
+            ImVec2 ret = ImGuiNative.igGetWindowSize();
+            return ret;
         }
         public static ImGuiViewportPtr GetWindowViewport()
         {
@@ -12982,38 +12965,23 @@ namespace IntricateEngine.ImGui
             float ret = ImGuiNative.igGetWindowWidth();
             return ret;
         }
-        public static void Image(IntPtr user_texture_id, Vector2 image_size)
+        public static void Image(ImTextureRef tex_ref, ImVec2 image_size)
         {
-            Vector2 uv0 = new Vector2();
-            Vector2 uv1 = new Vector2(1, 1);
-            Vector4 tint_col = new Vector4(1, 1, 1, 1);
-            Vector4 border_col = new Vector4();
-            ImGuiNative.igImage(user_texture_id, image_size, uv0, uv1, tint_col, border_col);
+            ImVec2 uv0 = new ImVec2();
+            ImVec2 uv1 = new ImVec2(1, 1);
+            ImGuiNative.igImage(tex_ref, image_size, uv0, uv1);
         }
-        public static void Image(IntPtr user_texture_id, Vector2 image_size, Vector2 uv0)
+        public static void Image(ImTextureRef tex_ref, ImVec2 image_size, ImVec2 uv0)
         {
-            Vector2 uv1 = new Vector2(1, 1);
-            Vector4 tint_col = new Vector4(1, 1, 1, 1);
-            Vector4 border_col = new Vector4();
-            ImGuiNative.igImage(user_texture_id, image_size, uv0, uv1, tint_col, border_col);
+            ImVec2 uv1 = new ImVec2(1, 1);
+            ImGuiNative.igImage(tex_ref, image_size, uv0, uv1);
         }
-        public static void Image(IntPtr user_texture_id, Vector2 image_size, Vector2 uv0, Vector2 uv1)
+        public static void Image(ImTextureRef tex_ref, ImVec2 image_size, ImVec2 uv0, ImVec2 uv1)
         {
-            Vector4 tint_col = new Vector4(1, 1, 1, 1);
-            Vector4 border_col = new Vector4();
-            ImGuiNative.igImage(user_texture_id, image_size, uv0, uv1, tint_col, border_col);
-        }
-        public static void Image(IntPtr user_texture_id, Vector2 image_size, Vector2 uv0, Vector2 uv1, Vector4 tint_col)
-        {
-            Vector4 border_col = new Vector4();
-            ImGuiNative.igImage(user_texture_id, image_size, uv0, uv1, tint_col, border_col);
-        }
-        public static void Image(IntPtr user_texture_id, Vector2 image_size, Vector2 uv0, Vector2 uv1, Vector4 tint_col, Vector4 border_col)
-        {
-            ImGuiNative.igImage(user_texture_id, image_size, uv0, uv1, tint_col, border_col);
+            ImGuiNative.igImage(tex_ref, image_size, uv0, uv1);
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool ImageButton(ReadOnlySpan<char> str_id, IntPtr user_texture_id, Vector2 image_size)
+        public static bool ImageButton(ReadOnlySpan<char> str_id, ImTextureRef tex_ref, ImVec2 image_size)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -13033,11 +13001,11 @@ namespace IntricateEngine.ImGui
                 native_str_id[native_str_id_offset] = 0;
             }
             else { native_str_id = null; }
-            Vector2 uv0 = new Vector2();
-            Vector2 uv1 = new Vector2(1, 1);
-            Vector4 bg_col = new Vector4();
-            Vector4 tint_col = new Vector4(1, 1, 1, 1);
-            byte ret = ImGuiNative.igImageButton(native_str_id, user_texture_id, image_size, uv0, uv1, bg_col, tint_col);
+            ImVec2 uv0 = new ImVec2();
+            ImVec2 uv1 = new ImVec2(1, 1);
+            ImVec4 bg_col = new ImVec4();
+            ImVec4 tint_col = new ImVec4(1, 1, 1, 1);
+            byte ret = ImGuiNative.igImageButton(native_str_id, tex_ref, image_size, uv0, uv1, bg_col, tint_col);
             if (str_id_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_str_id);
@@ -13045,7 +13013,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #endif
-        public static bool ImageButton(string str_id, IntPtr user_texture_id, Vector2 image_size)
+        public static bool ImageButton(string str_id, ImTextureRef tex_ref, ImVec2 image_size)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -13065,11 +13033,11 @@ namespace IntricateEngine.ImGui
                 native_str_id[native_str_id_offset] = 0;
             }
             else { native_str_id = null; }
-            Vector2 uv0 = new Vector2();
-            Vector2 uv1 = new Vector2(1, 1);
-            Vector4 bg_col = new Vector4();
-            Vector4 tint_col = new Vector4(1, 1, 1, 1);
-            byte ret = ImGuiNative.igImageButton(native_str_id, user_texture_id, image_size, uv0, uv1, bg_col, tint_col);
+            ImVec2 uv0 = new ImVec2();
+            ImVec2 uv1 = new ImVec2(1, 1);
+            ImVec4 bg_col = new ImVec4();
+            ImVec4 tint_col = new ImVec4(1, 1, 1, 1);
+            byte ret = ImGuiNative.igImageButton(native_str_id, tex_ref, image_size, uv0, uv1, bg_col, tint_col);
             if (str_id_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_str_id);
@@ -13077,7 +13045,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool ImageButton(ReadOnlySpan<char> str_id, IntPtr user_texture_id, Vector2 image_size, Vector2 uv0)
+        public static bool ImageButton(ReadOnlySpan<char> str_id, ImTextureRef tex_ref, ImVec2 image_size, ImVec2 uv0)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -13097,10 +13065,10 @@ namespace IntricateEngine.ImGui
                 native_str_id[native_str_id_offset] = 0;
             }
             else { native_str_id = null; }
-            Vector2 uv1 = new Vector2(1, 1);
-            Vector4 bg_col = new Vector4();
-            Vector4 tint_col = new Vector4(1, 1, 1, 1);
-            byte ret = ImGuiNative.igImageButton(native_str_id, user_texture_id, image_size, uv0, uv1, bg_col, tint_col);
+            ImVec2 uv1 = new ImVec2(1, 1);
+            ImVec4 bg_col = new ImVec4();
+            ImVec4 tint_col = new ImVec4(1, 1, 1, 1);
+            byte ret = ImGuiNative.igImageButton(native_str_id, tex_ref, image_size, uv0, uv1, bg_col, tint_col);
             if (str_id_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_str_id);
@@ -13108,7 +13076,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #endif
-        public static bool ImageButton(string str_id, IntPtr user_texture_id, Vector2 image_size, Vector2 uv0)
+        public static bool ImageButton(string str_id, ImTextureRef tex_ref, ImVec2 image_size, ImVec2 uv0)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -13128,10 +13096,10 @@ namespace IntricateEngine.ImGui
                 native_str_id[native_str_id_offset] = 0;
             }
             else { native_str_id = null; }
-            Vector2 uv1 = new Vector2(1, 1);
-            Vector4 bg_col = new Vector4();
-            Vector4 tint_col = new Vector4(1, 1, 1, 1);
-            byte ret = ImGuiNative.igImageButton(native_str_id, user_texture_id, image_size, uv0, uv1, bg_col, tint_col);
+            ImVec2 uv1 = new ImVec2(1, 1);
+            ImVec4 bg_col = new ImVec4();
+            ImVec4 tint_col = new ImVec4(1, 1, 1, 1);
+            byte ret = ImGuiNative.igImageButton(native_str_id, tex_ref, image_size, uv0, uv1, bg_col, tint_col);
             if (str_id_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_str_id);
@@ -13139,7 +13107,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool ImageButton(ReadOnlySpan<char> str_id, IntPtr user_texture_id, Vector2 image_size, Vector2 uv0, Vector2 uv1)
+        public static bool ImageButton(ReadOnlySpan<char> str_id, ImTextureRef tex_ref, ImVec2 image_size, ImVec2 uv0, ImVec2 uv1)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -13159,9 +13127,9 @@ namespace IntricateEngine.ImGui
                 native_str_id[native_str_id_offset] = 0;
             }
             else { native_str_id = null; }
-            Vector4 bg_col = new Vector4();
-            Vector4 tint_col = new Vector4(1, 1, 1, 1);
-            byte ret = ImGuiNative.igImageButton(native_str_id, user_texture_id, image_size, uv0, uv1, bg_col, tint_col);
+            ImVec4 bg_col = new ImVec4();
+            ImVec4 tint_col = new ImVec4(1, 1, 1, 1);
+            byte ret = ImGuiNative.igImageButton(native_str_id, tex_ref, image_size, uv0, uv1, bg_col, tint_col);
             if (str_id_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_str_id);
@@ -13169,7 +13137,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #endif
-        public static bool ImageButton(string str_id, IntPtr user_texture_id, Vector2 image_size, Vector2 uv0, Vector2 uv1)
+        public static bool ImageButton(string str_id, ImTextureRef tex_ref, ImVec2 image_size, ImVec2 uv0, ImVec2 uv1)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -13189,9 +13157,9 @@ namespace IntricateEngine.ImGui
                 native_str_id[native_str_id_offset] = 0;
             }
             else { native_str_id = null; }
-            Vector4 bg_col = new Vector4();
-            Vector4 tint_col = new Vector4(1, 1, 1, 1);
-            byte ret = ImGuiNative.igImageButton(native_str_id, user_texture_id, image_size, uv0, uv1, bg_col, tint_col);
+            ImVec4 bg_col = new ImVec4();
+            ImVec4 tint_col = new ImVec4(1, 1, 1, 1);
+            byte ret = ImGuiNative.igImageButton(native_str_id, tex_ref, image_size, uv0, uv1, bg_col, tint_col);
             if (str_id_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_str_id);
@@ -13199,7 +13167,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool ImageButton(ReadOnlySpan<char> str_id, IntPtr user_texture_id, Vector2 image_size, Vector2 uv0, Vector2 uv1, Vector4 bg_col)
+        public static bool ImageButton(ReadOnlySpan<char> str_id, ImTextureRef tex_ref, ImVec2 image_size, ImVec2 uv0, ImVec2 uv1, ImVec4 bg_col)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -13219,8 +13187,8 @@ namespace IntricateEngine.ImGui
                 native_str_id[native_str_id_offset] = 0;
             }
             else { native_str_id = null; }
-            Vector4 tint_col = new Vector4(1, 1, 1, 1);
-            byte ret = ImGuiNative.igImageButton(native_str_id, user_texture_id, image_size, uv0, uv1, bg_col, tint_col);
+            ImVec4 tint_col = new ImVec4(1, 1, 1, 1);
+            byte ret = ImGuiNative.igImageButton(native_str_id, tex_ref, image_size, uv0, uv1, bg_col, tint_col);
             if (str_id_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_str_id);
@@ -13228,7 +13196,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #endif
-        public static bool ImageButton(string str_id, IntPtr user_texture_id, Vector2 image_size, Vector2 uv0, Vector2 uv1, Vector4 bg_col)
+        public static bool ImageButton(string str_id, ImTextureRef tex_ref, ImVec2 image_size, ImVec2 uv0, ImVec2 uv1, ImVec4 bg_col)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -13248,8 +13216,8 @@ namespace IntricateEngine.ImGui
                 native_str_id[native_str_id_offset] = 0;
             }
             else { native_str_id = null; }
-            Vector4 tint_col = new Vector4(1, 1, 1, 1);
-            byte ret = ImGuiNative.igImageButton(native_str_id, user_texture_id, image_size, uv0, uv1, bg_col, tint_col);
+            ImVec4 tint_col = new ImVec4(1, 1, 1, 1);
+            byte ret = ImGuiNative.igImageButton(native_str_id, tex_ref, image_size, uv0, uv1, bg_col, tint_col);
             if (str_id_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_str_id);
@@ -13257,7 +13225,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool ImageButton(ReadOnlySpan<char> str_id, IntPtr user_texture_id, Vector2 image_size, Vector2 uv0, Vector2 uv1, Vector4 bg_col, Vector4 tint_col)
+        public static bool ImageButton(ReadOnlySpan<char> str_id, ImTextureRef tex_ref, ImVec2 image_size, ImVec2 uv0, ImVec2 uv1, ImVec4 bg_col, ImVec4 tint_col)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -13277,7 +13245,7 @@ namespace IntricateEngine.ImGui
                 native_str_id[native_str_id_offset] = 0;
             }
             else { native_str_id = null; }
-            byte ret = ImGuiNative.igImageButton(native_str_id, user_texture_id, image_size, uv0, uv1, bg_col, tint_col);
+            byte ret = ImGuiNative.igImageButton(native_str_id, tex_ref, image_size, uv0, uv1, bg_col, tint_col);
             if (str_id_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_str_id);
@@ -13285,7 +13253,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #endif
-        public static bool ImageButton(string str_id, IntPtr user_texture_id, Vector2 image_size, Vector2 uv0, Vector2 uv1, Vector4 bg_col, Vector4 tint_col)
+        public static bool ImageButton(string str_id, ImTextureRef tex_ref, ImVec2 image_size, ImVec2 uv0, ImVec2 uv1, ImVec4 bg_col, ImVec4 tint_col)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -13305,12 +13273,42 @@ namespace IntricateEngine.ImGui
                 native_str_id[native_str_id_offset] = 0;
             }
             else { native_str_id = null; }
-            byte ret = ImGuiNative.igImageButton(native_str_id, user_texture_id, image_size, uv0, uv1, bg_col, tint_col);
+            byte ret = ImGuiNative.igImageButton(native_str_id, tex_ref, image_size, uv0, uv1, bg_col, tint_col);
             if (str_id_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_str_id);
             }
             return ret != 0;
+        }
+        public static void ImageWithBg(ImTextureRef tex_ref, ImVec2 image_size)
+        {
+            ImVec2 uv0 = new ImVec2();
+            ImVec2 uv1 = new ImVec2(1, 1);
+            ImVec4 bg_col = new ImVec4();
+            ImVec4 tint_col = new ImVec4(1, 1, 1, 1);
+            ImGuiNative.igImageWithBg(tex_ref, image_size, uv0, uv1, bg_col, tint_col);
+        }
+        public static void ImageWithBg(ImTextureRef tex_ref, ImVec2 image_size, ImVec2 uv0)
+        {
+            ImVec2 uv1 = new ImVec2(1, 1);
+            ImVec4 bg_col = new ImVec4();
+            ImVec4 tint_col = new ImVec4(1, 1, 1, 1);
+            ImGuiNative.igImageWithBg(tex_ref, image_size, uv0, uv1, bg_col, tint_col);
+        }
+        public static void ImageWithBg(ImTextureRef tex_ref, ImVec2 image_size, ImVec2 uv0, ImVec2 uv1)
+        {
+            ImVec4 bg_col = new ImVec4();
+            ImVec4 tint_col = new ImVec4(1, 1, 1, 1);
+            ImGuiNative.igImageWithBg(tex_ref, image_size, uv0, uv1, bg_col, tint_col);
+        }
+        public static void ImageWithBg(ImTextureRef tex_ref, ImVec2 image_size, ImVec2 uv0, ImVec2 uv1, ImVec4 bg_col)
+        {
+            ImVec4 tint_col = new ImVec4(1, 1, 1, 1);
+            ImGuiNative.igImageWithBg(tex_ref, image_size, uv0, uv1, bg_col, tint_col);
+        }
+        public static void ImageWithBg(ImTextureRef tex_ref, ImVec2 image_size, ImVec2 uv0, ImVec2 uv1, ImVec4 bg_col, ImVec4 tint_col)
+        {
+            ImGuiNative.igImageWithBg(tex_ref, image_size, uv0, uv1, bg_col, tint_col);
         }
         public static void Indent()
         {
@@ -14362,7 +14360,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool InputFloat2(ReadOnlySpan<char> label, ref Vector2 v)
+        public static bool InputFloat2(ReadOnlySpan<char> label, ref ImVec2 v)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -14397,7 +14395,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiInputTextFlags flags = (ImGuiInputTextFlags)0;
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igInputFloat2(native_label, native_v, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -14412,7 +14410,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool InputFloat2(string label, ref Vector2 v)
+        public static bool InputFloat2(string label, ref ImVec2 v)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -14447,7 +14445,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiInputTextFlags flags = (ImGuiInputTextFlags)0;
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igInputFloat2(native_label, native_v, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -14462,7 +14460,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool InputFloat2(ReadOnlySpan<char> label, ref Vector2 v, ReadOnlySpan<char> format)
+        public static bool InputFloat2(ReadOnlySpan<char> label, ref ImVec2 v, ReadOnlySpan<char> format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -14501,7 +14499,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_format = null; }
             ImGuiInputTextFlags flags = (ImGuiInputTextFlags)0;
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igInputFloat2(native_label, native_v, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -14516,7 +14514,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool InputFloat2(string label, ref Vector2 v, string format)
+        public static bool InputFloat2(string label, ref ImVec2 v, string format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -14555,7 +14553,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_format = null; }
             ImGuiInputTextFlags flags = (ImGuiInputTextFlags)0;
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igInputFloat2(native_label, native_v, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -14570,7 +14568,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool InputFloat2(ReadOnlySpan<char> label, ref Vector2 v, ReadOnlySpan<char> format, ImGuiInputTextFlags flags)
+        public static bool InputFloat2(ReadOnlySpan<char> label, ref ImVec2 v, ReadOnlySpan<char> format, ImGuiInputTextFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -14608,7 +14606,7 @@ namespace IntricateEngine.ImGui
                 native_format[native_format_offset] = 0;
             }
             else { native_format = null; }
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igInputFloat2(native_label, native_v, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -14623,7 +14621,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool InputFloat2(string label, ref Vector2 v, string format, ImGuiInputTextFlags flags)
+        public static bool InputFloat2(string label, ref ImVec2 v, string format, ImGuiInputTextFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -14661,7 +14659,7 @@ namespace IntricateEngine.ImGui
                 native_format[native_format_offset] = 0;
             }
             else { native_format = null; }
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igInputFloat2(native_label, native_v, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -14676,7 +14674,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool InputFloat3(ReadOnlySpan<char> label, ref Vector3 v)
+        public static bool InputFloat3(ReadOnlySpan<char> label, ref ImVec3 v)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -14711,7 +14709,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiInputTextFlags flags = (ImGuiInputTextFlags)0;
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igInputFloat3(native_label, native_v, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -14726,7 +14724,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool InputFloat3(string label, ref Vector3 v)
+        public static bool InputFloat3(string label, ref ImVec3 v)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -14761,7 +14759,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiInputTextFlags flags = (ImGuiInputTextFlags)0;
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igInputFloat3(native_label, native_v, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -14776,7 +14774,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool InputFloat3(ReadOnlySpan<char> label, ref Vector3 v, ReadOnlySpan<char> format)
+        public static bool InputFloat3(ReadOnlySpan<char> label, ref ImVec3 v, ReadOnlySpan<char> format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -14815,7 +14813,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_format = null; }
             ImGuiInputTextFlags flags = (ImGuiInputTextFlags)0;
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igInputFloat3(native_label, native_v, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -14830,7 +14828,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool InputFloat3(string label, ref Vector3 v, string format)
+        public static bool InputFloat3(string label, ref ImVec3 v, string format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -14869,7 +14867,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_format = null; }
             ImGuiInputTextFlags flags = (ImGuiInputTextFlags)0;
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igInputFloat3(native_label, native_v, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -14884,7 +14882,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool InputFloat3(ReadOnlySpan<char> label, ref Vector3 v, ReadOnlySpan<char> format, ImGuiInputTextFlags flags)
+        public static bool InputFloat3(ReadOnlySpan<char> label, ref ImVec3 v, ReadOnlySpan<char> format, ImGuiInputTextFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -14922,7 +14920,7 @@ namespace IntricateEngine.ImGui
                 native_format[native_format_offset] = 0;
             }
             else { native_format = null; }
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igInputFloat3(native_label, native_v, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -14937,7 +14935,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool InputFloat3(string label, ref Vector3 v, string format, ImGuiInputTextFlags flags)
+        public static bool InputFloat3(string label, ref ImVec3 v, string format, ImGuiInputTextFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -14975,7 +14973,7 @@ namespace IntricateEngine.ImGui
                 native_format[native_format_offset] = 0;
             }
             else { native_format = null; }
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igInputFloat3(native_label, native_v, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -14990,7 +14988,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool InputFloat4(ReadOnlySpan<char> label, ref Vector4 v)
+        public static bool InputFloat4(ReadOnlySpan<char> label, ref ImVec4 v)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -15025,7 +15023,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiInputTextFlags flags = (ImGuiInputTextFlags)0;
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igInputFloat4(native_label, native_v, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -15040,7 +15038,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool InputFloat4(string label, ref Vector4 v)
+        public static bool InputFloat4(string label, ref ImVec4 v)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -15075,7 +15073,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiInputTextFlags flags = (ImGuiInputTextFlags)0;
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igInputFloat4(native_label, native_v, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -15090,7 +15088,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool InputFloat4(ReadOnlySpan<char> label, ref Vector4 v, ReadOnlySpan<char> format)
+        public static bool InputFloat4(ReadOnlySpan<char> label, ref ImVec4 v, ReadOnlySpan<char> format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -15129,7 +15127,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_format = null; }
             ImGuiInputTextFlags flags = (ImGuiInputTextFlags)0;
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igInputFloat4(native_label, native_v, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -15144,7 +15142,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool InputFloat4(string label, ref Vector4 v, string format)
+        public static bool InputFloat4(string label, ref ImVec4 v, string format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -15183,7 +15181,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_format = null; }
             ImGuiInputTextFlags flags = (ImGuiInputTextFlags)0;
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igInputFloat4(native_label, native_v, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -15198,7 +15196,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool InputFloat4(ReadOnlySpan<char> label, ref Vector4 v, ReadOnlySpan<char> format, ImGuiInputTextFlags flags)
+        public static bool InputFloat4(ReadOnlySpan<char> label, ref ImVec4 v, ReadOnlySpan<char> format, ImGuiInputTextFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -15236,7 +15234,7 @@ namespace IntricateEngine.ImGui
                 native_format[native_format_offset] = 0;
             }
             else { native_format = null; }
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igInputFloat4(native_label, native_v, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -15251,7 +15249,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool InputFloat4(string label, ref Vector4 v, string format, ImGuiInputTextFlags flags)
+        public static bool InputFloat4(string label, ref ImVec4 v, string format, ImGuiInputTextFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -15289,7 +15287,7 @@ namespace IntricateEngine.ImGui
                 native_format[native_format_offset] = 0;
             }
             else { native_format = null; }
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igInputFloat4(native_label, native_v, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -16766,7 +16764,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool InvisibleButton(ReadOnlySpan<char> str_id, Vector2 size)
+        public static bool InvisibleButton(ReadOnlySpan<char> str_id, ImVec2 size)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -16795,7 +16793,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #endif
-        public static bool InvisibleButton(string str_id, Vector2 size)
+        public static bool InvisibleButton(string str_id, ImVec2 size)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -16824,7 +16822,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool InvisibleButton(ReadOnlySpan<char> str_id, Vector2 size, ImGuiButtonFlags flags)
+        public static bool InvisibleButton(ReadOnlySpan<char> str_id, ImVec2 size, ImGuiButtonFlags flags)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -16852,7 +16850,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #endif
-        public static bool InvisibleButton(string str_id, Vector2 size, ImGuiButtonFlags flags)
+        public static bool InvisibleButton(string str_id, ImVec2 size, ImGuiButtonFlags flags)
         {
             byte* native_str_id;
             int str_id_byteCount = 0;
@@ -17026,13 +17024,13 @@ namespace IntricateEngine.ImGui
             byte ret = ImGuiNative.igIsMouseDragging(button, lock_threshold);
             return ret != 0;
         }
-        public static bool IsMouseHoveringRect(Vector2 r_min, Vector2 r_max)
+        public static bool IsMouseHoveringRect(ImVec2 r_min, ImVec2 r_max)
         {
             byte clip = 1;
             byte ret = ImGuiNative.igIsMouseHoveringRect(r_min, r_max, clip);
             return ret != 0;
         }
-        public static bool IsMouseHoveringRect(Vector2 r_min, Vector2 r_max, bool clip)
+        public static bool IsMouseHoveringRect(ImVec2 r_min, ImVec2 r_max, bool clip)
         {
             byte native_clip = clip ? (byte)1 : (byte)0;
             byte ret = ImGuiNative.igIsMouseHoveringRect(r_min, r_max, native_clip);
@@ -17040,13 +17038,13 @@ namespace IntricateEngine.ImGui
         }
         public static bool IsMousePosValid()
         {
-            Vector2* mouse_pos = null;
+            ImVec2* mouse_pos = null;
             byte ret = ImGuiNative.igIsMousePosValid(mouse_pos);
             return ret != 0;
         }
-        public static bool IsMousePosValid(ref Vector2 mouse_pos)
+        public static bool IsMousePosValid(ref ImVec2 mouse_pos)
         {
-            fixed (Vector2* native_mouse_pos = &mouse_pos)
+            fixed (ImVec2* native_mouse_pos = &mouse_pos)
             {
                 byte ret = ImGuiNative.igIsMousePosValid(native_mouse_pos);
                 return ret != 0;
@@ -17055,6 +17053,11 @@ namespace IntricateEngine.ImGui
         public static bool IsMouseReleased(ImGuiMouseButton button)
         {
             byte ret = ImGuiNative.igIsMouseReleased_Nil(button);
+            return ret != 0;
+        }
+        public static bool IsMouseReleasedWithDelay(ImGuiMouseButton button, float delay)
+        {
+            byte ret = ImGuiNative.igIsMouseReleasedWithDelay(button, delay);
             return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
@@ -17171,12 +17174,12 @@ namespace IntricateEngine.ImGui
             }
             return ret != 0;
         }
-        public static bool IsRectVisible(Vector2 size)
+        public static bool IsRectVisible(ImVec2 size)
         {
             byte ret = ImGuiNative.igIsRectVisible_Nil(size);
             return ret != 0;
         }
-        public static bool IsRectVisible(Vector2 rect_min, Vector2 rect_max)
+        public static bool IsRectVisible(ImVec2 rect_min, ImVec2 rect_max)
         {
             byte ret = ImGuiNative.igIsRectVisible_Vec2(rect_min, rect_max);
             return ret != 0;
@@ -18715,7 +18718,7 @@ namespace IntricateEngine.ImGui
             byte* native_overlay_text = null;
             float scale_min = float.MaxValue;
             float scale_max = float.MaxValue;
-            Vector2 graph_size = new Vector2();
+            ImVec2 graph_size = new ImVec2();
             int stride = sizeof(float);
             fixed (float* native_values = &values)
             {
@@ -18751,7 +18754,7 @@ namespace IntricateEngine.ImGui
             byte* native_overlay_text = null;
             float scale_min = float.MaxValue;
             float scale_max = float.MaxValue;
-            Vector2 graph_size = new Vector2();
+            ImVec2 graph_size = new ImVec2();
             int stride = sizeof(float);
             fixed (float* native_values = &values)
             {
@@ -18786,7 +18789,7 @@ namespace IntricateEngine.ImGui
             byte* native_overlay_text = null;
             float scale_min = float.MaxValue;
             float scale_max = float.MaxValue;
-            Vector2 graph_size = new Vector2();
+            ImVec2 graph_size = new ImVec2();
             int stride = sizeof(float);
             fixed (float* native_values = &values)
             {
@@ -18821,7 +18824,7 @@ namespace IntricateEngine.ImGui
             byte* native_overlay_text = null;
             float scale_min = float.MaxValue;
             float scale_max = float.MaxValue;
-            Vector2 graph_size = new Vector2();
+            ImVec2 graph_size = new ImVec2();
             int stride = sizeof(float);
             fixed (float* native_values = &values)
             {
@@ -18873,7 +18876,7 @@ namespace IntricateEngine.ImGui
             else { native_overlay_text = null; }
             float scale_min = float.MaxValue;
             float scale_max = float.MaxValue;
-            Vector2 graph_size = new Vector2();
+            ImVec2 graph_size = new ImVec2();
             int stride = sizeof(float);
             fixed (float* native_values = &values)
             {
@@ -18929,7 +18932,7 @@ namespace IntricateEngine.ImGui
             else { native_overlay_text = null; }
             float scale_min = float.MaxValue;
             float scale_max = float.MaxValue;
-            Vector2 graph_size = new Vector2();
+            ImVec2 graph_size = new ImVec2();
             int stride = sizeof(float);
             fixed (float* native_values = &values)
             {
@@ -18984,7 +18987,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_overlay_text = null; }
             float scale_max = float.MaxValue;
-            Vector2 graph_size = new Vector2();
+            ImVec2 graph_size = new ImVec2();
             int stride = sizeof(float);
             fixed (float* native_values = &values)
             {
@@ -19039,7 +19042,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_overlay_text = null; }
             float scale_max = float.MaxValue;
-            Vector2 graph_size = new Vector2();
+            ImVec2 graph_size = new ImVec2();
             int stride = sizeof(float);
             fixed (float* native_values = &values)
             {
@@ -19093,7 +19096,7 @@ namespace IntricateEngine.ImGui
                 native_overlay_text[native_overlay_text_offset] = 0;
             }
             else { native_overlay_text = null; }
-            Vector2 graph_size = new Vector2();
+            ImVec2 graph_size = new ImVec2();
             int stride = sizeof(float);
             fixed (float* native_values = &values)
             {
@@ -19147,7 +19150,7 @@ namespace IntricateEngine.ImGui
                 native_overlay_text[native_overlay_text_offset] = 0;
             }
             else { native_overlay_text = null; }
-            Vector2 graph_size = new Vector2();
+            ImVec2 graph_size = new ImVec2();
             int stride = sizeof(float);
             fixed (float* native_values = &values)
             {
@@ -19163,7 +19166,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static void PlotHistogram(ReadOnlySpan<char> label, ref float values, int values_count, int values_offset, ReadOnlySpan<char> overlay_text, float scale_min, float scale_max, Vector2 graph_size)
+        public static void PlotHistogram(ReadOnlySpan<char> label, ref float values, int values_count, int values_offset, ReadOnlySpan<char> overlay_text, float scale_min, float scale_max, ImVec2 graph_size)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -19216,7 +19219,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static void PlotHistogram(string label, ref float values, int values_count, int values_offset, string overlay_text, float scale_min, float scale_max, Vector2 graph_size)
+        public static void PlotHistogram(string label, ref float values, int values_count, int values_offset, string overlay_text, float scale_min, float scale_max, ImVec2 graph_size)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -19269,7 +19272,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static void PlotHistogram(ReadOnlySpan<char> label, ref float values, int values_count, int values_offset, ReadOnlySpan<char> overlay_text, float scale_min, float scale_max, Vector2 graph_size, int stride)
+        public static void PlotHistogram(ReadOnlySpan<char> label, ref float values, int values_count, int values_offset, ReadOnlySpan<char> overlay_text, float scale_min, float scale_max, ImVec2 graph_size, int stride)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -19321,7 +19324,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static void PlotHistogram(string label, ref float values, int values_count, int values_offset, string overlay_text, float scale_min, float scale_max, Vector2 graph_size, int stride)
+        public static void PlotHistogram(string label, ref float values, int values_count, int values_offset, string overlay_text, float scale_min, float scale_max, ImVec2 graph_size, int stride)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -19397,7 +19400,7 @@ namespace IntricateEngine.ImGui
             byte* native_overlay_text = null;
             float scale_min = float.MaxValue;
             float scale_max = float.MaxValue;
-            Vector2 graph_size = new Vector2();
+            ImVec2 graph_size = new ImVec2();
             int stride = sizeof(float);
             fixed (float* native_values = &values)
             {
@@ -19433,7 +19436,7 @@ namespace IntricateEngine.ImGui
             byte* native_overlay_text = null;
             float scale_min = float.MaxValue;
             float scale_max = float.MaxValue;
-            Vector2 graph_size = new Vector2();
+            ImVec2 graph_size = new ImVec2();
             int stride = sizeof(float);
             fixed (float* native_values = &values)
             {
@@ -19468,7 +19471,7 @@ namespace IntricateEngine.ImGui
             byte* native_overlay_text = null;
             float scale_min = float.MaxValue;
             float scale_max = float.MaxValue;
-            Vector2 graph_size = new Vector2();
+            ImVec2 graph_size = new ImVec2();
             int stride = sizeof(float);
             fixed (float* native_values = &values)
             {
@@ -19503,7 +19506,7 @@ namespace IntricateEngine.ImGui
             byte* native_overlay_text = null;
             float scale_min = float.MaxValue;
             float scale_max = float.MaxValue;
-            Vector2 graph_size = new Vector2();
+            ImVec2 graph_size = new ImVec2();
             int stride = sizeof(float);
             fixed (float* native_values = &values)
             {
@@ -19555,7 +19558,7 @@ namespace IntricateEngine.ImGui
             else { native_overlay_text = null; }
             float scale_min = float.MaxValue;
             float scale_max = float.MaxValue;
-            Vector2 graph_size = new Vector2();
+            ImVec2 graph_size = new ImVec2();
             int stride = sizeof(float);
             fixed (float* native_values = &values)
             {
@@ -19611,7 +19614,7 @@ namespace IntricateEngine.ImGui
             else { native_overlay_text = null; }
             float scale_min = float.MaxValue;
             float scale_max = float.MaxValue;
-            Vector2 graph_size = new Vector2();
+            ImVec2 graph_size = new ImVec2();
             int stride = sizeof(float);
             fixed (float* native_values = &values)
             {
@@ -19666,7 +19669,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_overlay_text = null; }
             float scale_max = float.MaxValue;
-            Vector2 graph_size = new Vector2();
+            ImVec2 graph_size = new ImVec2();
             int stride = sizeof(float);
             fixed (float* native_values = &values)
             {
@@ -19721,7 +19724,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_overlay_text = null; }
             float scale_max = float.MaxValue;
-            Vector2 graph_size = new Vector2();
+            ImVec2 graph_size = new ImVec2();
             int stride = sizeof(float);
             fixed (float* native_values = &values)
             {
@@ -19775,7 +19778,7 @@ namespace IntricateEngine.ImGui
                 native_overlay_text[native_overlay_text_offset] = 0;
             }
             else { native_overlay_text = null; }
-            Vector2 graph_size = new Vector2();
+            ImVec2 graph_size = new ImVec2();
             int stride = sizeof(float);
             fixed (float* native_values = &values)
             {
@@ -19829,7 +19832,7 @@ namespace IntricateEngine.ImGui
                 native_overlay_text[native_overlay_text_offset] = 0;
             }
             else { native_overlay_text = null; }
-            Vector2 graph_size = new Vector2();
+            ImVec2 graph_size = new ImVec2();
             int stride = sizeof(float);
             fixed (float* native_values = &values)
             {
@@ -19845,7 +19848,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static void PlotLines(ReadOnlySpan<char> label, ref float values, int values_count, int values_offset, ReadOnlySpan<char> overlay_text, float scale_min, float scale_max, Vector2 graph_size)
+        public static void PlotLines(ReadOnlySpan<char> label, ref float values, int values_count, int values_offset, ReadOnlySpan<char> overlay_text, float scale_min, float scale_max, ImVec2 graph_size)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -19898,7 +19901,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static void PlotLines(string label, ref float values, int values_count, int values_offset, string overlay_text, float scale_min, float scale_max, Vector2 graph_size)
+        public static void PlotLines(string label, ref float values, int values_count, int values_offset, string overlay_text, float scale_min, float scale_max, ImVec2 graph_size)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -19951,7 +19954,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static void PlotLines(ReadOnlySpan<char> label, ref float values, int values_count, int values_offset, ReadOnlySpan<char> overlay_text, float scale_min, float scale_max, Vector2 graph_size, int stride)
+        public static void PlotLines(ReadOnlySpan<char> label, ref float values, int values_count, int values_offset, ReadOnlySpan<char> overlay_text, float scale_min, float scale_max, ImVec2 graph_size, int stride)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -20003,7 +20006,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static void PlotLines(string label, ref float values, int values_count, int values_offset, string overlay_text, float scale_min, float scale_max, Vector2 graph_size, int stride)
+        public static void PlotLines(string label, ref float values, int values_count, int values_offset, string overlay_text, float scale_min, float scale_max, ImVec2 graph_size, int stride)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -20098,17 +20101,17 @@ namespace IntricateEngine.ImGui
         }
         public static void ProgressBar(float fraction)
         {
-            Vector2 size_arg = new Vector2(-float.MinValue, 0.0f);
+            ImVec2 size_arg = new ImVec2(-float.MinValue, 0.0f);
             byte* native_overlay = null;
             ImGuiNative.igProgressBar(fraction, size_arg, native_overlay);
         }
-        public static void ProgressBar(float fraction, Vector2 size_arg)
+        public static void ProgressBar(float fraction, ImVec2 size_arg)
         {
             byte* native_overlay = null;
             ImGuiNative.igProgressBar(fraction, size_arg, native_overlay);
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static void ProgressBar(float fraction, Vector2 size_arg, ReadOnlySpan<char> overlay)
+        public static void ProgressBar(float fraction, ImVec2 size_arg, ReadOnlySpan<char> overlay)
         {
             byte* native_overlay;
             int overlay_byteCount = 0;
@@ -20135,7 +20138,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static void ProgressBar(float fraction, Vector2 size_arg, string overlay)
+        public static void ProgressBar(float fraction, ImVec2 size_arg, string overlay)
         {
             byte* native_overlay;
             int overlay_byteCount = 0;
@@ -20161,15 +20164,15 @@ namespace IntricateEngine.ImGui
                 Util.Free(native_overlay);
             }
         }
-        public static void PushClipRect(Vector2 clip_rect_min, Vector2 clip_rect_max, bool intersect_with_current_clip_rect)
+        public static void PushClipRect(ImVec2 clip_rect_min, ImVec2 clip_rect_max, bool intersect_with_current_clip_rect)
         {
             byte native_intersect_with_current_clip_rect = intersect_with_current_clip_rect ? (byte)1 : (byte)0;
             ImGuiNative.igPushClipRect(clip_rect_min, clip_rect_max, native_intersect_with_current_clip_rect);
         }
-        public static void PushFont(ImFontPtr font)
+        public static void PushFont(ImFontPtr font, float font_size_base_unscaled)
         {
             ImFont* native_font = font.NativePtr;
-            ImGuiNative.igPushFont(native_font);
+            ImGuiNative.igPushFont(native_font, font_size_base_unscaled);
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
         public static void PushID(ReadOnlySpan<char> str_id)
@@ -20247,7 +20250,7 @@ namespace IntricateEngine.ImGui
         {
             ImGuiNative.igPushStyleColor_U32(idx, col);
         }
-        public static void PushStyleColor(ImGuiCol idx, Vector4 col)
+        public static void PushStyleColor(ImGuiCol idx, ImVec4 col)
         {
             ImGuiNative.igPushStyleColor_Vec4(idx, col);
         }
@@ -20255,7 +20258,7 @@ namespace IntricateEngine.ImGui
         {
             ImGuiNative.igPushStyleVar_Float(idx, val);
         }
-        public static void PushStyleVar(ImGuiStyleVar idx, Vector2 val)
+        public static void PushStyleVar(ImGuiStyleVar idx, ImVec2 val)
         {
             ImGuiNative.igPushStyleVar_Vec2(idx, val);
         }
@@ -20533,7 +20536,7 @@ namespace IntricateEngine.ImGui
             else { native_label = null; }
             byte selected = 0;
             ImGuiSelectableFlags flags = (ImGuiSelectableFlags)0;
-            Vector2 size = new Vector2();
+            ImVec2 size = new ImVec2();
             byte ret = ImGuiNative.igSelectable_Bool(native_label, selected, flags, size);
             if (label_byteCount > Util.StackAllocationSizeLimit)
             {
@@ -20564,7 +20567,7 @@ namespace IntricateEngine.ImGui
             else { native_label = null; }
             byte selected = 0;
             ImGuiSelectableFlags flags = (ImGuiSelectableFlags)0;
-            Vector2 size = new Vector2();
+            ImVec2 size = new ImVec2();
             byte ret = ImGuiNative.igSelectable_Bool(native_label, selected, flags, size);
             if (label_byteCount > Util.StackAllocationSizeLimit)
             {
@@ -20595,7 +20598,7 @@ namespace IntricateEngine.ImGui
             else { native_label = null; }
             byte native_selected = selected ? (byte)1 : (byte)0;
             ImGuiSelectableFlags flags = (ImGuiSelectableFlags)0;
-            Vector2 size = new Vector2();
+            ImVec2 size = new ImVec2();
             byte ret = ImGuiNative.igSelectable_Bool(native_label, native_selected, flags, size);
             if (label_byteCount > Util.StackAllocationSizeLimit)
             {
@@ -20626,7 +20629,7 @@ namespace IntricateEngine.ImGui
             else { native_label = null; }
             byte native_selected = selected ? (byte)1 : (byte)0;
             ImGuiSelectableFlags flags = (ImGuiSelectableFlags)0;
-            Vector2 size = new Vector2();
+            ImVec2 size = new ImVec2();
             byte ret = ImGuiNative.igSelectable_Bool(native_label, native_selected, flags, size);
             if (label_byteCount > Util.StackAllocationSizeLimit)
             {
@@ -20656,7 +20659,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_label = null; }
             byte native_selected = selected ? (byte)1 : (byte)0;
-            Vector2 size = new Vector2();
+            ImVec2 size = new ImVec2();
             byte ret = ImGuiNative.igSelectable_Bool(native_label, native_selected, flags, size);
             if (label_byteCount > Util.StackAllocationSizeLimit)
             {
@@ -20686,7 +20689,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_label = null; }
             byte native_selected = selected ? (byte)1 : (byte)0;
-            Vector2 size = new Vector2();
+            ImVec2 size = new ImVec2();
             byte ret = ImGuiNative.igSelectable_Bool(native_label, native_selected, flags, size);
             if (label_byteCount > Util.StackAllocationSizeLimit)
             {
@@ -20695,7 +20698,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool Selectable(ReadOnlySpan<char> label, bool selected, ImGuiSelectableFlags flags, Vector2 size)
+        public static bool Selectable(ReadOnlySpan<char> label, bool selected, ImGuiSelectableFlags flags, ImVec2 size)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -20724,7 +20727,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #endif
-        public static bool Selectable(string label, bool selected, ImGuiSelectableFlags flags, Vector2 size)
+        public static bool Selectable(string label, bool selected, ImGuiSelectableFlags flags, ImVec2 size)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -20776,7 +20779,7 @@ namespace IntricateEngine.ImGui
             byte native_p_selected_val = p_selected ? (byte)1 : (byte)0;
             byte* native_p_selected = &native_p_selected_val;
             ImGuiSelectableFlags flags = (ImGuiSelectableFlags)0;
-            Vector2 size = new Vector2();
+            ImVec2 size = new ImVec2();
             byte ret = ImGuiNative.igSelectable_BoolPtr(native_label, native_p_selected, flags, size);
             if (label_byteCount > Util.StackAllocationSizeLimit)
             {
@@ -20809,7 +20812,7 @@ namespace IntricateEngine.ImGui
             byte native_p_selected_val = p_selected ? (byte)1 : (byte)0;
             byte* native_p_selected = &native_p_selected_val;
             ImGuiSelectableFlags flags = (ImGuiSelectableFlags)0;
-            Vector2 size = new Vector2();
+            ImVec2 size = new ImVec2();
             byte ret = ImGuiNative.igSelectable_BoolPtr(native_label, native_p_selected, flags, size);
             if (label_byteCount > Util.StackAllocationSizeLimit)
             {
@@ -20841,7 +20844,7 @@ namespace IntricateEngine.ImGui
             else { native_label = null; }
             byte native_p_selected_val = p_selected ? (byte)1 : (byte)0;
             byte* native_p_selected = &native_p_selected_val;
-            Vector2 size = new Vector2();
+            ImVec2 size = new ImVec2();
             byte ret = ImGuiNative.igSelectable_BoolPtr(native_label, native_p_selected, flags, size);
             if (label_byteCount > Util.StackAllocationSizeLimit)
             {
@@ -20873,7 +20876,7 @@ namespace IntricateEngine.ImGui
             else { native_label = null; }
             byte native_p_selected_val = p_selected ? (byte)1 : (byte)0;
             byte* native_p_selected = &native_p_selected_val;
-            Vector2 size = new Vector2();
+            ImVec2 size = new ImVec2();
             byte ret = ImGuiNative.igSelectable_BoolPtr(native_label, native_p_selected, flags, size);
             if (label_byteCount > Util.StackAllocationSizeLimit)
             {
@@ -20883,7 +20886,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool Selectable(ReadOnlySpan<char> label, ref bool p_selected, ImGuiSelectableFlags flags, Vector2 size)
+        public static bool Selectable(ReadOnlySpan<char> label, ref bool p_selected, ImGuiSelectableFlags flags, ImVec2 size)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -20914,7 +20917,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #endif
-        public static bool Selectable(string label, ref bool p_selected, ImGuiSelectableFlags flags, Vector2 size)
+        public static bool Selectable(string label, ref bool p_selected, ImGuiSelectableFlags flags, ImVec2 size)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -21002,12 +21005,12 @@ namespace IntricateEngine.ImGui
                 Util.Free(native_label);
             }
         }
-        public static void SetAllocatorFunctions(IntPtr alloc_func, IntPtr free_func)
+        public static void SetAllocatorFunctions(nint alloc_func, nint free_func)
         {
             void* user_data = null;
             ImGuiNative.igSetAllocatorFunctions(alloc_func, free_func, user_data);
         }
-        public static void SetAllocatorFunctions(IntPtr alloc_func, IntPtr free_func, IntPtr user_data)
+        public static void SetAllocatorFunctions(nint alloc_func, nint free_func, IntPtr user_data)
         {
             void* native_user_data = (void*)user_data.ToPointer();
             ImGuiNative.igSetAllocatorFunctions(alloc_func, free_func, native_user_data);
@@ -21078,11 +21081,11 @@ namespace IntricateEngine.ImGui
         {
             ImGuiNative.igSetColumnWidth(column_index, width);
         }
-        public static void SetCurrentContext(IntPtr ctx)
+        public static void SetCurrentContext(nint ctx)
         {
             ImGuiNative.igSetCurrentContext(ctx);
         }
-        public static void SetCursorPos(Vector2 local_pos)
+        public static void SetCursorPos(ImVec2 local_pos)
         {
             ImGuiNative.igSetCursorPos(local_pos);
         }
@@ -21094,7 +21097,7 @@ namespace IntricateEngine.ImGui
         {
             ImGuiNative.igSetCursorPosY(local_y);
         }
-        public static void SetCursorScreenPos(Vector2 pos)
+        public static void SetCursorScreenPos(ImVec2 pos)
         {
             ImGuiNative.igSetCursorScreenPos(pos);
         }
@@ -21362,7 +21365,7 @@ namespace IntricateEngine.ImGui
             byte native_collapsed = collapsed ? (byte)1 : (byte)0;
             ImGuiNative.igSetNextWindowCollapsed(native_collapsed, cond);
         }
-        public static void SetNextWindowContentSize(Vector2 size)
+        public static void SetNextWindowContentSize(ImVec2 size)
         {
             ImGuiNative.igSetNextWindowContentSize(size);
         }
@@ -21379,46 +21382,46 @@ namespace IntricateEngine.ImGui
         {
             ImGuiNative.igSetNextWindowFocus();
         }
-        public static void SetNextWindowPos(Vector2 pos)
+        public static void SetNextWindowPos(ImVec2 pos)
         {
             ImGuiCond cond = (ImGuiCond)0;
-            Vector2 pivot = new Vector2();
+            ImVec2 pivot = new ImVec2();
             ImGuiNative.igSetNextWindowPos(pos, cond, pivot);
         }
-        public static void SetNextWindowPos(Vector2 pos, ImGuiCond cond)
+        public static void SetNextWindowPos(ImVec2 pos, ImGuiCond cond)
         {
-            Vector2 pivot = new Vector2();
+            ImVec2 pivot = new ImVec2();
             ImGuiNative.igSetNextWindowPos(pos, cond, pivot);
         }
-        public static void SetNextWindowPos(Vector2 pos, ImGuiCond cond, Vector2 pivot)
+        public static void SetNextWindowPos(ImVec2 pos, ImGuiCond cond, ImVec2 pivot)
         {
             ImGuiNative.igSetNextWindowPos(pos, cond, pivot);
         }
-        public static void SetNextWindowScroll(Vector2 scroll)
+        public static void SetNextWindowScroll(ImVec2 scroll)
         {
             ImGuiNative.igSetNextWindowScroll(scroll);
         }
-        public static void SetNextWindowSize(Vector2 size)
+        public static void SetNextWindowSize(ImVec2 size)
         {
             ImGuiCond cond = (ImGuiCond)0;
             ImGuiNative.igSetNextWindowSize(size, cond);
         }
-        public static void SetNextWindowSize(Vector2 size, ImGuiCond cond)
+        public static void SetNextWindowSize(ImVec2 size, ImGuiCond cond)
         {
             ImGuiNative.igSetNextWindowSize(size, cond);
         }
-        public static void SetNextWindowSizeConstraints(Vector2 size_min, Vector2 size_max)
+        public static void SetNextWindowSizeConstraints(ImVec2 size_min, ImVec2 size_max)
         {
             ImGuiSizeCallback custom_callback = null;
             void* custom_callback_data = null;
             ImGuiNative.igSetNextWindowSizeConstraints(size_min, size_max, custom_callback, custom_callback_data);
         }
-        public static void SetNextWindowSizeConstraints(Vector2 size_min, Vector2 size_max, ImGuiSizeCallback custom_callback)
+        public static void SetNextWindowSizeConstraints(ImVec2 size_min, ImVec2 size_max, ImGuiSizeCallback custom_callback)
         {
             void* custom_callback_data = null;
             ImGuiNative.igSetNextWindowSizeConstraints(size_min, size_max, custom_callback, custom_callback_data);
         }
-        public static void SetNextWindowSizeConstraints(Vector2 size_min, Vector2 size_max, ImGuiSizeCallback custom_callback, IntPtr custom_callback_data)
+        public static void SetNextWindowSizeConstraints(ImVec2 size_min, ImVec2 size_max, ImGuiSizeCallback custom_callback, IntPtr custom_callback_data)
         {
             void* native_custom_callback_data = (void*)custom_callback_data.ToPointer();
             ImGuiNative.igSetNextWindowSizeConstraints(size_min, size_max, custom_callback, native_custom_callback_data);
@@ -21767,21 +21770,17 @@ namespace IntricateEngine.ImGui
                 Util.Free(native_name);
             }
         }
-        public static void SetWindowFontScale(float scale)
-        {
-            ImGuiNative.igSetWindowFontScale(scale);
-        }
-        public static void SetWindowPos(Vector2 pos)
+        public static void SetWindowPos(ImVec2 pos)
         {
             ImGuiCond cond = (ImGuiCond)0;
             ImGuiNative.igSetWindowPos_Vec2(pos, cond);
         }
-        public static void SetWindowPos(Vector2 pos, ImGuiCond cond)
+        public static void SetWindowPos(ImVec2 pos, ImGuiCond cond)
         {
             ImGuiNative.igSetWindowPos_Vec2(pos, cond);
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static void SetWindowPos(ReadOnlySpan<char> name, Vector2 pos)
+        public static void SetWindowPos(ReadOnlySpan<char> name, ImVec2 pos)
         {
             byte* native_name;
             int name_byteCount = 0;
@@ -21809,7 +21808,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static void SetWindowPos(string name, Vector2 pos)
+        public static void SetWindowPos(string name, ImVec2 pos)
         {
             byte* native_name;
             int name_byteCount = 0;
@@ -21837,7 +21836,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static void SetWindowPos(ReadOnlySpan<char> name, Vector2 pos, ImGuiCond cond)
+        public static void SetWindowPos(ReadOnlySpan<char> name, ImVec2 pos, ImGuiCond cond)
         {
             byte* native_name;
             int name_byteCount = 0;
@@ -21864,7 +21863,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static void SetWindowPos(string name, Vector2 pos, ImGuiCond cond)
+        public static void SetWindowPos(string name, ImVec2 pos, ImGuiCond cond)
         {
             byte* native_name;
             int name_byteCount = 0;
@@ -21890,17 +21889,17 @@ namespace IntricateEngine.ImGui
                 Util.Free(native_name);
             }
         }
-        public static void SetWindowSize(Vector2 size)
+        public static void SetWindowSize(ImVec2 size)
         {
             ImGuiCond cond = (ImGuiCond)0;
             ImGuiNative.igSetWindowSize_Vec2(size, cond);
         }
-        public static void SetWindowSize(Vector2 size, ImGuiCond cond)
+        public static void SetWindowSize(ImVec2 size, ImGuiCond cond)
         {
             ImGuiNative.igSetWindowSize_Vec2(size, cond);
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static void SetWindowSize(ReadOnlySpan<char> name, Vector2 size)
+        public static void SetWindowSize(ReadOnlySpan<char> name, ImVec2 size)
         {
             byte* native_name;
             int name_byteCount = 0;
@@ -21928,7 +21927,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static void SetWindowSize(string name, Vector2 size)
+        public static void SetWindowSize(string name, ImVec2 size)
         {
             byte* native_name;
             int name_byteCount = 0;
@@ -21956,7 +21955,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static void SetWindowSize(ReadOnlySpan<char> name, Vector2 size, ImGuiCond cond)
+        public static void SetWindowSize(ReadOnlySpan<char> name, ImVec2 size, ImGuiCond cond)
         {
             byte* native_name;
             int name_byteCount = 0;
@@ -21983,7 +21982,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static void SetWindowSize(string name, Vector2 size, ImGuiCond cond)
+        public static void SetWindowSize(string name, ImVec2 size, ImGuiCond cond)
         {
             byte* native_name;
             int name_byteCount = 0;
@@ -23039,7 +23038,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool SliderFloat2(ReadOnlySpan<char> label, ref Vector2 v, float v_min, float v_max)
+        public static bool SliderFloat2(ReadOnlySpan<char> label, ref ImVec2 v, float v_min, float v_max)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -23074,7 +23073,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igSliderFloat2(native_label, native_v, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -23089,7 +23088,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool SliderFloat2(string label, ref Vector2 v, float v_min, float v_max)
+        public static bool SliderFloat2(string label, ref ImVec2 v, float v_min, float v_max)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -23124,7 +23123,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igSliderFloat2(native_label, native_v, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -23139,7 +23138,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool SliderFloat2(ReadOnlySpan<char> label, ref Vector2 v, float v_min, float v_max, ReadOnlySpan<char> format)
+        public static bool SliderFloat2(ReadOnlySpan<char> label, ref ImVec2 v, float v_min, float v_max, ReadOnlySpan<char> format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -23178,7 +23177,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_format = null; }
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igSliderFloat2(native_label, native_v, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -23193,7 +23192,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool SliderFloat2(string label, ref Vector2 v, float v_min, float v_max, string format)
+        public static bool SliderFloat2(string label, ref ImVec2 v, float v_min, float v_max, string format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -23232,7 +23231,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_format = null; }
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igSliderFloat2(native_label, native_v, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -23247,7 +23246,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool SliderFloat2(ReadOnlySpan<char> label, ref Vector2 v, float v_min, float v_max, ReadOnlySpan<char> format, ImGuiSliderFlags flags)
+        public static bool SliderFloat2(ReadOnlySpan<char> label, ref ImVec2 v, float v_min, float v_max, ReadOnlySpan<char> format, ImGuiSliderFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -23285,7 +23284,7 @@ namespace IntricateEngine.ImGui
                 native_format[native_format_offset] = 0;
             }
             else { native_format = null; }
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igSliderFloat2(native_label, native_v, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -23300,7 +23299,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool SliderFloat2(string label, ref Vector2 v, float v_min, float v_max, string format, ImGuiSliderFlags flags)
+        public static bool SliderFloat2(string label, ref ImVec2 v, float v_min, float v_max, string format, ImGuiSliderFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -23338,7 +23337,7 @@ namespace IntricateEngine.ImGui
                 native_format[native_format_offset] = 0;
             }
             else { native_format = null; }
-            fixed (Vector2* native_v = &v)
+            fixed (ImVec2* native_v = &v)
             {
                 byte ret = ImGuiNative.igSliderFloat2(native_label, native_v, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -23353,7 +23352,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool SliderFloat3(ReadOnlySpan<char> label, ref Vector3 v, float v_min, float v_max)
+        public static bool SliderFloat3(ReadOnlySpan<char> label, ref ImVec3 v, float v_min, float v_max)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -23388,7 +23387,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igSliderFloat3(native_label, native_v, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -23403,7 +23402,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool SliderFloat3(string label, ref Vector3 v, float v_min, float v_max)
+        public static bool SliderFloat3(string label, ref ImVec3 v, float v_min, float v_max)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -23438,7 +23437,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igSliderFloat3(native_label, native_v, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -23453,7 +23452,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool SliderFloat3(ReadOnlySpan<char> label, ref Vector3 v, float v_min, float v_max, ReadOnlySpan<char> format)
+        public static bool SliderFloat3(ReadOnlySpan<char> label, ref ImVec3 v, float v_min, float v_max, ReadOnlySpan<char> format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -23492,7 +23491,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_format = null; }
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igSliderFloat3(native_label, native_v, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -23507,7 +23506,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool SliderFloat3(string label, ref Vector3 v, float v_min, float v_max, string format)
+        public static bool SliderFloat3(string label, ref ImVec3 v, float v_min, float v_max, string format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -23546,7 +23545,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_format = null; }
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igSliderFloat3(native_label, native_v, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -23561,7 +23560,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool SliderFloat3(ReadOnlySpan<char> label, ref Vector3 v, float v_min, float v_max, ReadOnlySpan<char> format, ImGuiSliderFlags flags)
+        public static bool SliderFloat3(ReadOnlySpan<char> label, ref ImVec3 v, float v_min, float v_max, ReadOnlySpan<char> format, ImGuiSliderFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -23599,7 +23598,7 @@ namespace IntricateEngine.ImGui
                 native_format[native_format_offset] = 0;
             }
             else { native_format = null; }
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igSliderFloat3(native_label, native_v, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -23614,7 +23613,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool SliderFloat3(string label, ref Vector3 v, float v_min, float v_max, string format, ImGuiSliderFlags flags)
+        public static bool SliderFloat3(string label, ref ImVec3 v, float v_min, float v_max, string format, ImGuiSliderFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -23652,7 +23651,7 @@ namespace IntricateEngine.ImGui
                 native_format[native_format_offset] = 0;
             }
             else { native_format = null; }
-            fixed (Vector3* native_v = &v)
+            fixed (ImVec3* native_v = &v)
             {
                 byte ret = ImGuiNative.igSliderFloat3(native_label, native_v, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -23667,7 +23666,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool SliderFloat4(ReadOnlySpan<char> label, ref Vector4 v, float v_min, float v_max)
+        public static bool SliderFloat4(ReadOnlySpan<char> label, ref ImVec4 v, float v_min, float v_max)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -23702,7 +23701,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igSliderFloat4(native_label, native_v, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -23717,7 +23716,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool SliderFloat4(string label, ref Vector4 v, float v_min, float v_max)
+        public static bool SliderFloat4(string label, ref ImVec4 v, float v_min, float v_max)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -23752,7 +23751,7 @@ namespace IntricateEngine.ImGui
                 int native_format_offset = Util.GetUtf8("%.3f", native_format, format_byteCount);
                 native_format[native_format_offset] = 0;
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igSliderFloat4(native_label, native_v, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -23767,7 +23766,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool SliderFloat4(ReadOnlySpan<char> label, ref Vector4 v, float v_min, float v_max, ReadOnlySpan<char> format)
+        public static bool SliderFloat4(ReadOnlySpan<char> label, ref ImVec4 v, float v_min, float v_max, ReadOnlySpan<char> format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -23806,7 +23805,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_format = null; }
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igSliderFloat4(native_label, native_v, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -23821,7 +23820,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool SliderFloat4(string label, ref Vector4 v, float v_min, float v_max, string format)
+        public static bool SliderFloat4(string label, ref ImVec4 v, float v_min, float v_max, string format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -23860,7 +23859,7 @@ namespace IntricateEngine.ImGui
             }
             else { native_format = null; }
             ImGuiSliderFlags flags = (ImGuiSliderFlags)0;
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igSliderFloat4(native_label, native_v, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -23875,7 +23874,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool SliderFloat4(ReadOnlySpan<char> label, ref Vector4 v, float v_min, float v_max, ReadOnlySpan<char> format, ImGuiSliderFlags flags)
+        public static bool SliderFloat4(ReadOnlySpan<char> label, ref ImVec4 v, float v_min, float v_max, ReadOnlySpan<char> format, ImGuiSliderFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -23913,7 +23912,7 @@ namespace IntricateEngine.ImGui
                 native_format[native_format_offset] = 0;
             }
             else { native_format = null; }
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igSliderFloat4(native_label, native_v, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -23928,7 +23927,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool SliderFloat4(string label, ref Vector4 v, float v_min, float v_max, string format, ImGuiSliderFlags flags)
+        public static bool SliderFloat4(string label, ref ImVec4 v, float v_min, float v_max, string format, ImGuiSliderFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -23966,7 +23965,7 @@ namespace IntricateEngine.ImGui
                 native_format[native_format_offset] = 0;
             }
             else { native_format = null; }
-            fixed (Vector4* native_v = &v)
+            fixed (ImVec4* native_v = &v)
             {
                 byte ret = ImGuiNative.igSliderFloat4(native_label, native_v, v_min, v_max, native_format, flags);
                 if (label_byteCount > Util.StackAllocationSizeLimit)
@@ -26435,7 +26434,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static void TextColored(Vector4 col, ReadOnlySpan<char> fmt)
+        public static void TextColored(ImVec4 col, ReadOnlySpan<char> fmt)
         {
             byte* native_fmt;
             int fmt_byteCount = 0;
@@ -26462,7 +26461,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static void TextColored(Vector4 col, string fmt)
+        public static void TextColored(ImVec4 col, string fmt)
         {
             byte* native_fmt;
             int fmt_byteCount = 0;
@@ -26599,7 +26598,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static void TextLinkOpenURL(ReadOnlySpan<char> label)
+        public static bool TextLinkOpenURL(ReadOnlySpan<char> label)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -26620,14 +26619,15 @@ namespace IntricateEngine.ImGui
             }
             else { native_label = null; }
             byte* native_url = null;
-            ImGuiNative.igTextLinkOpenURL(native_label, native_url);
+            byte ret = ImGuiNative.igTextLinkOpenURL(native_label, native_url);
             if (label_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_label);
             }
+            return ret != 0;
         }
 #endif
-        public static void TextLinkOpenURL(string label)
+        public static bool TextLinkOpenURL(string label)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -26648,14 +26648,15 @@ namespace IntricateEngine.ImGui
             }
             else { native_label = null; }
             byte* native_url = null;
-            ImGuiNative.igTextLinkOpenURL(native_label, native_url);
+            byte ret = ImGuiNative.igTextLinkOpenURL(native_label, native_url);
             if (label_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_label);
             }
+            return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static void TextLinkOpenURL(ReadOnlySpan<char> label, ReadOnlySpan<char> url)
+        public static bool TextLinkOpenURL(ReadOnlySpan<char> label, ReadOnlySpan<char> url)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -26693,7 +26694,7 @@ namespace IntricateEngine.ImGui
                 native_url[native_url_offset] = 0;
             }
             else { native_url = null; }
-            ImGuiNative.igTextLinkOpenURL(native_label, native_url);
+            byte ret = ImGuiNative.igTextLinkOpenURL(native_label, native_url);
             if (label_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_label);
@@ -26702,9 +26703,10 @@ namespace IntricateEngine.ImGui
             {
                 Util.Free(native_url);
             }
+            return ret != 0;
         }
 #endif
-        public static void TextLinkOpenURL(string label, string url)
+        public static bool TextLinkOpenURL(string label, string url)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -26742,7 +26744,7 @@ namespace IntricateEngine.ImGui
                 native_url[native_url_offset] = 0;
             }
             else { native_url = null; }
-            ImGuiNative.igTextLinkOpenURL(native_label, native_url);
+            byte ret = ImGuiNative.igTextLinkOpenURL(native_label, native_url);
             if (label_byteCount > Util.StackAllocationSizeLimit)
             {
                 Util.Free(native_label);
@@ -26751,6 +26753,7 @@ namespace IntricateEngine.ImGui
             {
                 Util.Free(native_url);
             }
+            return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
         public static void TextUnformatted(ReadOnlySpan<char> text)
@@ -27741,7 +27744,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool VSliderFloat(ReadOnlySpan<char> label, Vector2 size, ref float v, float v_min, float v_max)
+        public static bool VSliderFloat(ReadOnlySpan<char> label, ImVec2 size, ref float v, float v_min, float v_max)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -27791,7 +27794,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool VSliderFloat(string label, Vector2 size, ref float v, float v_min, float v_max)
+        public static bool VSliderFloat(string label, ImVec2 size, ref float v, float v_min, float v_max)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -27841,7 +27844,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool VSliderFloat(ReadOnlySpan<char> label, Vector2 size, ref float v, float v_min, float v_max, ReadOnlySpan<char> format)
+        public static bool VSliderFloat(ReadOnlySpan<char> label, ImVec2 size, ref float v, float v_min, float v_max, ReadOnlySpan<char> format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -27895,7 +27898,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool VSliderFloat(string label, Vector2 size, ref float v, float v_min, float v_max, string format)
+        public static bool VSliderFloat(string label, ImVec2 size, ref float v, float v_min, float v_max, string format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -27949,7 +27952,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool VSliderFloat(ReadOnlySpan<char> label, Vector2 size, ref float v, float v_min, float v_max, ReadOnlySpan<char> format, ImGuiSliderFlags flags)
+        public static bool VSliderFloat(ReadOnlySpan<char> label, ImVec2 size, ref float v, float v_min, float v_max, ReadOnlySpan<char> format, ImGuiSliderFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -28002,7 +28005,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool VSliderFloat(string label, Vector2 size, ref float v, float v_min, float v_max, string format, ImGuiSliderFlags flags)
+        public static bool VSliderFloat(string label, ImVec2 size, ref float v, float v_min, float v_max, string format, ImGuiSliderFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -28055,7 +28058,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool VSliderInt(ReadOnlySpan<char> label, Vector2 size, ref int v, int v_min, int v_max)
+        public static bool VSliderInt(ReadOnlySpan<char> label, ImVec2 size, ref int v, int v_min, int v_max)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -28105,7 +28108,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool VSliderInt(string label, Vector2 size, ref int v, int v_min, int v_max)
+        public static bool VSliderInt(string label, ImVec2 size, ref int v, int v_min, int v_max)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -28155,7 +28158,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool VSliderInt(ReadOnlySpan<char> label, Vector2 size, ref int v, int v_min, int v_max, ReadOnlySpan<char> format)
+        public static bool VSliderInt(ReadOnlySpan<char> label, ImVec2 size, ref int v, int v_min, int v_max, ReadOnlySpan<char> format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -28209,7 +28212,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool VSliderInt(string label, Vector2 size, ref int v, int v_min, int v_max, string format)
+        public static bool VSliderInt(string label, ImVec2 size, ref int v, int v_min, int v_max, string format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -28263,7 +28266,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool VSliderInt(ReadOnlySpan<char> label, Vector2 size, ref int v, int v_min, int v_max, ReadOnlySpan<char> format, ImGuiSliderFlags flags)
+        public static bool VSliderInt(ReadOnlySpan<char> label, ImVec2 size, ref int v, int v_min, int v_max, ReadOnlySpan<char> format, ImGuiSliderFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -28316,7 +28319,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #endif
-        public static bool VSliderInt(string label, Vector2 size, ref int v, int v_min, int v_max, string format, ImGuiSliderFlags flags)
+        public static bool VSliderInt(string label, ImVec2 size, ref int v, int v_min, int v_max, string format, ImGuiSliderFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -28369,7 +28372,7 @@ namespace IntricateEngine.ImGui
             }
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool VSliderScalar(ReadOnlySpan<char> label, Vector2 size, ImGuiDataType data_type, IntPtr p_data, IntPtr p_min, IntPtr p_max)
+        public static bool VSliderScalar(ReadOnlySpan<char> label, ImVec2 size, ImGuiDataType data_type, IntPtr p_data, IntPtr p_min, IntPtr p_max)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -28402,7 +28405,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #endif
-        public static bool VSliderScalar(string label, Vector2 size, ImGuiDataType data_type, IntPtr p_data, IntPtr p_min, IntPtr p_max)
+        public static bool VSliderScalar(string label, ImVec2 size, ImGuiDataType data_type, IntPtr p_data, IntPtr p_min, IntPtr p_max)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -28435,7 +28438,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool VSliderScalar(ReadOnlySpan<char> label, Vector2 size, ImGuiDataType data_type, IntPtr p_data, IntPtr p_min, IntPtr p_max, ReadOnlySpan<char> format)
+        public static bool VSliderScalar(ReadOnlySpan<char> label, ImVec2 size, ImGuiDataType data_type, IntPtr p_data, IntPtr p_min, IntPtr p_max, ReadOnlySpan<char> format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -28489,7 +28492,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #endif
-        public static bool VSliderScalar(string label, Vector2 size, ImGuiDataType data_type, IntPtr p_data, IntPtr p_min, IntPtr p_max, string format)
+        public static bool VSliderScalar(string label, ImVec2 size, ImGuiDataType data_type, IntPtr p_data, IntPtr p_min, IntPtr p_max, string format)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -28543,7 +28546,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP2_1_OR_GREATER
-        public static bool VSliderScalar(ReadOnlySpan<char> label, Vector2 size, ImGuiDataType data_type, IntPtr p_data, IntPtr p_min, IntPtr p_max, ReadOnlySpan<char> format, ImGuiSliderFlags flags)
+        public static bool VSliderScalar(ReadOnlySpan<char> label, ImVec2 size, ImGuiDataType data_type, IntPtr p_data, IntPtr p_min, IntPtr p_max, ReadOnlySpan<char> format, ImGuiSliderFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -28596,7 +28599,7 @@ namespace IntricateEngine.ImGui
             return ret != 0;
         }
 #endif
-        public static bool VSliderScalar(string label, Vector2 size, ImGuiDataType data_type, IntPtr p_data, IntPtr p_min, IntPtr p_max, string format, ImGuiSliderFlags flags)
+        public static bool VSliderScalar(string label, ImVec2 size, ImGuiDataType data_type, IntPtr p_data, IntPtr p_min, IntPtr p_max, string format, ImGuiSliderFlags flags)
         {
             byte* native_label;
             int label_byteCount = 0;
@@ -28648,10 +28651,18 @@ namespace IntricateEngine.ImGui
             }
             return ret != 0;
         }
-        public static IntPtr* GetBuilderForFreeType()
-        {
-            IntPtr* ret = ImGuiNative.ImGuiFreeType_GetBuilderForFreeType();
-            return ret;
-        }
+        // public static bool DebugEditFontLoaderFlags(ref ImGuiFreeTypeLoaderFlags p_font_loader_flags)
+        // {
+        //     fixed (nint native_p_font_loader_flags = &p_font_loader_flags)
+        //     {
+        //         byte ret = ImGuiNative.ImGuiFreeType_DebugEditFontLoaderFlags(native_p_font_loader_flags);
+        //         return ret != 0;
+        //     }
+        // }
+        // public static ImFontLoaderPtr GetFontLoader()
+        // {
+        //     ImFontLoader* ret = ImGuiNative.ImGuiFreeType_GetFontLoader();
+        //     return new ImFontLoaderPtr(ret);
+        // }
     }
 }

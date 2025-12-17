@@ -8,8 +8,8 @@ namespace IntricateEngine.ImGui
 {
     public unsafe partial struct ImDrawCmdHeader
     {
-        public Vector4 ClipRect;
-        public IntPtr TextureId;
+        public ImVec4 ClipRect;
+        public ImTextureRef TexRef;
         public uint VtxOffset;
     }
     
@@ -21,8 +21,8 @@ namespace IntricateEngine.ImGui
         public static implicit operator ImDrawCmdHeaderPtr(ImDrawCmdHeader* nativePtr) => new ImDrawCmdHeaderPtr(nativePtr);
         public static implicit operator ImDrawCmdHeader* (ImDrawCmdHeaderPtr wrappedPtr) => wrappedPtr.NativePtr;
         public static implicit operator ImDrawCmdHeaderPtr(IntPtr nativePtr) => new ImDrawCmdHeaderPtr(nativePtr);
-        public ref Vector4 ClipRect => ref Unsafe.AsRef<Vector4>(&NativePtr->ClipRect);
-        public ref IntPtr TextureId => ref Unsafe.AsRef<IntPtr>(&NativePtr->TextureId);
+        public ref ImVec4 ClipRect => ref Unsafe.AsRef<ImVec4>(&NativePtr->ClipRect);
+        public ref ImTextureRef TexRef => ref Unsafe.AsRef<ImTextureRef>(&NativePtr->TexRef);
         public ref uint VtxOffset => ref Unsafe.AsRef<uint>(&NativePtr->VtxOffset);
     }
 }

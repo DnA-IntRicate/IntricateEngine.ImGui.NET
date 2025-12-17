@@ -8,8 +8,8 @@ namespace IntricateEngine.ImGui
 {
     public unsafe partial struct ImDrawVert
     {
-        public Vector2 pos;
-        public Vector2 uv;
+        public ImVec2 pos;
+        public ImVec2 uv;
         public uint col;
     }
     
@@ -21,8 +21,8 @@ namespace IntricateEngine.ImGui
         public static implicit operator ImDrawVertPtr(ImDrawVert* nativePtr) => new ImDrawVertPtr(nativePtr);
         public static implicit operator ImDrawVert* (ImDrawVertPtr wrappedPtr) => wrappedPtr.NativePtr;
         public static implicit operator ImDrawVertPtr(IntPtr nativePtr) => new ImDrawVertPtr(nativePtr);
-        public ref Vector2 pos => ref Unsafe.AsRef<Vector2>(&NativePtr->pos);
-        public ref Vector2 uv => ref Unsafe.AsRef<Vector2>(&NativePtr->uv);
+        public ref ImVec2 pos => ref Unsafe.AsRef<ImVec2>(&NativePtr->pos);
+        public ref ImVec2 uv => ref Unsafe.AsRef<ImVec2>(&NativePtr->uv);
         public ref uint col => ref Unsafe.AsRef<uint>(&NativePtr->col);
     }
 }

@@ -13,10 +13,11 @@ namespace IntricateEngine.ImGui
         public int TotalIdxCount;
         public int TotalVtxCount;
         public ImVector CmdLists;
-        public Vector2 DisplayPos;
-        public Vector2 DisplaySize;
-        public Vector2 FramebufferScale;
+        public ImVec2 DisplayPos;
+        public ImVec2 DisplaySize;
+        public ImVec2 FramebufferScale;
         public ImGuiViewport* OwnerViewport;
+        public ImVector* Textures;
     }
     
     public readonly unsafe partial struct ImDrawDataPtr
@@ -32,10 +33,11 @@ namespace IntricateEngine.ImGui
         public ref int TotalIdxCount => ref Unsafe.AsRef<int>(&NativePtr->TotalIdxCount);
         public ref int TotalVtxCount => ref Unsafe.AsRef<int>(&NativePtr->TotalVtxCount);
         public ImVector<ImDrawListPtr> CmdLists => new ImVector<ImDrawListPtr>(NativePtr->CmdLists);
-        public ref Vector2 DisplayPos => ref Unsafe.AsRef<Vector2>(&NativePtr->DisplayPos);
-        public ref Vector2 DisplaySize => ref Unsafe.AsRef<Vector2>(&NativePtr->DisplaySize);
-        public ref Vector2 FramebufferScale => ref Unsafe.AsRef<Vector2>(&NativePtr->FramebufferScale);
+        public ref ImVec2 DisplayPos => ref Unsafe.AsRef<ImVec2>(&NativePtr->DisplayPos);
+        public ref ImVec2 DisplaySize => ref Unsafe.AsRef<ImVec2>(&NativePtr->DisplaySize);
+        public ref ImVec2 FramebufferScale => ref Unsafe.AsRef<ImVec2>(&NativePtr->FramebufferScale);
         public ImGuiViewportPtr OwnerViewport => new ImGuiViewportPtr(NativePtr->OwnerViewport);
+        // public ImVector<ImTextureDataPtr> Textures => new ImVector<ImTextureDataPtr>(NativePtr->Textures);
         public void AddDrawList(ImDrawListPtr draw_list)
         {
             ImDrawList* native_draw_list = draw_list.NativePtr;
@@ -53,7 +55,7 @@ namespace IntricateEngine.ImGui
         {
             ImGuiNative.ImDrawData_destroy((ImDrawData*)(NativePtr));
         }
-        public void ScaleClipRects(Vector2 fb_scale)
+        public void ScaleClipRects(ImVec2 fb_scale)
         {
             ImGuiNative.ImDrawData_ScaleClipRects((ImDrawData*)(NativePtr), fb_scale);
         }

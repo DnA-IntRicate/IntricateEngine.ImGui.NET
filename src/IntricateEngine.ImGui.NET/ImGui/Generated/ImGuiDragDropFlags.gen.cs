@@ -18,6 +18,7 @@ namespace IntricateEngine.ImGui
         AcceptBeforeDelivery = 1024,
         AcceptNoDrawDefaultRect = 2048,
         AcceptNoPreviewTooltip = 4096,
+        AcceptDrawAsHovered = 8192,
         AcceptPeekOnly = 3072,
     }
 }

@@ -31,5 +31,6 @@ namespace IntricateEngine.ImGui
         CallbackCharFilter = 2097152,
         CallbackResize = 4194304,
         CallbackEdit = 8388608,
+        WordWrap = 16777216,
     }
 }

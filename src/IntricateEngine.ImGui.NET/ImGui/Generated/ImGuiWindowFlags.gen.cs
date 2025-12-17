@@ -30,11 +30,11 @@ namespace IntricateEngine.ImGui
         NoNav = 196608,
         NoDecoration = 43,
         NoInputs = 197120,
+        DockNodeHost = 8388608,
         ChildWindow = 16777216,
         Tooltip = 33554432,
         Popup = 67108864,
         Modal = 134217728,
         ChildMenu = 268435456,
-        DockNodeHost = 536870912,
     }
 }

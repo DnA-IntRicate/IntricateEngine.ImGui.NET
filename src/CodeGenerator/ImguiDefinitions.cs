@@ -67,9 +67,10 @@ namespace CodeGenerator
             {
                 JProperty jp = (JProperty)jt;
                 string name = jp.Name;
-                if (typeLocations?[jp.Name]?.Value<string>().Contains("internal") ?? false) {
-                    return null;
-                }
+                // Generate internal enums!
+                // if (typeLocations?[jp.Name]?.Value<string>().Contains("internal") ?? false) {
+                //     return null;
+                // }
                 EnumMember[] elements = jp.Values().Select(v =>
                 {
                     return new EnumMember(v["name"].ToString(), v["calc_value"].ToString());
@@ -88,7 +89,7 @@ namespace CodeGenerator
                 {
                     if (v["type"].ToString().Contains("static")) { return null; }
 
-                    
+
                     return new TypeReference(
                         v["name"].ToString(),
                         v["type"].ToString(),
@@ -113,7 +114,8 @@ namespace CodeGenerator
                     {
                         friendlyName = "Destroy";
                     }
-                    //skip internal functions
+
+                    // Skip internal functions
                     var typename = val["stname"]?.ToString();
                     if (!string.IsNullOrEmpty(typename))
                     {

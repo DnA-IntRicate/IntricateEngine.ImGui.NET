@@ -14,6 +14,12 @@ namespace IntricateEngine.ImGui
             this.y = y;
         }
 
+        public ImVec2(float value)
+        {
+            this.x = value;
+            this.y = value;
+        }
+
         public ImVec2()
         {
             x = 0.0f;

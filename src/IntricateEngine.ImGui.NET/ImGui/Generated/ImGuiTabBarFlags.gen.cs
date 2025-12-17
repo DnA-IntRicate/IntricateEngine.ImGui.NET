@@ -14,9 +14,10 @@ namespace IntricateEngine.ImGui
         NoTabListScrollingButtons = 16,
         NoTooltip = 32,
         DrawSelectedOverline = 64,
-        FittingPolicyResizeDown = 128,
-        FittingPolicyScroll = 256,
-        FittingPolicyMask = 384,
+        FittingPolicyMixed = 128,
+        FittingPolicyShrink = 256,
+        FittingPolicyScroll = 512,
+        FittingPolicyMask = 896,
         FittingPolicyDefault = 128,
     }
 }

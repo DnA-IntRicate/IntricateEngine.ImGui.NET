@@ -26,11 +26,11 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igBeginChild_Str")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igBeginChild_Str(byte* str_id, Vector2 size, ImGuiChildFlags child_flags, ImGuiWindowFlags window_flags);
+        internal static partial byte igBeginChild_Str(byte* str_id, ImVec2 size, ImGuiChildFlags child_flags, ImGuiWindowFlags window_flags);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igBeginChild_ID")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igBeginChild_ID(uint id, Vector2 size, ImGuiChildFlags child_flags, ImGuiWindowFlags window_flags);
+        internal static partial byte igBeginChild_ID(uint id, ImVec2 size, ImGuiChildFlags child_flags, ImGuiWindowFlags window_flags);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igBeginCombo")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -58,7 +58,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igBeginListBox")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igBeginListBox(byte* label, Vector2 size);
+        internal static partial byte igBeginListBox(byte* label, ImVec2 size);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igBeginMainMenuBar")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -106,7 +106,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igBeginTable")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igBeginTable(byte* str_id, int columns, ImGuiTableFlags flags, Vector2 outer_size, float inner_width);
+        internal static partial byte igBeginTable(byte* str_id, int columns, ImGuiTableFlags flags, ImVec2 outer_size, float inner_width);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igBeginTooltip")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -122,7 +122,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igButton")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igButton(byte* label, Vector2 size);
+        internal static partial byte igButton(byte* label, ImVec2 size);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igCalcItemWidth")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -130,7 +130,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igCalcTextSize")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igCalcTextSize(Vector2* pOut, byte* text, byte* text_end, byte hide_text_after_double_hash, float wrap_width);
+        internal static partial ImVec2 igCalcTextSize(byte* text, byte* text_end, byte hide_text_after_double_hash, float wrap_width);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igCheckbox")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -158,11 +158,11 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igColorButton")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igColorButton(byte* desc_id, Vector4 col, ImGuiColorEditFlags flags, Vector2 size);
+        internal static partial byte igColorButton(byte* desc_id, ImVec4 col, ImGuiColorEditFlags flags, ImVec2 size);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igColorConvertFloat4ToU32")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial uint igColorConvertFloat4ToU32(Vector4 @in);
+        internal static partial uint igColorConvertFloat4ToU32(ImVec4 @in);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igColorConvertHSVtoRGB")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -174,23 +174,23 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igColorConvertU32ToFloat4")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igColorConvertU32ToFloat4(Vector4* pOut, uint @in);
+        internal static partial ImVec4 igColorConvertU32ToFloat4(uint @in);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igColorEdit3")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igColorEdit3(byte* label, Vector3* col, ImGuiColorEditFlags flags);
+        internal static partial byte igColorEdit3(byte* label, ImVec3* col, ImGuiColorEditFlags flags);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igColorEdit4")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igColorEdit4(byte* label, Vector4* col, ImGuiColorEditFlags flags);
+        internal static partial byte igColorEdit4(byte* label, ImVec4* col, ImGuiColorEditFlags flags);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igColorPicker3")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igColorPicker3(byte* label, Vector3* col, ImGuiColorEditFlags flags);
+        internal static partial byte igColorPicker3(byte* label, ImVec3* col, ImGuiColorEditFlags flags);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igColorPicker4")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igColorPicker4(byte* label, Vector4* col, ImGuiColorEditFlags flags, float* ref_col);
+        internal static partial byte igColorPicker4(byte* label, ImVec4* col, ImGuiColorEditFlags flags, float* ref_col);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igColumns")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -206,7 +206,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igCreateContext")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial IntPtr igCreateContext(ImFontAtlas* shared_font_atlas);
+        internal static partial nint igCreateContext(ImFontAtlas* shared_font_atlas);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igDebugCheckVersionAndDataLayout")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -230,7 +230,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igDestroyContext")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igDestroyContext(IntPtr ctx);
+        internal static partial void igDestroyContext(nint ctx);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igDestroyPlatformWindows")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -238,7 +238,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igDockSpace")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial uint igDockSpace(uint dockspace_id, Vector2 size, ImGuiDockNodeFlags flags, ImGuiWindowClass* window_class);
+        internal static partial uint igDockSpace(uint dockspace_id, ImVec2 size, ImGuiDockNodeFlags flags, ImGuiWindowClass* window_class);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igDockSpaceOverViewport")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -250,15 +250,15 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igDragFloat2")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igDragFloat2(byte* label, Vector2* v, float v_speed, float v_min, float v_max, byte* format, ImGuiSliderFlags flags);
+        internal static partial byte igDragFloat2(byte* label, ImVec2* v, float v_speed, float v_min, float v_max, byte* format, ImGuiSliderFlags flags);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igDragFloat3")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igDragFloat3(byte* label, Vector3* v, float v_speed, float v_min, float v_max, byte* format, ImGuiSliderFlags flags);
+        internal static partial byte igDragFloat3(byte* label, ImVec3* v, float v_speed, float v_min, float v_max, byte* format, ImGuiSliderFlags flags);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igDragFloat4")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igDragFloat4(byte* label, Vector4* v, float v_speed, float v_min, float v_max, byte* format, ImGuiSliderFlags flags);
+        internal static partial byte igDragFloat4(byte* label, ImVec4* v, float v_speed, float v_min, float v_max, byte* format, ImGuiSliderFlags flags);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igDragFloatRange2")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -294,7 +294,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igDummy")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igDummy(Vector2 size);
+        internal static partial void igDummy(ImVec2 size);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igEnd")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -370,7 +370,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igFindViewportByID")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial ImGuiViewport* igFindViewportByID(uint id);
+        internal static partial ImGuiViewport* igFindViewportByID(uint viewport_id);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igFindViewportByPlatformHandle")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -378,7 +378,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetAllocatorFunctions")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igGetAllocatorFunctions(IntPtr* p_alloc_func, IntPtr* p_free_func, void** p_user_data);
+        internal static partial void igGetAllocatorFunctions(nint* p_alloc_func, nint* p_free_func, void** p_user_data);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetBackgroundDrawList")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -394,7 +394,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetColorU32_Vec4")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial uint igGetColorU32_Vec4(Vector4 col);
+        internal static partial uint igGetColorU32_Vec4(ImVec4 col);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetColorU32_U32")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -418,15 +418,15 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetContentRegionAvail")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igGetContentRegionAvail(Vector2* pOut);
+        internal static partial ImVec2 igGetContentRegionAvail();
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetCurrentContext")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial IntPtr igGetCurrentContext();
+        internal static partial nint igGetCurrentContext();
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetCursorPos")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igGetCursorPos(Vector2* pOut);
+        internal static partial ImVec2 igGetCursorPos();
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetCursorPosX")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -438,11 +438,11 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetCursorScreenPos")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igGetCursorScreenPos(Vector2* pOut);
+        internal static partial ImVec2 igGetCursorScreenPos();
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetCursorStartPos")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igGetCursorStartPos(Vector2* pOut);
+        internal static partial ImVec2 igGetCursorStartPos();
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetDragDropPayload")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -454,11 +454,15 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetDrawListSharedData")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial IntPtr igGetDrawListSharedData();
+        internal static partial nint igGetDrawListSharedData();
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetFont")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial ImFont* igGetFont();
+
+        [LibraryImport("IntricateEngine", EntryPoint = "igGetFontBaked")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial ImFontBaked* igGetFontBaked();
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetFontSize")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -466,7 +470,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetFontTexUvWhitePixel")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igGetFontTexUvWhitePixel(Vector2* pOut);
+        internal static partial ImVec2 igGetFontTexUvWhitePixel();
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetForegroundDrawList_ViewportPtr")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -502,7 +506,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetIO_Nil")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial ImGuiIO* igGetIO();
+        internal static partial ImGuiIO* igGetIO_Nil();
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetItemID")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -510,15 +514,15 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetItemRectMax")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igGetItemRectMax(Vector2* pOut);
+        internal static partial ImVec2 igGetItemRectMax();
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetItemRectMin")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igGetItemRectMin(Vector2* pOut);
+        internal static partial ImVec2 igGetItemRectMin();
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetItemRectSize")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igGetItemRectSize(Vector2* pOut);
+        internal static partial ImVec2 igGetItemRectSize();
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetKeyName")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -542,19 +546,19 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetMouseDragDelta")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igGetMouseDragDelta(Vector2* pOut, ImGuiMouseButton button, float lock_threshold);
+        internal static partial ImVec2 igGetMouseDragDelta(ImGuiMouseButton button, float lock_threshold);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetMousePos")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igGetMousePos(Vector2* pOut);
+        internal static partial ImVec2 igGetMousePos();
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetMousePosOnOpeningCurrentPopup")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igGetMousePosOnOpeningCurrentPopup(Vector2* pOut);
+        internal static partial ImVec2 igGetMousePosOnOpeningCurrentPopup();
 
-        [LibraryImport("IntricateEngine", EntryPoint = "igGetPlatformIO")]
+        [LibraryImport("IntricateEngine", EntryPoint = "igGetPlatformIO_Nil")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial ImGuiPlatformIO* igGetPlatformIO();
+        internal static partial ImGuiPlatformIO* igGetPlatformIO_Nil();
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetScrollMaxX")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -586,7 +590,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetStyleColorVec4")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial Vector4* igGetStyleColorVec4(ImGuiCol idx);
+        internal static partial ImVec4* igGetStyleColorVec4(ImGuiCol idx);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetTextLineHeight")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -626,11 +630,11 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetWindowPos")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igGetWindowPos(Vector2* pOut);
+        internal static partial ImVec2 igGetWindowPos();
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetWindowSize")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igGetWindowSize(Vector2* pOut);
+        internal static partial ImVec2 igGetWindowSize();
 
         [LibraryImport("IntricateEngine", EntryPoint = "igGetWindowViewport")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -642,11 +646,15 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igImage")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igImage(IntPtr user_texture_id, Vector2 image_size, Vector2 uv0, Vector2 uv1, Vector4 tint_col, Vector4 border_col);
+        internal static partial void igImage(ImTextureRef tex_ref, ImVec2 image_size, ImVec2 uv0, ImVec2 uv1);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igImageButton")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igImageButton(byte* str_id, IntPtr user_texture_id, Vector2 image_size, Vector2 uv0, Vector2 uv1, Vector4 bg_col, Vector4 tint_col);
+        internal static partial byte igImageButton(byte* str_id, ImTextureRef tex_ref, ImVec2 image_size, ImVec2 uv0, ImVec2 uv1, ImVec4 bg_col, ImVec4 tint_col);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "igImageWithBg")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial void igImageWithBg(ImTextureRef tex_ref, ImVec2 image_size, ImVec2 uv0, ImVec2 uv1, ImVec4 bg_col, ImVec4 tint_col);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igIndent")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -662,15 +670,15 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igInputFloat2")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igInputFloat2(byte* label, Vector2* v, byte* format, ImGuiInputTextFlags flags);
+        internal static partial byte igInputFloat2(byte* label, ImVec2* v, byte* format, ImGuiInputTextFlags flags);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igInputFloat3")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igInputFloat3(byte* label, Vector3* v, byte* format, ImGuiInputTextFlags flags);
+        internal static partial byte igInputFloat3(byte* label, ImVec3* v, byte* format, ImGuiInputTextFlags flags);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igInputFloat4")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igInputFloat4(byte* label, Vector4* v, byte* format, ImGuiInputTextFlags flags);
+        internal static partial byte igInputFloat4(byte* label, ImVec4* v, byte* format, ImGuiInputTextFlags flags);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igInputInt")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -702,7 +710,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igInputTextMultiline")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igInputTextMultiline(byte* label, byte* buf, uint buf_size, Vector2 size, ImGuiInputTextFlags flags, ImGuiInputTextCallback callback, void* user_data);
+        internal static partial byte igInputTextMultiline(byte* label, byte* buf, uint buf_size, ImVec2 size, ImGuiInputTextFlags flags, ImGuiInputTextCallback callback, void* user_data);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igInputTextWithHint")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -710,7 +718,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igInvisibleButton")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igInvisibleButton(byte* str_id, Vector2 size, ImGuiButtonFlags flags);
+        internal static partial byte igInvisibleButton(byte* str_id, ImVec2 size, ImGuiButtonFlags flags);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igIsAnyItemActive")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -806,15 +814,19 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igIsMouseHoveringRect")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igIsMouseHoveringRect(Vector2 r_min, Vector2 r_max, byte clip);
+        internal static partial byte igIsMouseHoveringRect(ImVec2 r_min, ImVec2 r_max, byte clip);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igIsMousePosValid")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igIsMousePosValid(Vector2* mouse_pos);
+        internal static partial byte igIsMousePosValid(ImVec2* mouse_pos);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igIsMouseReleased_Nil")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial byte igIsMouseReleased_Nil(ImGuiMouseButton button);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "igIsMouseReleasedWithDelay")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial byte igIsMouseReleasedWithDelay(ImGuiMouseButton button, float delay);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igIsPopupOpen_Str")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -822,11 +834,11 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igIsRectVisible_Nil")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igIsRectVisible_Nil(Vector2 size);
+        internal static partial byte igIsRectVisible_Nil(ImVec2 size);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igIsRectVisible_Vec2")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igIsRectVisible_Vec2(Vector2 rect_min, Vector2 rect_max);
+        internal static partial byte igIsRectVisible_Vec2(ImVec2 rect_min, ImVec2 rect_max);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igIsWindowAppearing")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -930,11 +942,11 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igPlotHistogram_FloatPtr")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igPlotHistogram_FloatPtr(byte* label, float* values, int values_count, int values_offset, byte* overlay_text, float scale_min, float scale_max, Vector2 graph_size, int stride);
+        internal static partial void igPlotHistogram_FloatPtr(byte* label, float* values, int values_count, int values_offset, byte* overlay_text, float scale_min, float scale_max, ImVec2 graph_size, int stride);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igPlotLines_FloatPtr")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igPlotLines_FloatPtr(byte* label, float* values, int values_count, int values_offset, byte* overlay_text, float scale_min, float scale_max, Vector2 graph_size, int stride);
+        internal static partial void igPlotLines_FloatPtr(byte* label, float* values, int values_count, int values_offset, byte* overlay_text, float scale_min, float scale_max, ImVec2 graph_size, int stride);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igPopClipRect")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -970,15 +982,15 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igProgressBar")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igProgressBar(float fraction, Vector2 size_arg, byte* overlay);
+        internal static partial void igProgressBar(float fraction, ImVec2 size_arg, byte* overlay);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igPushClipRect")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igPushClipRect(Vector2 clip_rect_min, Vector2 clip_rect_max, byte intersect_with_current_clip_rect);
+        internal static partial void igPushClipRect(ImVec2 clip_rect_min, ImVec2 clip_rect_max, byte intersect_with_current_clip_rect);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igPushFont")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igPushFont(ImFont* font);
+        internal static partial void igPushFont(ImFont* font, float font_size_base_unscaled);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igPushID_Str")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1010,7 +1022,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igPushStyleColor_Vec4")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igPushStyleColor_Vec4(ImGuiCol idx, Vector4 col);
+        internal static partial void igPushStyleColor_Vec4(ImGuiCol idx, ImVec4 col);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igPushStyleVar_Float")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1018,7 +1030,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igPushStyleVar_Vec2")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igPushStyleVar_Vec2(ImGuiStyleVar idx, Vector2 val);
+        internal static partial void igPushStyleVar_Vec2(ImGuiStyleVar idx, ImVec2 val);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igPushStyleVarX")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1066,11 +1078,11 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSelectable_Bool")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igSelectable_Bool(byte* label, byte selected, ImGuiSelectableFlags flags, Vector2 size);
+        internal static partial byte igSelectable_Bool(byte* label, byte selected, ImGuiSelectableFlags flags, ImVec2 size);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSelectable_BoolPtr")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igSelectable_BoolPtr(byte* label, byte* p_selected, ImGuiSelectableFlags flags, Vector2 size);
+        internal static partial byte igSelectable_BoolPtr(byte* label, byte* p_selected, ImGuiSelectableFlags flags, ImVec2 size);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSeparator")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1082,7 +1094,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSetAllocatorFunctions")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igSetAllocatorFunctions(IntPtr alloc_func, IntPtr free_func, void* user_data);
+        internal static partial void igSetAllocatorFunctions(nint alloc_func, nint free_func, void* user_data);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSetClipboardText")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1102,11 +1114,11 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSetCurrentContext")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igSetCurrentContext(IntPtr ctx);
+        internal static partial void igSetCurrentContext(nint ctx);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSetCursorPos")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igSetCursorPos(Vector2 local_pos);
+        internal static partial void igSetCursorPos(ImVec2 local_pos);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSetCursorPosX")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1118,7 +1130,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSetCursorScreenPos")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igSetCursorScreenPos(Vector2 pos);
+        internal static partial void igSetCursorScreenPos(ImVec2 pos);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSetDragDropPayload")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1194,7 +1206,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSetNextWindowContentSize")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igSetNextWindowContentSize(Vector2 size);
+        internal static partial void igSetNextWindowContentSize(ImVec2 size);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSetNextWindowDockID")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1206,19 +1218,19 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSetNextWindowPos")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igSetNextWindowPos(Vector2 pos, ImGuiCond cond, Vector2 pivot);
+        internal static partial void igSetNextWindowPos(ImVec2 pos, ImGuiCond cond, ImVec2 pivot);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSetNextWindowScroll")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igSetNextWindowScroll(Vector2 scroll);
+        internal static partial void igSetNextWindowScroll(ImVec2 scroll);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSetNextWindowSize")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igSetNextWindowSize(Vector2 size, ImGuiCond cond);
+        internal static partial void igSetNextWindowSize(ImVec2 size, ImGuiCond cond);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSetNextWindowSizeConstraints")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igSetNextWindowSizeConstraints(Vector2 size_min, Vector2 size_max, ImGuiSizeCallback custom_callback, void* custom_callback_data);
+        internal static partial void igSetNextWindowSizeConstraints(ImVec2 size_min, ImVec2 size_max, ImGuiSizeCallback custom_callback, void* custom_callback_data);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSetNextWindowViewport")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1276,25 +1288,21 @@ namespace IntricateEngine.ImGui
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial void igSetWindowFocus_Str(byte* name);
 
-        [LibraryImport("IntricateEngine", EntryPoint = "igSetWindowFontScale")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igSetWindowFontScale(float scale);
-
         [LibraryImport("IntricateEngine", EntryPoint = "igSetWindowPos_Vec2")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igSetWindowPos_Vec2(Vector2 pos, ImGuiCond cond);
+        internal static partial void igSetWindowPos_Vec2(ImVec2 pos, ImGuiCond cond);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSetWindowPos_Str")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igSetWindowPos_Str(byte* name, Vector2 pos, ImGuiCond cond);
+        internal static partial void igSetWindowPos_Str(byte* name, ImVec2 pos, ImGuiCond cond);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSetWindowSize_Vec2")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igSetWindowSize_Vec2(Vector2 size, ImGuiCond cond);
+        internal static partial void igSetWindowSize_Vec2(ImVec2 size, ImGuiCond cond);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSetWindowSize_Str")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igSetWindowSize_Str(byte* name, Vector2 size, ImGuiCond cond);
+        internal static partial void igSetWindowSize_Str(byte* name, ImVec2 size, ImGuiCond cond);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igShortcut_Nil")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1346,15 +1354,15 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSliderFloat2")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igSliderFloat2(byte* label, Vector2* v, float v_min, float v_max, byte* format, ImGuiSliderFlags flags);
+        internal static partial byte igSliderFloat2(byte* label, ImVec2* v, float v_min, float v_max, byte* format, ImGuiSliderFlags flags);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSliderFloat3")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igSliderFloat3(byte* label, Vector3* v, float v_min, float v_max, byte* format, ImGuiSliderFlags flags);
+        internal static partial byte igSliderFloat3(byte* label, ImVec3* v, float v_min, float v_max, byte* format, ImGuiSliderFlags flags);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSliderFloat4")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igSliderFloat4(byte* label, Vector4* v, float v_min, float v_max, byte* format, ImGuiSliderFlags flags);
+        internal static partial byte igSliderFloat4(byte* label, ImVec4* v, float v_min, float v_max, byte* format, ImGuiSliderFlags flags);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igSliderInt")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1478,7 +1486,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igTextColored")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igTextColored(Vector4 col, byte* fmt);
+        internal static partial void igTextColored(ImVec4 col, byte* fmt);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igTextDisabled")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1490,7 +1498,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igTextLinkOpenURL")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void igTextLinkOpenURL(byte* label, byte* url);
+        internal static partial byte igTextLinkOpenURL(byte* label, byte* url);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igTextUnformatted")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1562,15 +1570,15 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "igVSliderFloat")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igVSliderFloat(byte* label, Vector2 size, float* v, float v_min, float v_max, byte* format, ImGuiSliderFlags flags);
+        internal static partial byte igVSliderFloat(byte* label, ImVec2 size, float* v, float v_min, float v_max, byte* format, ImGuiSliderFlags flags);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igVSliderInt")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igVSliderInt(byte* label, Vector2 size, int* v, int v_min, int v_max, byte* format, ImGuiSliderFlags flags);
+        internal static partial byte igVSliderInt(byte* label, ImVec2 size, int* v, int v_min, int v_max, byte* format, ImGuiSliderFlags flags);
 
         [LibraryImport("IntricateEngine", EntryPoint = "igVSliderScalar")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte igVSliderScalar(byte* label, Vector2 size, ImGuiDataType data_type, void* p_data, void* p_min, void* p_max, byte* format, ImGuiSliderFlags flags);
+        internal static partial byte igVSliderScalar(byte* label, ImVec2 size, ImGuiDataType data_type, void* p_data, void* p_min, void* p_max, byte* format, ImGuiSliderFlags flags);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImColor_destroy")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1578,7 +1586,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImColor_HSV")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImColor_HSV(ImColor* pOut, float h, float s, float v, float a);
+        internal static partial ImColor ImColor_HSV(float h, float s, float v, float a);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImColor_ImColor_Nil")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1590,7 +1598,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImColor_ImColor_Vec4")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial ImColor* ImColor_ImColor_Vec4(Vector4 col);
+        internal static partial ImColor* ImColor_ImColor_Vec4(ImVec4 col);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImColor_ImColor_Int")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1610,7 +1618,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawCmd_GetTexID")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial IntPtr ImDrawCmd_GetTexID(ImDrawCmd* self);
+        internal static partial nint ImDrawCmd_GetTexID(ImDrawCmd* self);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawCmd_ImDrawCmd")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1638,7 +1646,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawData_ScaleClipRects")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawData_ScaleClipRects(ImDrawData* self, Vector2 fb_scale);
+        internal static partial void ImDrawData_ScaleClipRects(ImDrawData* self, ImVec2 fb_scale);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList__CalcCircleAutoSegmentCount")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1652,9 +1660,9 @@ namespace IntricateEngine.ImGui
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial void ImDrawList__OnChangedClipRect(ImDrawList* self);
 
-        [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList__OnChangedTextureID")]
+        [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList__OnChangedTexture")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList__OnChangedTextureID(ImDrawList* self);
+        internal static partial void ImDrawList__OnChangedTexture(ImDrawList* self);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList__OnChangedVtxOffset")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1662,11 +1670,11 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList__PathArcToFastEx")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList__PathArcToFastEx(ImDrawList* self, Vector2 center, float radius, int a_min_sample, int a_max_sample, int a_step);
+        internal static partial void ImDrawList__PathArcToFastEx(ImDrawList* self, ImVec2 center, float radius, int a_min_sample, int a_max_sample, int a_step);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList__PathArcToN")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList__PathArcToN(ImDrawList* self, Vector2 center, float radius, float a_min, float a_max, int num_segments);
+        internal static partial void ImDrawList__PathArcToN(ImDrawList* self, ImVec2 center, float radius, float a_min, float a_max, int num_segments);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList__PopUnusedDrawCmd")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1676,9 +1684,13 @@ namespace IntricateEngine.ImGui
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial void ImDrawList__ResetForNewFrame(ImDrawList* self);
 
-        [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList__SetTextureID")]
+        [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList__SetDrawListSharedData")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList__SetTextureID(ImDrawList* self, IntPtr texture_id);
+        internal static partial void ImDrawList__SetDrawListSharedData(ImDrawList* self, nint data);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList__SetTexture")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial void ImDrawList__SetTexture(ImDrawList* self, ImTextureRef tex_ref);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList__TryMergeDrawCmds")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1686,31 +1698,31 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddBezierCubic")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddBezierCubic(ImDrawList* self, Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, uint col, float thickness, int num_segments);
+        internal static partial void ImDrawList_AddBezierCubic(ImDrawList* self, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, uint col, float thickness, int num_segments);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddBezierQuadratic")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddBezierQuadratic(ImDrawList* self, Vector2 p1, Vector2 p2, Vector2 p3, uint col, float thickness, int num_segments);
+        internal static partial void ImDrawList_AddBezierQuadratic(ImDrawList* self, ImVec2 p1, ImVec2 p2, ImVec2 p3, uint col, float thickness, int num_segments);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddCallback")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddCallback(ImDrawList* self, IntPtr callback, void* userdata, uint userdata_size);
+        internal static partial void ImDrawList_AddCallback(ImDrawList* self, nint callback, void* userdata, uint userdata_size);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddCircle")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddCircle(ImDrawList* self, Vector2 center, float radius, uint col, int num_segments, float thickness);
+        internal static partial void ImDrawList_AddCircle(ImDrawList* self, ImVec2 center, float radius, uint col, int num_segments, float thickness);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddCircleFilled")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddCircleFilled(ImDrawList* self, Vector2 center, float radius, uint col, int num_segments);
+        internal static partial void ImDrawList_AddCircleFilled(ImDrawList* self, ImVec2 center, float radius, uint col, int num_segments);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddConcavePolyFilled")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddConcavePolyFilled(ImDrawList* self, Vector2* points, int num_points, uint col);
+        internal static partial void ImDrawList_AddConcavePolyFilled(ImDrawList* self, ImVec2* points, int num_points, uint col);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddConvexPolyFilled")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddConvexPolyFilled(ImDrawList* self, Vector2* points, int num_points, uint col);
+        internal static partial void ImDrawList_AddConvexPolyFilled(ImDrawList* self, ImVec2* points, int num_points, uint col);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddDrawCmd")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1718,75 +1730,75 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddEllipse")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddEllipse(ImDrawList* self, Vector2 center, Vector2 radius, uint col, float rot, int num_segments, float thickness);
+        internal static partial void ImDrawList_AddEllipse(ImDrawList* self, ImVec2 center, ImVec2 radius, uint col, float rot, int num_segments, float thickness);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddEllipseFilled")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddEllipseFilled(ImDrawList* self, Vector2 center, Vector2 radius, uint col, float rot, int num_segments);
+        internal static partial void ImDrawList_AddEllipseFilled(ImDrawList* self, ImVec2 center, ImVec2 radius, uint col, float rot, int num_segments);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddImage")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddImage(ImDrawList* self, IntPtr user_texture_id, Vector2 p_min, Vector2 p_max, Vector2 uv_min, Vector2 uv_max, uint col);
+        internal static partial void ImDrawList_AddImage(ImDrawList* self, ImTextureRef tex_ref, ImVec2 p_min, ImVec2 p_max, ImVec2 uv_min, ImVec2 uv_max, uint col);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddImageQuad")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddImageQuad(ImDrawList* self, IntPtr user_texture_id, Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, Vector2 uv1, Vector2 uv2, Vector2 uv3, Vector2 uv4, uint col);
+        internal static partial void ImDrawList_AddImageQuad(ImDrawList* self, ImTextureRef tex_ref, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, ImVec2 uv1, ImVec2 uv2, ImVec2 uv3, ImVec2 uv4, uint col);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddImageRounded")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddImageRounded(ImDrawList* self, IntPtr user_texture_id, Vector2 p_min, Vector2 p_max, Vector2 uv_min, Vector2 uv_max, uint col, float rounding, ImDrawFlags flags);
+        internal static partial void ImDrawList_AddImageRounded(ImDrawList* self, ImTextureRef tex_ref, ImVec2 p_min, ImVec2 p_max, ImVec2 uv_min, ImVec2 uv_max, uint col, float rounding, ImDrawFlags flags);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddLine")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddLine(ImDrawList* self, Vector2 p1, Vector2 p2, uint col, float thickness);
+        internal static partial void ImDrawList_AddLine(ImDrawList* self, ImVec2 p1, ImVec2 p2, uint col, float thickness);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddNgon")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddNgon(ImDrawList* self, Vector2 center, float radius, uint col, int num_segments, float thickness);
+        internal static partial void ImDrawList_AddNgon(ImDrawList* self, ImVec2 center, float radius, uint col, int num_segments, float thickness);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddNgonFilled")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddNgonFilled(ImDrawList* self, Vector2 center, float radius, uint col, int num_segments);
+        internal static partial void ImDrawList_AddNgonFilled(ImDrawList* self, ImVec2 center, float radius, uint col, int num_segments);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddPolyline")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddPolyline(ImDrawList* self, Vector2* points, int num_points, uint col, ImDrawFlags flags, float thickness);
+        internal static partial void ImDrawList_AddPolyline(ImDrawList* self, ImVec2* points, int num_points, uint col, ImDrawFlags flags, float thickness);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddQuad")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddQuad(ImDrawList* self, Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, uint col, float thickness);
+        internal static partial void ImDrawList_AddQuad(ImDrawList* self, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, uint col, float thickness);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddQuadFilled")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddQuadFilled(ImDrawList* self, Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, uint col);
+        internal static partial void ImDrawList_AddQuadFilled(ImDrawList* self, ImVec2 p1, ImVec2 p2, ImVec2 p3, ImVec2 p4, uint col);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddRect")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddRect(ImDrawList* self, Vector2 p_min, Vector2 p_max, uint col, float rounding, ImDrawFlags flags, float thickness);
+        internal static partial void ImDrawList_AddRect(ImDrawList* self, ImVec2 p_min, ImVec2 p_max, uint col, float rounding, ImDrawFlags flags, float thickness);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddRectFilled")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddRectFilled(ImDrawList* self, Vector2 p_min, Vector2 p_max, uint col, float rounding, ImDrawFlags flags);
+        internal static partial void ImDrawList_AddRectFilled(ImDrawList* self, ImVec2 p_min, ImVec2 p_max, uint col, float rounding, ImDrawFlags flags);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddRectFilledMultiColor")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddRectFilledMultiColor(ImDrawList* self, Vector2 p_min, Vector2 p_max, uint col_upr_left, uint col_upr_right, uint col_bot_right, uint col_bot_left);
+        internal static partial void ImDrawList_AddRectFilledMultiColor(ImDrawList* self, ImVec2 p_min, ImVec2 p_max, uint col_upr_left, uint col_upr_right, uint col_bot_right, uint col_bot_left);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddText_Vec2")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddText_Vec2(ImDrawList* self, Vector2 pos, uint col, byte* text_begin, byte* text_end);
+        internal static partial void ImDrawList_AddText_Vec2(ImDrawList* self, ImVec2 pos, uint col, byte* text_begin, byte* text_end);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddText_FontPtr")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddText_FontPtr(ImDrawList* self, ImFont* font, float font_size, Vector2 pos, uint col, byte* text_begin, byte* text_end, float wrap_width, Vector4* cpu_fine_clip_rect);
+        internal static partial void ImDrawList_AddText_FontPtr(ImDrawList* self, ImFont* font, float font_size, ImVec2 pos, uint col, byte* text_begin, byte* text_end, float wrap_width, ImVec4* cpu_fine_clip_rect);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddTriangle")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddTriangle(ImDrawList* self, Vector2 p1, Vector2 p2, Vector2 p3, uint col, float thickness);
+        internal static partial void ImDrawList_AddTriangle(ImDrawList* self, ImVec2 p1, ImVec2 p2, ImVec2 p3, uint col, float thickness);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_AddTriangleFilled")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_AddTriangleFilled(ImDrawList* self, Vector2 p1, Vector2 p2, Vector2 p3, uint col);
+        internal static partial void ImDrawList_AddTriangleFilled(ImDrawList* self, ImVec2 p1, ImVec2 p2, ImVec2 p3, uint col);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_ChannelsMerge")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1810,31 +1822,31 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_GetClipRectMax")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_GetClipRectMax(Vector2* pOut, ImDrawList* self);
+        internal static partial ImVec2 ImDrawList_GetClipRectMax(ImDrawList* self);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_GetClipRectMin")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_GetClipRectMin(Vector2* pOut, ImDrawList* self);
+        internal static partial ImVec2 ImDrawList_GetClipRectMin(ImDrawList* self);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_ImDrawList")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial ImDrawList* ImDrawList_ImDrawList(IntPtr shared_data);
+        internal static partial ImDrawList* ImDrawList_ImDrawList(nint shared_data);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PathArcTo")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_PathArcTo(ImDrawList* self, Vector2 center, float radius, float a_min, float a_max, int num_segments);
+        internal static partial void ImDrawList_PathArcTo(ImDrawList* self, ImVec2 center, float radius, float a_min, float a_max, int num_segments);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PathArcToFast")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_PathArcToFast(ImDrawList* self, Vector2 center, float radius, int a_min_of_12, int a_max_of_12);
+        internal static partial void ImDrawList_PathArcToFast(ImDrawList* self, ImVec2 center, float radius, int a_min_of_12, int a_max_of_12);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PathBezierCubicCurveTo")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_PathBezierCubicCurveTo(ImDrawList* self, Vector2 p2, Vector2 p3, Vector2 p4, int num_segments);
+        internal static partial void ImDrawList_PathBezierCubicCurveTo(ImDrawList* self, ImVec2 p2, ImVec2 p3, ImVec2 p4, int num_segments);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PathBezierQuadraticCurveTo")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_PathBezierQuadraticCurveTo(ImDrawList* self, Vector2 p2, Vector2 p3, int num_segments);
+        internal static partial void ImDrawList_PathBezierQuadraticCurveTo(ImDrawList* self, ImVec2 p2, ImVec2 p3, int num_segments);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PathClear")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1842,7 +1854,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PathEllipticalArcTo")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_PathEllipticalArcTo(ImDrawList* self, Vector2 center, Vector2 radius, float rot, float a_min, float a_max, int num_segments);
+        internal static partial void ImDrawList_PathEllipticalArcTo(ImDrawList* self, ImVec2 center, ImVec2 radius, float rot, float a_min, float a_max, int num_segments);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PathFillConcave")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1854,15 +1866,15 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PathLineTo")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_PathLineTo(ImDrawList* self, Vector2 pos);
+        internal static partial void ImDrawList_PathLineTo(ImDrawList* self, ImVec2 pos);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PathLineToMergeDuplicate")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_PathLineToMergeDuplicate(ImDrawList* self, Vector2 pos);
+        internal static partial void ImDrawList_PathLineToMergeDuplicate(ImDrawList* self, ImVec2 pos);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PathRect")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_PathRect(ImDrawList* self, Vector2 rect_min, Vector2 rect_max, float rounding, ImDrawFlags flags);
+        internal static partial void ImDrawList_PathRect(ImDrawList* self, ImVec2 rect_min, ImVec2 rect_max, float rounding, ImDrawFlags flags);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PathStroke")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1872,21 +1884,21 @@ namespace IntricateEngine.ImGui
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial void ImDrawList_PopClipRect(ImDrawList* self);
 
-        [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PopTextureID")]
+        [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PopTexture")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_PopTextureID(ImDrawList* self);
+        internal static partial void ImDrawList_PopTexture(ImDrawList* self);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PrimQuadUV")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_PrimQuadUV(ImDrawList* self, Vector2 a, Vector2 b, Vector2 c, Vector2 d, Vector2 uv_a, Vector2 uv_b, Vector2 uv_c, Vector2 uv_d, uint col);
+        internal static partial void ImDrawList_PrimQuadUV(ImDrawList* self, ImVec2 a, ImVec2 b, ImVec2 c, ImVec2 d, ImVec2 uv_a, ImVec2 uv_b, ImVec2 uv_c, ImVec2 uv_d, uint col);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PrimRect")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_PrimRect(ImDrawList* self, Vector2 a, Vector2 b, uint col);
+        internal static partial void ImDrawList_PrimRect(ImDrawList* self, ImVec2 a, ImVec2 b, uint col);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PrimRectUV")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_PrimRectUV(ImDrawList* self, Vector2 a, Vector2 b, Vector2 uv_a, Vector2 uv_b, uint col);
+        internal static partial void ImDrawList_PrimRectUV(ImDrawList* self, ImVec2 a, ImVec2 b, ImVec2 uv_a, ImVec2 uv_b, uint col);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PrimReserve")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1898,7 +1910,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PrimVtx")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_PrimVtx(ImDrawList* self, Vector2 pos, Vector2 uv, uint col);
+        internal static partial void ImDrawList_PrimVtx(ImDrawList* self, ImVec2 pos, ImVec2 uv, uint col);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PrimWriteIdx")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1906,19 +1918,19 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PrimWriteVtx")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_PrimWriteVtx(ImDrawList* self, Vector2 pos, Vector2 uv, uint col);
+        internal static partial void ImDrawList_PrimWriteVtx(ImDrawList* self, ImVec2 pos, ImVec2 uv, uint col);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PushClipRect")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_PushClipRect(ImDrawList* self, Vector2 clip_rect_min, Vector2 clip_rect_max, byte intersect_with_current_clip_rect);
+        internal static partial void ImDrawList_PushClipRect(ImDrawList* self, ImVec2 clip_rect_min, ImVec2 clip_rect_max, byte intersect_with_current_clip_rect);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PushClipRectFullScreen")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial void ImDrawList_PushClipRectFullScreen(ImDrawList* self);
 
-        [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PushTextureID")]
+        [LibraryImport("IntricateEngine", EntryPoint = "ImDrawList_PushTexture")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImDrawList_PushTextureID(ImDrawList* self, IntPtr texture_id);
+        internal static partial void ImDrawList_PushTexture(ImDrawList* self, ImTextureRef tex_ref);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImDrawListSplitter_Clear")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1948,25 +1960,17 @@ namespace IntricateEngine.ImGui
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial void ImDrawListSplitter_Split(ImDrawListSplitter* self, ImDrawList* draw_list, int count);
 
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFont_AddGlyph")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImFont_AddGlyph(ImFont* self, ImFontConfig* src_cfg, ushort c, float x0, float y0, float x1, float y1, float u0, float v0, float u1, float v1, float advance_x);
-
         [LibraryImport("IntricateEngine", EntryPoint = "ImFont_AddRemapChar")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImFont_AddRemapChar(ImFont* self, ushort dst, ushort src, byte overwrite_dst);
-
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFont_BuildLookupTable")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImFont_BuildLookupTable(ImFont* self);
+        internal static partial void ImFont_AddRemapChar(ImFont* self, ushort from_codepoint, ushort to_codepoint);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImFont_CalcTextSizeA")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImFont_CalcTextSizeA(Vector2* pOut, ImFont* self, float size, float max_width, float wrap_width, byte* text_begin, byte* text_end, byte** remaining);
+        internal static partial ImVec2 ImFont_CalcTextSizeA(ImFont* self, float size, float max_width, float wrap_width, byte* text_begin, byte* text_end, byte** out_remaining);
 
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFont_CalcWordWrapPositionA")]
+        [LibraryImport("IntricateEngine", EntryPoint = "ImFont_CalcWordWrapPosition")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte* ImFont_CalcWordWrapPositionA(ImFont* self, float scale, byte* text, byte* text_end, float wrap_width);
+        internal static partial byte* ImFont_CalcWordWrapPosition(ImFont* self, float size, byte* text, byte* text_end, float wrap_width);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImFont_ClearOutputData")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -1976,29 +1980,21 @@ namespace IntricateEngine.ImGui
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial void ImFont_destroy(ImFont* self);
 
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFont_FindGlyph")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial ImFontGlyph* ImFont_FindGlyph(ImFont* self, ushort c);
-
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFont_FindGlyphNoFallback")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial ImFontGlyph* ImFont_FindGlyphNoFallback(ImFont* self, ushort c);
-
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFont_GetCharAdvance")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial float ImFont_GetCharAdvance(ImFont* self, ushort c);
-
         [LibraryImport("IntricateEngine", EntryPoint = "ImFont_GetDebugName")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial byte* ImFont_GetDebugName(ImFont* self);
 
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFont_GrowIndex")]
+        [LibraryImport("IntricateEngine", EntryPoint = "ImFont_GetFontBaked")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImFont_GrowIndex(ImFont* self, int new_size);
+        internal static partial ImFontBaked* ImFont_GetFontBaked(ImFont* self, float font_size, float density);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImFont_ImFont")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial ImFont* ImFont_ImFont();
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImFont_IsGlyphInFont")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial byte ImFont_IsGlyphInFont(ImFont* self, ushort c);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImFont_IsGlyphRangeUnused")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -2010,23 +2006,15 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImFont_RenderChar")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImFont_RenderChar(ImFont* self, ImDrawList* draw_list, float size, Vector2 pos, uint col, ushort c);
+        internal static partial void ImFont_RenderChar(ImFont* self, ImDrawList* draw_list, float size, ImVec2 pos, uint col, ushort c, ImVec4* cpu_fine_clip);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImFont_RenderText")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImFont_RenderText(ImFont* self, ImDrawList* draw_list, float size, Vector2 pos, uint col, Vector4 clip_rect, byte* text_begin, byte* text_end, float wrap_width, byte cpu_fine_clip);
+        internal static partial void ImFont_RenderText(ImFont* self, ImDrawList* draw_list, float size, ImVec2 pos, uint col, ImVec4 clip_rect, byte* text_begin, byte* text_end, float wrap_width, ImDrawTextFlags flags);
 
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFont_SetGlyphVisible")]
+        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_AddCustomRect")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImFont_SetGlyphVisible(ImFont* self, ushort c, byte visible);
-
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_AddCustomRectFontGlyph")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial int ImFontAtlas_AddCustomRectFontGlyph(ImFontAtlas* self, ImFont* font, ushort id, int width, int height, float advance_x, Vector2 offset);
-
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_AddCustomRectRegular")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial int ImFontAtlas_AddCustomRectRegular(ImFontAtlas* self, int width, int height);
+        internal static partial int ImFontAtlas_AddCustomRect(ImFontAtlas* self, int width, int height, ImFontAtlasRect* out_r);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_AddFont")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -2052,14 +2040,6 @@ namespace IntricateEngine.ImGui
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial ImFont* ImFontAtlas_AddFontFromMemoryTTF(ImFontAtlas* self, void* font_data, int font_data_size, float size_pixels, ImFontConfig* font_cfg, ushort* glyph_ranges);
 
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_Build")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte ImFontAtlas_Build(ImFontAtlas* self);
-
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_CalcCustomRectUV")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImFontAtlas_CalcCustomRectUV(ImFontAtlas* self, ImFontAtlasCustomRect* rect, Vector2* out_uv_min, Vector2* out_uv_max);
-
         [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_Clear")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial void ImFontAtlas_Clear(ImFontAtlas* self);
@@ -2076,93 +2056,73 @@ namespace IntricateEngine.ImGui
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial void ImFontAtlas_ClearTexData(ImFontAtlas* self);
 
+        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_CompactCache")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial void ImFontAtlas_CompactCache(ImFontAtlas* self);
+
         [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_destroy")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial void ImFontAtlas_destroy(ImFontAtlas* self);
 
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_GetCustomRectByIndex")]
+        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_GetCustomRect")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial ImFontAtlasCustomRect* ImFontAtlas_GetCustomRectByIndex(ImFontAtlas* self, int index);
-
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_GetGlyphRangesChineseFull")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial ushort* ImFontAtlas_GetGlyphRangesChineseFull(ImFontAtlas* self);
-
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_GetGlyphRangesChineseSimplifiedCommon")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial ushort* ImFontAtlas_GetGlyphRangesChineseSimplifiedCommon(ImFontAtlas* self);
-
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_GetGlyphRangesCyrillic")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial ushort* ImFontAtlas_GetGlyphRangesCyrillic(ImFontAtlas* self);
+        internal static partial byte ImFontAtlas_GetCustomRect(ImFontAtlas* self, int id, ImFontAtlasRect* out_r);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_GetGlyphRangesDefault")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial ushort* ImFontAtlas_GetGlyphRangesDefault(ImFontAtlas* self);
 
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_GetGlyphRangesGreek")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial ushort* ImFontAtlas_GetGlyphRangesGreek(ImFontAtlas* self);
-
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_GetGlyphRangesJapanese")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial ushort* ImFontAtlas_GetGlyphRangesJapanese(ImFontAtlas* self);
-
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_GetGlyphRangesKorean")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial ushort* ImFontAtlas_GetGlyphRangesKorean(ImFontAtlas* self);
-
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_GetGlyphRangesThai")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial ushort* ImFontAtlas_GetGlyphRangesThai(ImFontAtlas* self);
-
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_GetGlyphRangesVietnamese")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial ushort* ImFontAtlas_GetGlyphRangesVietnamese(ImFontAtlas* self);
-
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_GetMouseCursorTexData")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte ImFontAtlas_GetMouseCursorTexData(ImFontAtlas* self, ImGuiMouseCursor cursor, Vector2* out_offset, Vector2* out_size, Vector2* out_uv_border, Vector2* out_uv_fill);
-
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_GetTexDataAsAlpha8")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImFontAtlas_GetTexDataAsAlpha8(ImFontAtlas* self, byte** out_pixels, int* out_width, int* out_height, int* out_bytes_per_pixel);
-
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_GetTexDataAsAlpha8")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImFontAtlas_GetTexDataAsAlpha8(ImFontAtlas* self, IntPtr* out_pixels, int* out_width, int* out_height, int* out_bytes_per_pixel);
-
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_GetTexDataAsRGBA32")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImFontAtlas_GetTexDataAsRGBA32(ImFontAtlas* self, byte** out_pixels, int* out_width, int* out_height, int* out_bytes_per_pixel);
-
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_GetTexDataAsRGBA32")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImFontAtlas_GetTexDataAsRGBA32(ImFontAtlas* self, IntPtr* out_pixels, int* out_width, int* out_height, int* out_bytes_per_pixel);
-
         [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_ImFontAtlas")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial ImFontAtlas* ImFontAtlas_ImFontAtlas();
 
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_IsBuilt")]
+        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_RemoveCustomRect")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte ImFontAtlas_IsBuilt(ImFontAtlas* self);
+        internal static partial void ImFontAtlas_RemoveCustomRect(ImFontAtlas* self, int id);
 
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_SetTexID")]
+        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_RemoveFont")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImFontAtlas_SetTexID(ImFontAtlas* self, IntPtr id);
+        internal static partial void ImFontAtlas_RemoveFont(ImFontAtlas* self, ImFont* font);
 
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlasCustomRect_destroy")]
-        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImFontAtlasCustomRect_destroy(ImFontAtlasCustomRect* self);
+        // [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlas_SetFontLoader")]
+        // [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        // internal static partial void ImFontAtlas_SetFontLoader(ImFontAtlas* self, ImFontLoader* font_loader);
 
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlasCustomRect_ImFontAtlasCustomRect")]
+        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlasRect_destroy")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial ImFontAtlasCustomRect* ImFontAtlasCustomRect_ImFontAtlasCustomRect();
+        internal static partial void ImFontAtlasRect_destroy(ImFontAtlasRect* self);
 
-        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlasCustomRect_IsPacked")]
+        [LibraryImport("IntricateEngine", EntryPoint = "ImFontAtlasRect_ImFontAtlasRect")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial byte ImFontAtlasCustomRect_IsPacked(ImFontAtlasCustomRect* self);
+        internal static partial ImFontAtlasRect* ImFontAtlasRect_ImFontAtlasRect();
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImFontBaked_ClearOutputData")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial void ImFontBaked_ClearOutputData(ImFontBaked* self);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImFontBaked_destroy")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial void ImFontBaked_destroy(ImFontBaked* self);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImFontBaked_FindGlyph")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial ImFontGlyph* ImFontBaked_FindGlyph(ImFontBaked* self, ushort c);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImFontBaked_FindGlyphNoFallback")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial ImFontGlyph* ImFontBaked_FindGlyphNoFallback(ImFontBaked* self, ushort c);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImFontBaked_GetCharAdvance")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial float ImFontBaked_GetCharAdvance(ImFontBaked* self, ushort c);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImFontBaked_ImFontBaked")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial ImFontBaked* ImFontBaked_ImFontBaked();
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImFontBaked_IsGlyphLoaded")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial byte ImFontBaked_IsGlyphLoaded(ImFontBaked* self, ushort c);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImFontConfig_destroy")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -2171,6 +2131,14 @@ namespace IntricateEngine.ImGui
         [LibraryImport("IntricateEngine", EntryPoint = "ImFontConfig_ImFontConfig")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial ImFontConfig* ImFontConfig_ImFontConfig();
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImFontGlyph_destroy")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial void ImFontGlyph_destroy(ImFontGlyph* self);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImFontGlyph_ImFontGlyph")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial ImFontGlyph* ImFontGlyph_ImFontGlyph();
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImFontGlyphRangesBuilder_AddChar")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -2208,9 +2176,13 @@ namespace IntricateEngine.ImGui
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial void ImFontGlyphRangesBuilder_SetBit(ImFontGlyphRangesBuilder* self, uint n);
 
-        [LibraryImport("IntricateEngine", EntryPoint = "ImGuiFreeType_GetBuilderForFreeType")]
+        [LibraryImport("IntricateEngine", EntryPoint = "ImGuiFreeType_DebugEditFontLoaderFlags")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial IntPtr* ImGuiFreeType_GetBuilderForFreeType();
+        internal static partial byte ImGuiFreeType_DebugEditFontLoaderFlags(nint p_font_loader_flags);
+
+        // [LibraryImport("IntricateEngine", EntryPoint = "ImGuiFreeType_GetFontLoader")]
+        // [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        // internal static partial ImFontLoader* ImGuiFreeType_GetFontLoader();
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImGuiInputTextCallbackData_ClearSelection")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -2383,6 +2355,14 @@ namespace IntricateEngine.ImGui
         [LibraryImport("IntricateEngine", EntryPoint = "ImGuiPlatformImeData_ImGuiPlatformImeData")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial ImGuiPlatformImeData* ImGuiPlatformImeData_ImGuiPlatformImeData();
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImGuiPlatformIO_ClearPlatformHandlers")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial void ImGuiPlatformIO_ClearPlatformHandlers(ImGuiPlatformIO* self);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImGuiPlatformIO_ClearRendererHandlers")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial void ImGuiPlatformIO_ClearRendererHandlers(ImGuiPlatformIO* self);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImGuiPlatformIO_destroy")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -2558,7 +2538,7 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImGuiTextBuffer_appendf")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImGuiTextBuffer_appendf(ImGuiTextBuffer* buffer, byte* fmt);
+        internal static partial void ImGuiTextBuffer_appendf(ImGuiTextBuffer* self, byte* fmt);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImGuiTextBuffer_begin")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -2591,6 +2571,10 @@ namespace IntricateEngine.ImGui
         [LibraryImport("IntricateEngine", EntryPoint = "ImGuiTextBuffer_reserve")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial void ImGuiTextBuffer_reserve(ImGuiTextBuffer* self, int capacity);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImGuiTextBuffer_resize")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial void ImGuiTextBuffer_resize(ImGuiTextBuffer* self, int size);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImGuiTextBuffer_size")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -2650,11 +2634,11 @@ namespace IntricateEngine.ImGui
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImGuiViewport_GetCenter")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImGuiViewport_GetCenter(Vector2* pOut, ImGuiViewport* self);
+        internal static partial ImVec2 ImGuiViewport_GetCenter(ImGuiViewport* self);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImGuiViewport_GetWorkCenter")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImGuiViewport_GetWorkCenter(Vector2* pOut, ImGuiViewport* self);
+        internal static partial ImVec2 ImGuiViewport_GetWorkCenter(ImGuiViewport* self);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImGuiViewport_ImGuiViewport")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -2668,29 +2652,93 @@ namespace IntricateEngine.ImGui
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
         internal static partial ImGuiWindowClass* ImGuiWindowClass_ImGuiWindowClass();
 
+        [LibraryImport("IntricateEngine", EntryPoint = "ImTextureData_Create")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial void ImTextureData_Create(ImTextureData* self, ImTextureFormat format, int w, int h);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImTextureData_destroy")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial void ImTextureData_destroy(ImTextureData* self);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImTextureData_DestroyPixels")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial void ImTextureData_DestroyPixels(ImTextureData* self);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImTextureData_GetPitch")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial int ImTextureData_GetPitch(ImTextureData* self);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImTextureData_GetPixels")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial void* ImTextureData_GetPixels(ImTextureData* self);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImTextureData_GetPixelsAt")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial void* ImTextureData_GetPixelsAt(ImTextureData* self, int x, int y);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImTextureData_GetSizeInBytes")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial int ImTextureData_GetSizeInBytes(ImTextureData* self);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImTextureData_GetTexID")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial nint ImTextureData_GetTexID(ImTextureData* self);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImTextureData_GetTexRef")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial ImTextureRef ImTextureData_GetTexRef(ImTextureData* self);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImTextureData_ImTextureData")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial ImTextureData* ImTextureData_ImTextureData();
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImTextureData_SetStatus")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial void ImTextureData_SetStatus(ImTextureData* self, ImTextureStatus status);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImTextureData_SetTexID")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial void ImTextureData_SetTexID(ImTextureData* self, nint tex_id);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImTextureRef_destroy")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial void ImTextureRef_destroy(ImTextureRef* self);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImTextureRef_GetTexID")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial nint ImTextureRef_GetTexID(ImTextureRef* self);
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImTextureRef_ImTextureRef_Nil")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial ImTextureRef* ImTextureRef_ImTextureRef_Nil();
+
+        [LibraryImport("IntricateEngine", EntryPoint = "ImTextureRef_ImTextureRef_TextureID")]
+        [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+        internal static partial ImTextureRef* ImTextureRef_ImTextureRef_TextureID(nint tex_id);
+
         [LibraryImport("IntricateEngine", EntryPoint = "ImVec2_destroy")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImVec2_destroy(Vector2* self);
+        internal static partial void ImVec2_destroy(ImVec2* self);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImVec2_ImVec2_Nil")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial Vector2* ImVec2_ImVec2_Nil();
+        internal static partial ImVec2* ImVec2_ImVec2_Nil();
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImVec2_ImVec2_Float")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial Vector2* ImVec2_ImVec2_Float(float _x, float _y);
+        internal static partial ImVec2* ImVec2_ImVec2_Float(float _x, float _y);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImVec4_destroy")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial void ImVec4_destroy(Vector4* self);
+        internal static partial void ImVec4_destroy(ImVec4* self);
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImVec4_ImVec4_Nil")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial Vector4* ImVec4_ImVec4_Nil();
+        internal static partial ImVec4* ImVec4_ImVec4_Nil();
 
         [LibraryImport("IntricateEngine", EntryPoint = "ImVec4_ImVec4_Float")]
         [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-        internal static partial Vector4* ImVec4_ImVec4_Float(float _x, float _y, float _z, float _w);
+        internal static partial ImVec4* ImVec4_ImVec4_Float(float _x, float _y, float _z, float _w);
 
     }
 }

@@ -13,6 +13,7 @@ namespace IntricateEngine.ImGui
         WrapAround = 256,
         ClampOnInput = 512,
         ClampZeroRange = 1024,
+        NoSpeedTweaks = 2048,
         AlwaysClamp = 1536,
         InvalidMask = 1879048207,
     }

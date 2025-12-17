@@ -23,5 +23,6 @@ namespace IntricateEngine.ImGui
         SelectOnClick = 8192,
         SelectOnClickRelease = 16384,
         NavWrapX = 65536,
+        NoSelectOnRightClick = 131072,
     }
 }

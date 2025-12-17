@@ -86,6 +86,7 @@ namespace CodeGenerator
                 _ => throw new NotImplementedException()
             };
 
+            // TODO: Generate impl_definitions also
             string definitionsPath = Path.Combine(AppContext.BaseDirectory, "definitions", definitionsFolder);
             var defs = new ImguiDefinitions();
             defs.LoadFrom(definitionsPath);
@@ -435,15 +436,15 @@ namespace CodeGenerator
             {
                 foreach (var variant in method.Value.Parameters)
                 {
-                    if (!variant.Used) Console.WriteLine($"Error: Variants targetting parameter {variant.Name} with type {variant.OriginalType} could not be applied to method {method.Key}.");
+                    if (!variant.Used)
+                        Console.WriteLine($"Error: Variants targetting parameter {variant.Name} with type {variant.OriginalType} could not be applied to method {method.Key}.");
                 }
             }
         }
 
         private static bool IsStringFieldName(string name)
         {
-            return Regex.IsMatch(name, ".*Filename.*")
-                || Regex.IsMatch(name, ".*Name");
+            return Regex.IsMatch(name, ".*Filename.*") || Regex.IsMatch(name, ".*Name");
         }
 
         private static string GetImVectorElementType(string typeStr)

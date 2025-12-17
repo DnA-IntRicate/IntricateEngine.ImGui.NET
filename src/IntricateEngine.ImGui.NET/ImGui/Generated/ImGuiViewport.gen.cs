@@ -10,12 +10,14 @@ namespace IntricateEngine.ImGui
     {
         public uint ID;
         public ImGuiViewportFlags Flags;
-        public Vector2 Pos;
-        public Vector2 Size;
-        public Vector2 WorkPos;
-        public Vector2 WorkSize;
+        public ImVec2 Pos;
+        public ImVec2 Size;
+        public ImVec2 FramebufferScale;
+        public ImVec2 WorkPos;
+        public ImVec2 WorkSize;
         public float DpiScale;
         public uint ParentViewportId;
+        public ImGuiViewport* ParentViewport;
         public ImDrawData* DrawData;
         public void* RendererUserData;
         public void* PlatformUserData;
@@ -37,12 +39,14 @@ namespace IntricateEngine.ImGui
         public static implicit operator ImGuiViewportPtr(IntPtr nativePtr) => new ImGuiViewportPtr(nativePtr);
         public ref uint ID => ref Unsafe.AsRef<uint>(&NativePtr->ID);
         public ref ImGuiViewportFlags Flags => ref Unsafe.AsRef<ImGuiViewportFlags>(&NativePtr->Flags);
-        public ref Vector2 Pos => ref Unsafe.AsRef<Vector2>(&NativePtr->Pos);
-        public ref Vector2 Size => ref Unsafe.AsRef<Vector2>(&NativePtr->Size);
-        public ref Vector2 WorkPos => ref Unsafe.AsRef<Vector2>(&NativePtr->WorkPos);
-        public ref Vector2 WorkSize => ref Unsafe.AsRef<Vector2>(&NativePtr->WorkSize);
+        public ref ImVec2 Pos => ref Unsafe.AsRef<ImVec2>(&NativePtr->Pos);
+        public ref ImVec2 Size => ref Unsafe.AsRef<ImVec2>(&NativePtr->Size);
+        public ref ImVec2 FramebufferScale => ref Unsafe.AsRef<ImVec2>(&NativePtr->FramebufferScale);
+        public ref ImVec2 WorkPos => ref Unsafe.AsRef<ImVec2>(&NativePtr->WorkPos);
+        public ref ImVec2 WorkSize => ref Unsafe.AsRef<ImVec2>(&NativePtr->WorkSize);
         public ref float DpiScale => ref Unsafe.AsRef<float>(&NativePtr->DpiScale);
         public ref uint ParentViewportId => ref Unsafe.AsRef<uint>(&NativePtr->ParentViewportId);
+        public ImGuiViewportPtr ParentViewport => new ImGuiViewportPtr(NativePtr->ParentViewport);
         public ImDrawDataPtr DrawData => new ImDrawDataPtr(NativePtr->DrawData);
         public IntPtr RendererUserData { get => (IntPtr)NativePtr->RendererUserData; set => NativePtr->RendererUserData = (void*)value; }
         public IntPtr PlatformUserData { get => (IntPtr)NativePtr->PlatformUserData; set => NativePtr->PlatformUserData = (void*)value; }
@@ -56,17 +60,15 @@ namespace IntricateEngine.ImGui
         {
             ImGuiNative.ImGuiViewport_destroy((ImGuiViewport*)(NativePtr));
         }
-        public Vector2 GetCenter()
+        public ImVec2 GetCenter()
         {
-            Vector2 __retval;
-            ImGuiNative.ImGuiViewport_GetCenter(&__retval, (ImGuiViewport*)(NativePtr));
-            return __retval;
+            ImVec2 ret = ImGuiNative.ImGuiViewport_GetCenter((ImGuiViewport*)(NativePtr));
+            return ret;
         }
-        public Vector2 GetWorkCenter()
+        public ImVec2 GetWorkCenter()
         {
-            Vector2 __retval;
-            ImGuiNative.ImGuiViewport_GetWorkCenter(&__retval, (ImGuiViewport*)(NativePtr));
-            return __retval;
+            ImVec2 ret = ImGuiNative.ImGuiViewport_GetWorkCenter((ImGuiViewport*)(NativePtr));
+            return ret;
         }
     }
 }

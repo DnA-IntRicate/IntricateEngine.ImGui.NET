@@ -8,7 +8,7 @@ namespace IntricateEngine.ImGui
 {
     public unsafe partial struct ImGuiInputTextCallbackData
     {
-        public IntPtr Ctx;
+        public nint Ctx;
         public ImGuiInputTextFlags EventFlag;
         public ImGuiInputTextFlags Flags;
         public void* UserData;
@@ -31,7 +31,7 @@ namespace IntricateEngine.ImGui
         public static implicit operator ImGuiInputTextCallbackDataPtr(ImGuiInputTextCallbackData* nativePtr) => new ImGuiInputTextCallbackDataPtr(nativePtr);
         public static implicit operator ImGuiInputTextCallbackData* (ImGuiInputTextCallbackDataPtr wrappedPtr) => wrappedPtr.NativePtr;
         public static implicit operator ImGuiInputTextCallbackDataPtr(IntPtr nativePtr) => new ImGuiInputTextCallbackDataPtr(nativePtr);
-        public ref IntPtr Ctx => ref Unsafe.AsRef<IntPtr>(&NativePtr->Ctx);
+        public ref nint Ctx => ref Unsafe.AsRef<nint>(&NativePtr->Ctx);
         public ref ImGuiInputTextFlags EventFlag => ref Unsafe.AsRef<ImGuiInputTextFlags>(&NativePtr->EventFlag);
         public ref ImGuiInputTextFlags Flags => ref Unsafe.AsRef<ImGuiInputTextFlags>(&NativePtr->Flags);
         public IntPtr UserData { get => (IntPtr)NativePtr->UserData; set => NativePtr->UserData = (void*)value; }
