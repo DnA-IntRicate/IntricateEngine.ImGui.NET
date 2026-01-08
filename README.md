@@ -1,3 +1,8 @@
+> ⚠️ **Archived Repository**
+>
+> This repository is archived and no longer publicly-maintained.
+> The contents of this repository have been directly merged into IntricateDevTeam's private projects.
+
 # IntricateEngine.ImGui.NET
 
 > Originally forked from [ImGui.NET](https://github.com/ImGuiNET/ImGui.NET) by mellinoe.
